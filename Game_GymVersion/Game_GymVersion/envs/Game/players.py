@@ -18,7 +18,7 @@ class Gameplayer1(pygame.sprite.Sprite):
 
         # Bullet
         self.bullets_P1 = pygame.sprite.Group()
-        self.max_hp = 50
+        self.max_hp = 10
         self.health = self.max_hp
         ##  HUD
         self.hud = HUD(self.health)

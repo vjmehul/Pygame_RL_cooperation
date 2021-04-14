@@ -32,13 +32,14 @@ class custom_game_env(gym.Env):
 
         self.screen = pygame.display.set_mode(C.DISPLAY_SIZE)
         self.screen.fill((0, 0, 0))
-        n_actions = 6
-        self.action_space_1 = spaces.Discrete(n_actions)
-        self.observation_space_1 = spaces.Box(low=0, high=255, shape=(252, 84, 1), dtype=np.uint8)
+        n_actions = 3
+        self.action_space_1 = spaces.MultiDiscrete([ 2, 2, 2 ])
+        
+        self.observation_space = spaces.Box(low=0, high=255, shape=(252, 84, 1), dtype=np.uint8)
 
 
-        self.action_space_2 = spaces.Discrete(n_actions)
-        self.observation_space_2 = spaces.Box(low=0, high=255, shape=(252, 84, 1), dtype=np.uint8)
+        self.action_space_2 = spaces.MultiDiscrete([ 2, 2, 2 ])
+        # self.observation_space_2 = spaces.Box(low=0, high=255, shape=(252, 84, 1), dtype=np.uint8)
 
 
     def reset(self):
@@ -70,8 +71,9 @@ class custom_game_env(gym.Env):
         self.bullet_count_blue = 100
         self.running = True
         self.cool_down = 10000
-        image = self.pre_processing(array3d(display.get_surface()))
-
+        # image = self.pre_processing(array3d(display.get_surface()))
+        image = array3d(display.get_surface())
+        
         return image
 
     def step(self, action):
@@ -161,7 +163,8 @@ class custom_game_env(gym.Env):
 
         image = array3d(display.get_surface())
         info = ('score_1: {}, Score_2: {}'.format(reward_1,reward_2))
-        return self.pre_processing(image), global_reward_1, reward_1, reward_2, penalty, done, info
+        # return self.pre_processing(image), global_reward_1, reward_1, reward_2, penalty, done, info
+        return self.pre_processing(image), global_reward_1, done, info
 
 
     def render(self):

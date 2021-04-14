@@ -1,8 +1,8 @@
 import pygame
-import constant as C
-from bullet import bullet1
-from bullet import bullet2
-from hud import HUD
+import Game.constant as C
+from Game.bullet import bullet1
+from Game.bullet import bullet2
+from Game.hud import HUD
 
 class Gameplayer1(pygame.sprite.Sprite):
 

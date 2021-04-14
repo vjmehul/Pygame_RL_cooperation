@@ -16,14 +16,12 @@ class Enemy(pygame.sprite.Sprite):
         self.rect.x = random.randrange(0, c.DISPLAY_SIZE[0] - self.rect.width)
         self.rect.y = -self.rect.height
         self.vel_x = 0
-        self.hp = 20
+        self.hp = 20   #health value of enemy
         self.vel_y = random.randrange(1,3)
         self.score_value = 5
         self.penalty_value = 100
 
         # Explosion Animation
-
-
         self.img_b_explosion_01 = pygame.image.load(r'C:/Users/Shizu/Desktop/Pygame_RL/Pygame_RL_cooperation/Game_GymVersion/Game_GymVersion/envs/Game_imgs/blue_explosion/blue-explosion-1.png').convert_alpha()
         self.img_b_explosion_01 = pygame.transform.scale(self.img_b_explosion_01, (100, 100))
 
@@ -41,8 +39,6 @@ class Enemy(pygame.sprite.Sprite):
 
         self.img_b_explosion_06 = pygame.image.load('C:/Users/Shizu/Desktop/Pygame_RL/Pygame_RL_cooperation/Game_GymVersion/Game_GymVersion/envs/Game_imgs/blue_explosion//blue-explosion-6.png').convert_alpha()
         self.img_b_explosion_06 = pygame.transform.scale(self.img_b_explosion_06, (100, 100))
-
-
 
         self.anim_explosion1 = [self.img_b_explosion_01,
                                self.img_b_explosion_02,
@@ -75,8 +71,6 @@ class Enemy(pygame.sprite.Sprite):
                     self.frame_length = self.max_frame_length
             else:
                 self.frame_length -= 1
-
-
 
 
     # red explosion
