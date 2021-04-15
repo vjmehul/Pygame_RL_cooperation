@@ -33,6 +33,7 @@ class custom_game_env(gym.Env):
         self.screen = pygame.display.set_mode(C.DISPLAY_SIZE)
         self.screen.fill((0, 0, 0))
 <<<<<<< HEAD
+<<<<<<< HEAD
         n_actions = 3
         self.action_space = spaces.MultiDiscrete([ 2, 2, 2, 2, 2, 2 ])
         
@@ -41,6 +42,15 @@ class custom_game_env(gym.Env):
 
         # self.action_space_2 = spaces.MultiDiscrete([ 2, 2, 2 ])
         # self.observation_space_2 = spaces.Box(low=0, high=255, shape=(252, 84, 1), dtype=np.uint8)
+=======
+        n_actions = 6
+        self.action_space_1 = spaces.Discrete(n_actions)
+        self.observation_space_1 = spaces.Box(low=0, high=255, shape=(252, 84, 1), dtype=np.uint8)
+
+
+        self.action_space_2 = spaces.Discrete(n_actions)
+        self.observation_space_2 = spaces.Box(low=0, high=255, shape=(252, 84, 1), dtype=np.uint8)
+>>>>>>> parent of 31a347a (policy_gradient file update)
 =======
         n_actions = 6
         self.action_space_1 = spaces.Discrete(n_actions)
@@ -82,12 +92,15 @@ class custom_game_env(gym.Env):
         self.running = True
         self.cool_down = 10000
 <<<<<<< HEAD
+<<<<<<< HEAD
         # image = self.pre_processing(array3d(display.get_surface()))
         image = array3d(display.get_surface())
         
         # return image
         return self.pre_processing(image)
 =======
+=======
+>>>>>>> parent of 31a347a (policy_gradient file update)
         image = self.pre_processing(array3d(display.get_surface()))
 
         return image
@@ -182,6 +195,7 @@ class custom_game_env(gym.Env):
         image = array3d(display.get_surface())
         info = ('score_1: {}, Score_2: {}'.format(reward_1,reward_2))
 <<<<<<< HEAD
+<<<<<<< HEAD
         
         # print(image.shape)
         # image = cv2.resize(image, (84, 84))
@@ -191,6 +205,9 @@ class custom_game_env(gym.Env):
         
         # return self.pre_processing(image), global_reward_1, reward_1, reward_2, penalty, done, info
         return image, global_reward_1, done, info
+=======
+        return self.pre_processing(image), global_reward_1, reward_1, reward_2, penalty, done, info
+>>>>>>> parent of 31a347a (policy_gradient file update)
 =======
         return self.pre_processing(image), global_reward_1, reward_1, reward_2, penalty, done, info
 >>>>>>> parent of 31a347a (policy_gradient file update)
