@@ -5,6 +5,112 @@ from background import backG
 from enemy_spawner import EnemySpawner
 from partical_spawner import partical_spawner
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 display = pygame.display.set_mode(C.DISPLAY_SIZE)
 # fps=60
 clock = pygame.time.Clock()
@@ -116,6 +222,11 @@ while running:
         print(diff_b)
         if now_b - last_b > cool_down:
             bullet_count_blue = 100
+
+
+
+
+
 
 
     # updates all the objects
