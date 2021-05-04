@@ -28,21 +28,10 @@ class custom_game_env(gym.Env):
         self.clock = pygame.time.Clock()
         self.history = []
         for i in range(0, 6):
-            self.history.append(np.zeros((84, 84, 3)))
+            self.history.append(np.zeros((84, 84)))
 
         self.screen = pygame.display.set_mode(C.DISPLAY_SIZE)
         self.screen.fill((0, 0, 0))
-<<<<<<< HEAD
-<<<<<<< HEAD
-        n_actions = 3
-        self.action_space = spaces.MultiDiscrete([ 2, 2, 2, 2, 2, 2 ])
-        
-        self.observation_space = spaces.Box(low=0, high=255, shape=(252, 84, 3), dtype=np.uint8)
-
-
-        # self.action_space_2 = spaces.MultiDiscrete([ 2, 2, 2 ])
-        # self.observation_space_2 = spaces.Box(low=0, high=255, shape=(252, 84, 1), dtype=np.uint8)
-=======
         n_actions = 6
         self.action_space_1 = spaces.Discrete(n_actions)
         self.observation_space_1 = spaces.Box(low=0, high=255, shape=(252, 84, 1), dtype=np.uint8)
@@ -50,16 +39,6 @@ class custom_game_env(gym.Env):
 
         self.action_space_2 = spaces.Discrete(n_actions)
         self.observation_space_2 = spaces.Box(low=0, high=255, shape=(252, 84, 1), dtype=np.uint8)
->>>>>>> parent of 31a347a (policy_gradient file update)
-=======
-        n_actions = 6
-        self.action_space_1 = spaces.Discrete(n_actions)
-        self.observation_space_1 = spaces.Box(low=0, high=255, shape=(252, 84, 1), dtype=np.uint8)
-
-
-        self.action_space_2 = spaces.Discrete(n_actions)
-        self.observation_space_2 = spaces.Box(low=0, high=255, shape=(252, 84, 1), dtype=np.uint8)
->>>>>>> parent of 31a347a (policy_gradient file update)
 
 
     def reset(self):
@@ -91,20 +70,9 @@ class custom_game_env(gym.Env):
         self.bullet_count_blue = 100
         self.running = True
         self.cool_down = 10000
-<<<<<<< HEAD
-<<<<<<< HEAD
-        # image = self.pre_processing(array3d(display.get_surface()))
-        image = array3d(display.get_surface())
-        
-        # return image
-        return self.pre_processing(image)
-=======
-=======
->>>>>>> parent of 31a347a (policy_gradient file update)
         image = self.pre_processing(array3d(display.get_surface()))
 
         return image
->>>>>>> parent of 31a347a (policy_gradient file update)
 
     def step(self, action):
         self.screen.fill((0, 0, 0))
@@ -116,7 +84,6 @@ class custom_game_env(gym.Env):
         reward_1 = 0
         reward_2 = 0
         penalty = 0
-        print(action)
         left_1 = action[0]
         right_1= action[1]
         fire_1 = action[2]
@@ -142,7 +109,7 @@ class custom_game_env(gym.Env):
                 self.player2.angle += 2
 
         if fire_1:
-            # print(self.bullet_count_red)
+            print(self.bullet_count_red)
             if self.bullet_count_red >= 0:
                 self.player1.shoot(self.player1.angle,display)
                 self.bullet_count_red -= 1
@@ -150,7 +117,7 @@ class custom_game_env(gym.Env):
                 self.last = pygame.time.get_ticks()
 
         if fire_2:
-            # print(self.bullet_count_blue)
+            print(self.bullet_count_blue)
             if self.bullet_count_blue >= 0:
                 self.player2.shoot(self.player1.angle, display)
                 self.bullet_count_blue -= 1
@@ -194,23 +161,7 @@ class custom_game_env(gym.Env):
 
         image = array3d(display.get_surface())
         info = ('score_1: {}, Score_2: {}'.format(reward_1,reward_2))
-<<<<<<< HEAD
-<<<<<<< HEAD
-        
-        # print(image.shape)
-        # image = cv2.resize(image, (84, 84))
-        # print(image.shape)
-        image = self.pre_processing(image)
-        
-        
-        # return self.pre_processing(image), global_reward_1, reward_1, reward_2, penalty, done, info
-        return image, global_reward_1, done, info
-=======
-        return self.pre_processing(image), global_reward_1, reward_1, reward_2, penalty, done, info
->>>>>>> parent of 31a347a (policy_gradient file update)
-=======
-        return self.pre_processing(image), global_reward_1, reward_1, reward_2, penalty, done, info
->>>>>>> parent of 31a347a (policy_gradient file update)
+        return self.pre_processing(image), global_reward_1, done, info
 
 
     def render(self):
@@ -271,8 +222,7 @@ class custom_game_env(gym.Env):
 
 
     def pre_processing(self, image):
-        image = cv2.cvtColor(cv2.resize(image, (84, 84)), cv2.COLOR_BGR2HSV)
-        # image = cv2.resize(image, (84, 84))
+        image = cv2.cvtColor(cv2.resize(image, (84, 84)), cv2.COLOR_BGR2GRAY)
         _, image = cv2.threshold(image, 1, 255, cv2.THRESH_BINARY)
         #image = image[ :, :, None].astype(np.float32)
         #_, image = cv2.threshold(image, 1, 255, cv2.THRESH_BINARY)
@@ -284,7 +234,6 @@ class custom_game_env(gym.Env):
         #print(image.shape)
         image = np.concatenate((self.history[-5], self.history[-3], image), axis=0)
         #print(image.shape)
-        # image = np.expand_dims(image, axis=-1)
-        # cv2.imshow(image)
+        image = np.expand_dims(image, axis=-1)
+        #print(image.shape)
         return image
-

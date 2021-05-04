@@ -24,8 +24,9 @@ while i <= episodes:
     for i in range(0,6):
         n = random.randint(0,1)
         action.append(n)
-    # print(action)
+    print(action)
     obs, global_reward_1, done, info = env.step(action)
+    # env.render()
     # print(info)
     
 
