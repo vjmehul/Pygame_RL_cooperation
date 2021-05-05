@@ -32,14 +32,13 @@ class custom_game_env(gym.Env):
 
         self.screen = pygame.display.set_mode(C.DISPLAY_SIZE)
         self.screen.fill((0, 0, 0))
-        n_actions = 3
-        self.action_space = spaces.MultiDiscrete([ 2, 2, 2, 2, 2, 2 ])
+        # n_actions = 3
         
-        self.observation_space = spaces.Box(low=0, high=255, shape=(252, 84, 3), dtype=np.uint8)
+        # self.action_space = spaces.MultiDiscrete([ 2, 2, 2, 2, 2, 2 ])
+        # self.observation_space = spaces.Box(low=0, high=255, shape=(252, 84, 3), dtype=np.uint8)
 
-
-        # self.action_space_2 = spaces.MultiDiscrete([ 2, 2, 2 ])
-        # self.observation_space_2 = spaces.Box(low=0, high=255, shape=(252, 84, 1), dtype=np.uint8)
+        self.action_space_2 = spaces.Discrete(8)
+        self.observation_space_2 = spaces.Box(low=0, high=255, shape=(252, 84, 1), dtype=np.uint8)
 
 
     def reset(self):
@@ -73,7 +72,7 @@ class custom_game_env(gym.Env):
         self.cool_down = 10000
         # image = self.pre_processing(array3d(display.get_surface()))
         image = array3d(display.get_surface())
-        
+
         # return image
         return self.pre_processing(image)
 
@@ -88,31 +87,38 @@ class custom_game_env(gym.Env):
         reward_2 = 0
         penalty = 0
         print(action)
-        left_1 = action[0]
-        right_1= action[1]
-        fire_1 = action[2]
+        # left_1 = action[0]
+        # right_1= action[1]
+        # fire_1 = action[2]
 
-        left_2 = action[3]
-        right_2 = action[4]
-        fire_2 = action[5]
-
-        if left_1:
+        # left_2 = action[3]
+        # right_2 = action[4]
+        # fire_2 = action[5]
+       # [0,1,2,3,4,5,6,7]
+       # ['player1_left' : 0 ,'player1_right': 1,'player1_fire' : 2,'player1_noop' : 3,'player2_left' : 4 ,'player2_right' : 5 ,'player2_fire' : 6 ,'player1_noop': 7]
+        
+        # if left_1:
+        if action==0:
             if not self.player1.angle <-65:
                 self.player1.angle -= 2
 
-        if right_1:
+        # if right_1:
+        if action == 1:
             if not self.player1.angle >65:
                 self.player1.angle += 2
 
-        if left_2:
+        # if left_2:
+        if action == 4:
             if not self.player2.angle <-65:
                 self.player2.angle -= 2
 
-        if right_2:
+        # if right_2:
+        if action == 5:
             if not self.player2.angle >65:
                 self.player2.angle += 2
 
-        if fire_1:
+        # if fire_1:
+        if action == 2:
             # print(self.bullet_count_red)
             if self.bullet_count_red >= 0:
                 self.player1.shoot(self.player1.angle,display)
@@ -120,7 +126,8 @@ class custom_game_env(gym.Env):
             if self.bullet_count_red == 0:
                 self.last = pygame.time.get_ticks()
 
-        if fire_2:
+        # if fire_2:
+        if action == 6:
             # print(self.bullet_count_blue)
             if self.bullet_count_blue >= 0:
                 self.player2.shoot(self.player1.angle, display)
@@ -165,13 +172,12 @@ class custom_game_env(gym.Env):
 
         image = array3d(display.get_surface())
         info = ('score_1: {}, Score_2: {}'.format(reward_1,reward_2))
-        
+
         # print(image.shape)
         # image = cv2.resize(image, (84, 84))
         # print(image.shape)
         image = self.pre_processing(image)
-        
-        
+
         # return self.pre_processing(image), global_reward_1, reward_1, reward_2, penalty, done, info
         return image, global_reward_1, done, info
 

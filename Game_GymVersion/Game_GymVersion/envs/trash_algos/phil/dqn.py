@@ -88,7 +88,7 @@ for step in itertools.count():
     transition = (obs, action , rew, done, new_obs)
     replay_buffer.append(transition)
     obs = new_obs
-
+    env.render()
     episode_reward += rew
     if done:
         obs = env.reset()

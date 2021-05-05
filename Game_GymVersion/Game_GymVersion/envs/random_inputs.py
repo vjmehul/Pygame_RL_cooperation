@@ -1,13 +1,11 @@
 from custom_env import custom_game_env
-
-from PIL import Image
 import random
 import csv
 import random
 
 env = custom_game_env()
 obs = env.reset()
-env.render()
+# env.render()
 
 action_len_1=3
 action_len_2=3
@@ -18,13 +16,12 @@ i = 1
 scores = []
 
 while i <= episodes:
-
     action = []
     for i in range(0,6):
         n = random.randint(0,1)
         action.append(n)
     print(action)
-    obs, global_reward_1, done, info = env.step(action)
     env.render()
-    # print('whynot')
+    obs, global_reward_1, done, info = env.step(action)
+
 
