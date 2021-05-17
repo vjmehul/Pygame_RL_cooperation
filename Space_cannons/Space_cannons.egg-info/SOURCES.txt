@@ -1,0 +1,5 @@
+setup.py
+Space_cannons.egg-info/PKG-INFO
+Space_cannons.egg-info/SOURCES.txt
+Space_cannons.egg-info/dependency_links.txt
+Space_cannons.egg-info/top_level.txt
