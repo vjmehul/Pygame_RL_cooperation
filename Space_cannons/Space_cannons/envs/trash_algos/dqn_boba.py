@@ -42,8 +42,8 @@ class Network(nn.Module):
 
         return action
 
-# env = custom_game_env()
-env = gym.make('CartPole-v0')
+env = custom_game_env()
+# env = gym.make('CartPole-v0')
 replay_buffer = deque(maxlen=BUFFER_SIZE)
 reward_buffer = deque([0,0], maxlen= 100)
 

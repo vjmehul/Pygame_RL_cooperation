@@ -73,7 +73,8 @@ class custom_game_env(gym.Env):
         self.bullet_count_blue = 100
         self.running = True
         self.cool_down = 10000
-        image = self.pre_processing(array3d(display.get_surface()))
+        image = array3d(display.get_surface())
+        # image = self.pre_processing(array3d(display.get_surface()))
 
         return image
 
@@ -88,7 +89,7 @@ class custom_game_env(gym.Env):
         reward_1 = 0
         reward_2 = 0
         penalty = 0
-        
+
         # print(action)
         # left_1 = action[0]
         # right_1= action[1]
@@ -178,7 +179,8 @@ class custom_game_env(gym.Env):
 
         global_reward_1 = self.player1.hud.score.show_score()
         self.render()
-        image = self.pre_processing(array3d(display.get_surface()))
+        image = array3d(display.get_surface())
+        # image = self.pre_processing(image)
         info = {'score_1': reward_1, 'Score_2:': reward_2}
         # print(penalty)
         # cv2.imshow('', image)
