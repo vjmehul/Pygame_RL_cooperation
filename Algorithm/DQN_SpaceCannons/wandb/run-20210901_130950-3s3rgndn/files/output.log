@@ -1,0 +1,56 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+28468it [01:07, 272.57it/s]Traceback (most recent call last):
+  File "c:\Programming\rl_cooperation\DQN_breakout_gpu\agent.PY", line 242, in <module>
+    main(False)
+  File "c:\Programming\rl_cooperation\DQN_breakout_gpu\agent.PY", line 222, in main
+    rew, frames = run_test_episode(m, env_test) # if yes use the test environment
+  File "c:\Programming\rl_cooperation\DQN_breakout_gpu\agent.PY", line 79, in run_test_episode
+    action = model(torch.Tensor(obs).unsqueeze(0)).max(-1)[-1].item()
+  File "C:\Programming\rl_cooperation\lib\site-packages\torch\nn\modules\module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "c:\Programming\rl_cooperation\DQN_breakout_gpu\models.py", line 36, in forward
+    convLat = self.ConvNet(x/255.0)
+  File "C:\Programming\rl_cooperation\lib\site-packages\torch\nn\modules\module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "C:\Programming\rl_cooperation\lib\site-packages\torch\nn\modules\container.py", line 119, in forward
+    input = module(input)
+  File "C:\Programming\rl_cooperation\lib\site-packages\torch\nn\modules\module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "C:\Programming\rl_cooperation\lib\site-packages\torch\nn\modules\conv.py", line 399, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "C:\Programming\rl_cooperation\lib\site-packages\torch\nn\modules\conv.py", line 395, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the same

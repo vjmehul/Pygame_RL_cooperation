@@ -1,0 +1,33 @@
+2021-09-01 11:02:37,248 INFO    MainThread:25088 [internal.py:wandb_internal():86] W&B internal server running at pid: 25088, started at: 2021-09-01 11:02:37.239842
+2021-09-01 11:02:37,256 INFO    WriterThread:25088 [datastore.py:open_for_write():77] open: C:\Programming\rl_cooperation\DQN_breakout\wandb\run-20210901_110235-2ntiprq5\run-2ntiprq5.wandb
+2021-09-01 11:02:37,256 DEBUG   HandlerThread:25088 [handler.py:handle_request():126] handle_request: check_version
+2021-09-01 11:02:37,294 DEBUG   SenderThread:25088 [sender.py:send():182] send: header
+2021-09-01 11:02:37,294 DEBUG   SenderThread:25088 [sender.py:send_request():196] send_request: check_version
+2021-09-01 11:02:37,371 DEBUG   SenderThread:25088 [sender.py:send():182] send: run
+2021-09-01 11:02:37,400 DEBUG   SenderThread:25088 [git.py:repo():33] git repository is invalid
+2021-09-01 11:02:37,627 DEBUG   HandlerThread:25088 [handler.py:handle_request():126] handle_request: run_start
+2021-09-01 11:02:37,628 INFO    SenderThread:25088 [dir_watcher.py:__init__():169] watching files in: C:\Programming\rl_cooperation\DQN_breakout\wandb\run-20210901_110235-2ntiprq5\files
+2021-09-01 11:02:37,628 INFO    SenderThread:25088 [sender.py:_start_run_threads():740] run started: 2ntiprq5 with start time 1630486955
+2021-09-01 11:02:37,628 DEBUG   SenderThread:25088 [sender.py:send():182] send: summary
+2021-09-01 11:02:37,629 INFO    SenderThread:25088 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-01 11:02:37,647 DEBUG   HandlerThread:25088 [meta.py:__init__():40] meta init
+2021-09-01 11:02:37,647 DEBUG   HandlerThread:25088 [meta.py:__init__():54] meta init done
+2021-09-01 11:02:37,647 DEBUG   HandlerThread:25088 [meta.py:probe():211] probe
+2021-09-01 11:02:37,661 DEBUG   HandlerThread:25088 [git.py:repo():33] git repository is invalid
+2021-09-01 11:02:37,661 DEBUG   HandlerThread:25088 [meta.py:_save_pip():58] save pip
+2021-09-01 11:02:37,663 DEBUG   HandlerThread:25088 [meta.py:_save_pip():72] save pip done
+2021-09-01 11:02:37,663 DEBUG   HandlerThread:25088 [meta.py:probe():249] probe done
+2021-09-01 11:02:37,851 DEBUG   SenderThread:25088 [sender.py:send():182] send: files
+2021-09-01 11:02:37,851 INFO    SenderThread:25088 [sender.py:_save_file():873] saving file wandb-metadata.json with policy now
+2021-09-01 11:02:37,873 DEBUG   HandlerThread:25088 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-01 11:02:37,874 DEBUG   SenderThread:25088 [sender.py:send_request():196] send_request: stop_status
+2021-09-01 11:02:38,463 INFO    Thread-21 :25088 [upload_job.py:push():137] Uploaded file C:\Users\Shizu\AppData\Local\Temp\tmp9oe7w6tuwandb\67oh6xeh-wandb-metadata.json
+2021-09-01 11:02:38,637 INFO    Thread-18 :25088 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\DQN_breakout\wandb\run-20210901_110235-2ntiprq5\files\output.log
+2021-09-01 11:02:38,638 INFO    Thread-18 :25088 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\DQN_breakout\wandb\run-20210901_110235-2ntiprq5\files\requirements.txt
+2021-09-01 11:02:38,638 INFO    Thread-18 :25088 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\DQN_breakout\wandb\run-20210901_110235-2ntiprq5\files\wandb-metadata.json
+2021-09-01 11:02:38,639 INFO    Thread-18 :25088 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\DQN_breakout\wandb\run-20210901_110235-2ntiprq5\files\wandb-summary.json
+2021-09-01 11:02:45,693 INFO    Thread-18 :25088 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\DQN_breakout\wandb\run-20210901_110235-2ntiprq5\files\output.log
+2021-09-01 11:02:57,581 DEBUG   HandlerThread:25088 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-01 11:02:57,581 DEBUG   SenderThread:25088 [sender.py:send_request():196] send_request: stop_status
+2021-09-01 11:03:08,944 DEBUG   SenderThread:25088 [sender.py:send():182] send: stats
+2021-09-01 11:03:42,294 DEBUG   SenderThread:25088 [sender.py:send():182] send: stats

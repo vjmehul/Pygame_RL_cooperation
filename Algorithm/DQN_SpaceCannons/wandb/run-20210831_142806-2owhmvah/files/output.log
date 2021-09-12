@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 151, in <module>
+    main(False, "model/1395821.pth")
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 97, in main
+    m = ConvModel(env.observation_space.shape, env.action_space.n)
+  File "c:\Programming\rl_cooperation\DQN_breakout\utils.py", line 45, in observation_space
+    return np.zeros(self.num_stack, self.height, self.width)
+TypeError: Cannot interpret '84' as a data type

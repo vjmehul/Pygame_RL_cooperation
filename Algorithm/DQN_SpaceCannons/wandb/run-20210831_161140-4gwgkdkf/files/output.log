@@ -1,0 +1,57 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+19964it [00:38, 523.09it/s]c:\Programming\rl_cooperation\lib\site-packages\torch\nn\modules\loss.py:907: UserWarning: Using a target size (torch.Size([128, 128])) that is different to the input size (torch.Size([128])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.
+  return F.smooth_l1_loss(input, target, reduction=self.reduction, beta=self.beta)
+
+
+
+
+
+
+
+
+
+
+22518it [00:58, 123.58it/s]
+
+22551it [01:14, 127.26it/s]Traceback (most recent call last):
+  File "C:\Program Files\Python39\lib\runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Program Files\Python39\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "c:\Users\Shizu\.vscode\extensions\ms-python.python-2021.8.1159798656\pythonFiles\lib\python\debugpy\__main__.py", line 45, in <module>
+    cli.main()
+  File "c:\Users\Shizu\.vscode\extensions\ms-python.python-2021.8.1159798656\pythonFiles\lib\python\debugpy/..\debugpy\server\cli.py", line 444, in main
+    run()
+  File "c:\Users\Shizu\.vscode\extensions\ms-python.python-2021.8.1159798656\pythonFiles\lib\python\debugpy/..\debugpy\server\cli.py", line 285, in run_file
+    runpy.run_path(target_as_str, run_name=compat.force_str("__main__"))
+  File "C:\Program Files\Python39\lib\runpy.py", line 268, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "C:\Program Files\Python39\lib\runpy.py", line 97, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "C:\Program Files\Python39\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 173, in <module>
+    main(False)
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 165, in main
+    rew, frames = run_test_episode(m, env_test)
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 81, in run_test_episode
+    action = model(torch.Tensor(obs).unsqueeze(0)).max(-1)[-1].item()
+TypeError: new(): data must be a sequence (got method)

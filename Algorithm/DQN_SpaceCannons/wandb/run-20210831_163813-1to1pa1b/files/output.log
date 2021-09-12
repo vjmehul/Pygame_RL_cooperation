@@ -1,0 +1,210 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+19956it [00:37, 558.19it/s]C:\Programming\rl_cooperation\lib\site-packages\torch\nn\modules\loss.py:907: UserWarning: Using a target size (torch.Size([128, 128])) that is different to the input size (torch.Size([128])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.
+  return F.smooth_l1_loss(input, target, reduction=self.reduction, beta=self.beta)
+
+
+
+
+
+
+
+
+
+
+22365it [00:57, 128.27it/s]
+
+
+
+
+
+
+
+
+
+
+
+25119it [01:20, 118.06it/s]
+
+
+
+
+
+
+
+
+
+27482it [01:38, 119.36it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+30151it [03:06, 84.72it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+32701it [03:34, 85.63it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+35234it [04:02, 87.53it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+37784it [05:24, 129.69it/s]
+
+
+
+
+
+
+
+
+
+
+
+40453it [05:46, 128.19it/s]
+
+
+
+
+
+
+
+
+
+
+42850it [06:06, 130.36it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+45689it [07:28, 19.96it/s]
+
+
+
+
+
+
+
+
+
+
+48256it [07:48, 117.94it/s]
+
+
+
+
+
+
+
+
+
+
+
+50772it [08:10, 107.62it/s]
+
+
+
+
+
+
+
+
+
+
+
+53254it [08:32, 116.38it/s]
+
+
+
+54036it [08:38, 130.70it/s]Traceback (most recent call last):
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 169, in main
+    rew, frames = run_test_episode(m, env_test)
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 82, in run_test_episode
+    obs, r, done, info = env.step(action)
+  File "c:\Programming\rl_cooperation\DQN_breakout\utils.py", line 27, in step
+    image, reward, done,  info = self.env.step(action)
+  File "C:\Programming\rl_cooperation\lib\site-packages\gym\wrappers\time_limit.py", line 16, in step
+    observation, reward, done, info = self.env.step(action)
+  File "C:\Programming\rl_cooperation\lib\site-packages\gym\envs\atari\atari_env.py", line 120, in step
+    reward += self.ale.act(action)
+  File "C:\Programming\rl_cooperation\lib\site-packages\atari_py\ale_python_interface.py", line 152, in act
+    return ale_lib.act(self.obj, int(action))
+KeyboardInterrupt
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 182, in <module>
+    main(False)
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 179, in main
+    env.close()
+AttributeError: 'FramestackingENV' object has no attribute 'close'

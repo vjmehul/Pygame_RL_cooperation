@@ -1,0 +1,10 @@
+2021-09-10 14:04:15,601 INFO    MainThread:26344 [internal.py:wandb_internal():86] W&B internal server running at pid: 26344, started at: 2021-09-10 14:04:15.590744
+2021-09-10 14:04:15,608 DEBUG   HandlerThread:26344 [handler.py:handle_request():126] handle_request: run_start
+2021-09-10 14:04:15,609 INFO    WriterThread:26344 [datastore.py:open_for_write():77] open: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\offline-run-20210910_140413-2bid8v05\run-2bid8v05.wandb
+2021-09-10 14:04:15,628 DEBUG   HandlerThread:26344 [meta.py:__init__():40] meta init
+2021-09-10 14:04:15,628 DEBUG   HandlerThread:26344 [meta.py:__init__():54] meta init done
+2021-09-10 14:04:15,629 DEBUG   HandlerThread:26344 [meta.py:probe():211] probe
+2021-09-10 14:04:15,697 DEBUG   HandlerThread:26344 [git.py:repo():33] git repository is invalid
+2021-09-10 14:04:15,697 DEBUG   HandlerThread:26344 [meta.py:_save_pip():58] save pip
+2021-09-10 14:04:15,698 DEBUG   HandlerThread:26344 [meta.py:_save_pip():72] save pip done
+2021-09-10 14:04:15,699 DEBUG   HandlerThread:26344 [meta.py:probe():249] probe done

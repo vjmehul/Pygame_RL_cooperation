@@ -1,0 +1,64 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+22535it [00:56, 123.34it/s]
+
+
+
+
+
+
+
+
+
+
+
+24960it [01:18, 118.99it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+27788it [01:42, 131.59it/s]
+
+
+
+
+28501it [02:00, 129.21it/s]Traceback (most recent call last):
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 182, in <module>
+    main(False)
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 170, in main
+    wandb.log({'test_reward': rew, 'test_video': wandb.Video(frames.transpose(0, 3, 1, 2), str(rew), fps = 25)}, format = 'mp4')
+TypeError: log() got an unexpected keyword argument 'format'

@@ -1,0 +1,10 @@
+pygame 2.0.1 (SDL 2.0.14, Python 3.9.5)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+initial setup complete
+initial setup complete
+Traceback (most recent call last):
+  File "c:\Programming\rl_cooperation\DQN_SpaceCannons\agent.PY", line 311, in <module>
+    main(False)
+  File "c:\Programming\rl_cooperation\DQN_SpaceCannons\agent.PY", line 143, in main
+    m1 = ConvModel(env.observation_space.shape, env.action_space.n, lr = c.lr).to(device)
+AttributeError: 'list' object has no attribute 'n'

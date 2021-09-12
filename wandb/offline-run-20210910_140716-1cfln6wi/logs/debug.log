@@ -1,0 +1,25 @@
+2021-09-10 14:07:16,221 INFO    MainThread:31200 [wandb_setup.py:_flush():69] setting env: {}
+2021-09-10 14:07:16,222 INFO    MainThread:31200 [wandb_init.py:_log_setup():342] Logging user logs to C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\offline-run-20210910_140716-1cfln6wi\logs\debug.log
+2021-09-10 14:07:16,222 INFO    MainThread:31200 [wandb_init.py:_log_setup():343] Logging internal logs to C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\offline-run-20210910_140716-1cfln6wi\logs\debug-internal.log
+2021-09-10 14:07:16,223 INFO    MainThread:31200 [wandb_init.py:init():375] calling init triggers
+2021-09-10 14:07:16,224 INFO    MainThread:31200 [wandb_init.py:init():380] wandb.init called with sweep_config: {}
+config: {}
+2021-09-10 14:07:16,225 INFO    MainThread:31200 [wandb_init.py:init():424] starting backend
+2021-09-10 14:07:16,225 INFO    MainThread:31200 [backend.py:_multiprocessing_setup():70] multiprocessing start_methods=spawn, using: spawn
+2021-09-10 14:07:16,248 INFO    MainThread:31200 [backend.py:ensure_launched():135] starting backend process...
+2021-09-10 14:07:16,781 INFO    MainThread:31200 [backend.py:ensure_launched():139] started backend process with pid: 42780
+2021-09-10 14:07:16,783 INFO    MainThread:31200 [wandb_init.py:init():429] backend started and connected
+2021-09-10 14:07:16,789 INFO    MainThread:31200 [wandb_init.py:init():477] updated telemetry
+2021-09-10 14:07:16,793 INFO    MainThread:31200 [wandb_init.py:init():540] starting run threads in backend
+2021-09-10 14:07:18,069 INFO    MainThread:31200 [wandb_run.py:_console_start():1601] atexit reg
+2021-09-10 14:07:18,071 INFO    MainThread:31200 [wandb_run.py:_redirect():1475] redirect: SettingsConsole.WRAP
+2021-09-10 14:07:18,072 INFO    MainThread:31200 [wandb_run.py:_redirect():1512] Wrapping output streams.
+2021-09-10 14:07:18,076 INFO    MainThread:31200 [wandb_run.py:_redirect():1536] Redirects installed.
+2021-09-10 14:07:18,076 INFO    MainThread:31200 [wandb_init.py:init():565] run started, returning control to user process
+2021-09-10 14:07:25,942 INFO    MainThread:31200 [wandb_run.py:_atexit_cleanup():1571] got exitcode: 1
+2021-09-10 14:07:25,943 INFO    MainThread:31200 [wandb_run.py:_restore():1543] restore
+2021-09-10 14:07:26,514 INFO    MainThread:31200 [wandb_run.py:_wait_for_finish():1693] got exit ret: 
+2021-09-10 14:07:26,619 INFO    MainThread:31200 [wandb_run.py:_wait_for_finish():1693] got exit ret: done: true
+exit_result {
+}
+

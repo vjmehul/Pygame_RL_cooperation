@@ -1,0 +1,50 @@
+
+
+
+
+
+
+
+
+
+
+
+
+10001it [00:38, 562.99it/s]Traceback (most recent call last):
+  File "C:\Program Files\Python39\lib\runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "C:\Program Files\Python39\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "c:\Users\Shizu\.vscode\extensions\ms-python.python-2021.8.1159798656\pythonFiles\lib\python\debugpy\__main__.py", line 45, in <module>
+    cli.main()
+  File "c:\Users\Shizu\.vscode\extensions\ms-python.python-2021.8.1159798656\pythonFiles\lib\python\debugpy/..\debugpy\server\cli.py", line 444, in main
+    run()
+  File "c:\Users\Shizu\.vscode\extensions\ms-python.python-2021.8.1159798656\pythonFiles\lib\python\debugpy/..\debugpy\server\cli.py", line 285, in run_file
+    runpy.run_path(target_as_str, run_name=compat.force_str("__main__"))
+  File "C:\Program Files\Python39\lib\runpy.py", line 268, in run_path
+    return _run_module_code(code, init_globals, run_name,
+  File "C:\Program Files\Python39\lib\runpy.py", line 97, in _run_module_code
+    _run_code(code, mod_globals, init_globals,
+  File "C:\Program Files\Python39\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 151, in <module>
+    main(False)
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 140, in main
+    loss=train_step(model=m,state_transition = rb.sample(sample_size), tgt = tgt, num_actions = env.action_space.n)
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 54, in train_step
+    qvals_next = tgt(next_states).max(-1)[0]
+  File "c:\Programming\rl_cooperation\lib\site-packages\torch\nn\modules\module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "c:\Programming\rl_cooperation\DQN_breakout\models.py", line 52, in forward
+    convLat = self.ConvNet(x/255.0)
+  File "c:\Programming\rl_cooperation\lib\site-packages\torch\nn\modules\module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "c:\Programming\rl_cooperation\lib\site-packages\torch\nn\modules\container.py", line 119, in forward
+    input = module(input)
+  File "c:\Programming\rl_cooperation\lib\site-packages\torch\nn\modules\module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "c:\Programming\rl_cooperation\lib\site-packages\torch\nn\modules\conv.py", line 399, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "c:\Programming\rl_cooperation\lib\site-packages\torch\nn\modules\conv.py", line 395, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+RuntimeError: Given groups=1, weight of size [16, 4, 8, 8], expected input[2500, 84, 84, 4] to have 4 channels, but got 84 channels instead

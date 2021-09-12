@@ -1,0 +1,71 @@
+
+
+1963it [00:03, 566.22it/s]C:\Programming\rl_cooperation\lib\site-packages\torch\nn\modules\loss.py:907: UserWarning: Using a target size (torch.Size([200, 200])) that is different to the input size (torch.Size([200])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.
+  return F.smooth_l1_loss(input, target, reduction=self.reduction, beta=self.beta)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+17629it [01:01, 320.67it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+32100it [01:55, 140.59it/s]
+
+
+
+
+34083it [02:04, 269.31it/s]Traceback (most recent call last):
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 151, in <module>
+    main(False)
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 138, in main
+    if (not test) and len(rb.buffer)>min_rb_size and steps_since_train > env_steps_before_train:
+KeyboardInterrupt

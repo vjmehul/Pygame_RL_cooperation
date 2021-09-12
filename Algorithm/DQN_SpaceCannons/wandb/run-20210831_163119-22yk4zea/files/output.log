@@ -1,0 +1,149 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+19972it [00:38, 476.71it/s]C:\Programming\rl_cooperation\lib\site-packages\torch\nn\modules\loss.py:907: UserWarning: Using a target size (torch.Size([128, 128])) that is different to the input size (torch.Size([128])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.
+  return F.smooth_l1_loss(input, target, reduction=self.reduction, beta=self.beta)
+
+
+
+
+
+
+
+
+
+
+22399it [01:00, 87.20it/s]
+
+
+
+
+
+
+
+
+
+
+
+24966it [01:24, 139.05it/s]
+
+
+
+
+
+
+
+
+
+
+27513it [02:16, 156.85it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+30032it [03:24, 101.11it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+32807it [03:48, 96.19it/s]
+
+
+
+
+
+
+
+
+
+
+
+35319it [04:11, 101.56it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+37852it [05:14, 123.74it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+40453it [06:13, 138.47it/s]
+
+
+40520it [06:30, 143.10it/s]Traceback (most recent call last):
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 165, in main
+    wandb.log({'loss':loss.detach().item(), 'eps': eps, 'avg_reward': np.mean(episode_reward)}, step=step_num)
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 81, in run_test_episode
+    action = model(torch.Tensor(obs).unsqueeze(0)).max(-1)[-1].item()
+  File "C:\Programming\rl_cooperation\lib\site-packages\torch\nn\modules\module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "c:\Programming\rl_cooperation\DQN_breakout\models.py", line 52, in forward
+    convLat = self.ConvNet(x/255.0)
+  File "C:\Programming\rl_cooperation\lib\site-packages\torch\nn\modules\module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "C:\Programming\rl_cooperation\lib\site-packages\torch\nn\modules\container.py", line 119, in forward
+    input = module(input)
+  File "C:\Programming\rl_cooperation\lib\site-packages\torch\nn\modules\module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "C:\Programming\rl_cooperation\lib\site-packages\torch\nn\modules\conv.py", line 399, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "C:\Programming\rl_cooperation\lib\site-packages\torch\nn\modules\conv.py", line 395, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+KeyboardInterrupt
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 173, in <module>
+    if epochs_since_tgt>tgt_model_update:
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 170, in main
+    wandb.log({'test_reward': rew, 'test_video': wandb.Video(frames.transpose(0, 3, 2, 1), str(rew), fps = 25)})
+AttributeError: 'FramestackingENV' object has no attribute 'close'

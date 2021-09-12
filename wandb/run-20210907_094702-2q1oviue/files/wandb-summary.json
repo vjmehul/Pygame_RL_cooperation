@@ -1,0 +1,1 @@
+{"loss1": 0.10775449872016907, "loss2": 0.05566000938415527, "eps": 0.9906093465931936, "Agent1_avg_reward": NaN, "Agent2_avg_reward": NaN, "Avg_reward": NaN, "_runtime": 127, "_timestamp": 1631000949, "_step": 1888, "_wandb": {"runtime": 125}}

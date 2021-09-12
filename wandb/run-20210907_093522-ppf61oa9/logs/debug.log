@@ -1,0 +1,22 @@
+2021-09-07 09:35:22,419 INFO    MainThread:30928 [wandb_setup.py:_flush():69] setting env: {}
+2021-09-07 09:35:22,422 INFO    MainThread:30928 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-09-07 09:35:22,423 INFO    MainThread:30928 [wandb_init.py:_log_setup():342] Logging user logs to C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210907_093522-ppf61oa9\logs\debug.log
+2021-09-07 09:35:22,424 INFO    MainThread:30928 [wandb_init.py:_log_setup():343] Logging internal logs to C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210907_093522-ppf61oa9\logs\debug-internal.log
+2021-09-07 09:35:22,425 INFO    MainThread:30928 [wandb_init.py:init():375] calling init triggers
+2021-09-07 09:35:22,426 INFO    MainThread:30928 [wandb_init.py:init():380] wandb.init called with sweep_config: {}
+config: {}
+2021-09-07 09:35:22,430 INFO    MainThread:30928 [wandb_init.py:init():424] starting backend
+2021-09-07 09:35:22,430 INFO    MainThread:30928 [backend.py:_multiprocessing_setup():70] multiprocessing start_methods=spawn, using: spawn
+2021-09-07 09:35:22,449 INFO    MainThread:30928 [backend.py:ensure_launched():135] starting backend process...
+2021-09-07 09:35:23,339 INFO    MainThread:30928 [backend.py:ensure_launched():139] started backend process with pid: 20184
+2021-09-07 09:35:23,342 INFO    MainThread:30928 [wandb_init.py:init():429] backend started and connected
+2021-09-07 09:35:23,348 INFO    MainThread:30928 [wandb_init.py:init():477] updated telemetry
+2021-09-07 09:35:23,352 INFO    MainThread:30928 [wandb_init.py:init():500] communicating current version
+2021-09-07 09:35:25,538 INFO    MainThread:30928 [wandb_init.py:init():505] got version response 
+2021-09-07 09:35:25,538 INFO    MainThread:30928 [wandb_init.py:init():513] communicating run to backend with 30 second timeout
+2021-09-07 09:35:25,866 INFO    MainThread:30928 [wandb_init.py:init():540] starting run threads in backend
+2021-09-07 09:35:26,008 INFO    MainThread:30928 [wandb_run.py:_console_start():1601] atexit reg
+2021-09-07 09:35:26,013 INFO    MainThread:30928 [wandb_run.py:_redirect():1475] redirect: SettingsConsole.WRAP
+2021-09-07 09:35:26,014 INFO    MainThread:30928 [wandb_run.py:_redirect():1512] Wrapping output streams.
+2021-09-07 09:35:26,028 INFO    MainThread:30928 [wandb_run.py:_redirect():1536] Redirects installed.
+2021-09-07 09:35:26,029 INFO    MainThread:30928 [wandb_init.py:init():565] run started, returning control to user process

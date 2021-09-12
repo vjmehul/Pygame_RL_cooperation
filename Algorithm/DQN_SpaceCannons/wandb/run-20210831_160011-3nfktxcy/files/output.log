@@ -1,0 +1,37 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+19946it [00:35, 571.52it/s]C:\Programming\rl_cooperation\lib\site-packages\torch\nn\modules\loss.py:907: UserWarning: Using a target size (torch.Size([128, 128])) that is different to the input size (torch.Size([128])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.
+  return F.smooth_l1_loss(input, target, reduction=self.reduction, beta=self.beta)
+
+
+
+
+
+
+
+
+
+22450it [00:56, 135.70it/s]
+22535it [00:56, 131.12it/s]Traceback (most recent call last):
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 173, in <module>
+    main(False)
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 165, in main
+    rew, frames = run_test_episode(m, env_test)
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 81, in run_test_episode
+    action = model(torch.Tensor(obs).unsqueeze(0)).max(-1)[-1].item()
+TypeError: new(): data must be a sequence (got method)

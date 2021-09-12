@@ -1,0 +1,33 @@
+2021-09-01 11:01:44,152 INFO    MainThread:21564 [internal.py:wandb_internal():86] W&B internal server running at pid: 21564, started at: 2021-09-01 11:01:44.143589
+2021-09-01 11:01:44,159 INFO    WriterThread:21564 [datastore.py:open_for_write():77] open: C:\Programming\rl_cooperation\DQN_breakout\wandb\run-20210901_110141-1i5t57ml\run-1i5t57ml.wandb
+2021-09-01 11:01:44,159 DEBUG   HandlerThread:21564 [handler.py:handle_request():126] handle_request: check_version
+2021-09-01 11:01:44,203 DEBUG   SenderThread:21564 [sender.py:send():182] send: header
+2021-09-01 11:01:44,204 DEBUG   SenderThread:21564 [sender.py:send_request():196] send_request: check_version
+2021-09-01 11:01:44,368 DEBUG   SenderThread:21564 [sender.py:send():182] send: run
+2021-09-01 11:01:44,397 DEBUG   SenderThread:21564 [git.py:repo():33] git repository is invalid
+2021-09-01 11:01:44,589 INFO    SenderThread:21564 [dir_watcher.py:__init__():169] watching files in: C:\Programming\rl_cooperation\DQN_breakout\wandb\run-20210901_110141-1i5t57ml\files
+2021-09-01 11:01:44,589 INFO    SenderThread:21564 [sender.py:_start_run_threads():740] run started: 1i5t57ml with start time 1630486902
+2021-09-01 11:01:44,589 DEBUG   SenderThread:21564 [sender.py:send():182] send: summary
+2021-09-01 11:01:44,590 DEBUG   HandlerThread:21564 [handler.py:handle_request():126] handle_request: run_start
+2021-09-01 11:01:44,591 INFO    SenderThread:21564 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-01 11:01:44,611 DEBUG   HandlerThread:21564 [meta.py:__init__():40] meta init
+2021-09-01 11:01:44,612 DEBUG   HandlerThread:21564 [meta.py:__init__():54] meta init done
+2021-09-01 11:01:44,612 DEBUG   HandlerThread:21564 [meta.py:probe():211] probe
+2021-09-01 11:01:44,627 DEBUG   HandlerThread:21564 [git.py:repo():33] git repository is invalid
+2021-09-01 11:01:44,627 DEBUG   HandlerThread:21564 [meta.py:_save_pip():58] save pip
+2021-09-01 11:01:44,628 DEBUG   HandlerThread:21564 [meta.py:_save_pip():72] save pip done
+2021-09-01 11:01:44,629 DEBUG   HandlerThread:21564 [meta.py:probe():249] probe done
+2021-09-01 11:01:44,855 DEBUG   SenderThread:21564 [sender.py:send():182] send: files
+2021-09-01 11:01:44,855 INFO    SenderThread:21564 [sender.py:_save_file():873] saving file wandb-metadata.json with policy now
+2021-09-01 11:01:44,876 DEBUG   HandlerThread:21564 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-01 11:01:44,876 DEBUG   SenderThread:21564 [sender.py:send_request():196] send_request: stop_status
+2021-09-01 11:01:45,508 INFO    Thread-21 :21564 [upload_job.py:push():137] Uploaded file C:\Users\Shizu\AppData\Local\Temp\tmps4fsp75xwandb\1oakc5n0-wandb-metadata.json
+2021-09-01 11:01:45,608 INFO    Thread-18 :21564 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\DQN_breakout\wandb\run-20210901_110141-1i5t57ml\files\output.log
+2021-09-01 11:01:45,609 INFO    Thread-18 :21564 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\DQN_breakout\wandb\run-20210901_110141-1i5t57ml\files\requirements.txt
+2021-09-01 11:01:45,609 INFO    Thread-18 :21564 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\DQN_breakout\wandb\run-20210901_110141-1i5t57ml\files\wandb-metadata.json
+2021-09-01 11:01:45,610 INFO    Thread-18 :21564 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\DQN_breakout\wandb\run-20210901_110141-1i5t57ml\files\wandb-summary.json
+2021-09-01 11:02:14,933 DEBUG   HandlerThread:21564 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-01 11:02:14,933 DEBUG   SenderThread:21564 [sender.py:send_request():196] send_request: stop_status
+2021-09-01 11:02:15,871 DEBUG   SenderThread:21564 [sender.py:send():182] send: stats
+2021-09-01 11:02:16,935 INFO    Thread-18 :21564 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\DQN_breakout\wandb\run-20210901_110141-1i5t57ml\files\output.log
+2021-09-01 11:02:18,959 INFO    Thread-18 :21564 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\DQN_breakout\wandb\run-20210901_110141-1i5t57ml\files\output.log

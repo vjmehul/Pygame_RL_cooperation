@@ -1,0 +1,40 @@
+2021-09-06 10:51:26,734 INFO    MainThread:22304 [internal.py:wandb_internal():86] W&B internal server running at pid: 22304, started at: 2021-09-06 10:51:26.715334
+2021-09-06 10:51:26,745 INFO    WriterThread:22304 [datastore.py:open_for_write():77] open: C:\Programming\rl_cooperation\DQN_SpaceCannons\wandb\run-20210906_105122-2wp1wfps\run-2wp1wfps.wandb
+2021-09-06 10:51:26,747 DEBUG   HandlerThread:22304 [handler.py:handle_request():126] handle_request: check_version
+2021-09-06 10:51:26,801 DEBUG   SenderThread:22304 [sender.py:send():182] send: header
+2021-09-06 10:51:26,801 DEBUG   SenderThread:22304 [sender.py:send_request():196] send_request: check_version
+2021-09-06 10:51:26,921 DEBUG   SenderThread:22304 [sender.py:send():182] send: run
+2021-09-06 10:51:26,976 DEBUG   SenderThread:22304 [git.py:repo():33] git repository is invalid
+2021-09-06 10:51:27,346 INFO    SenderThread:22304 [dir_watcher.py:__init__():169] watching files in: C:\Programming\rl_cooperation\DQN_SpaceCannons\wandb\run-20210906_105122-2wp1wfps\files
+2021-09-06 10:51:27,346 INFO    SenderThread:22304 [sender.py:_start_run_threads():740] run started: 2wp1wfps with start time 1630918284
+2021-09-06 10:51:27,347 DEBUG   SenderThread:22304 [sender.py:send():182] send: summary
+2021-09-06 10:51:27,348 INFO    SenderThread:22304 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-06 10:51:27,350 DEBUG   HandlerThread:22304 [handler.py:handle_request():126] handle_request: run_start
+2021-09-06 10:51:27,387 DEBUG   HandlerThread:22304 [meta.py:__init__():40] meta init
+2021-09-06 10:51:27,388 DEBUG   HandlerThread:22304 [meta.py:__init__():54] meta init done
+2021-09-06 10:51:27,388 DEBUG   HandlerThread:22304 [meta.py:probe():211] probe
+2021-09-06 10:51:27,407 DEBUG   HandlerThread:22304 [git.py:repo():33] git repository is invalid
+2021-09-06 10:51:27,407 DEBUG   HandlerThread:22304 [meta.py:_save_pip():58] save pip
+2021-09-06 10:51:27,410 DEBUG   HandlerThread:22304 [meta.py:_save_pip():72] save pip done
+2021-09-06 10:51:27,410 DEBUG   HandlerThread:22304 [meta.py:probe():249] probe done
+2021-09-06 10:51:27,794 DEBUG   SenderThread:22304 [sender.py:send():182] send: files
+2021-09-06 10:51:27,794 INFO    SenderThread:22304 [sender.py:_save_file():873] saving file wandb-metadata.json with policy now
+2021-09-06 10:51:27,831 DEBUG   HandlerThread:22304 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-06 10:51:27,832 DEBUG   SenderThread:22304 [sender.py:send_request():196] send_request: stop_status
+2021-09-06 10:51:28,353 INFO    Thread-18 :22304 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\DQN_SpaceCannons\wandb\run-20210906_105122-2wp1wfps\files\output.log
+2021-09-06 10:51:28,354 INFO    Thread-18 :22304 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\DQN_SpaceCannons\wandb\run-20210906_105122-2wp1wfps\files\wandb-summary.json
+2021-09-06 10:51:28,354 INFO    Thread-18 :22304 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\DQN_SpaceCannons\wandb\run-20210906_105122-2wp1wfps\files\requirements.txt
+2021-09-06 10:51:28,355 INFO    Thread-18 :22304 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\DQN_SpaceCannons\wandb\run-20210906_105122-2wp1wfps\files\wandb-metadata.json
+2021-09-06 10:51:28,407 INFO    Thread-21 :22304 [upload_job.py:push():137] Uploaded file C:\Users\Shizu\AppData\Local\Temp\tmp95tkg27wwandb\1hh7pb1t-wandb-metadata.json
+2021-09-06 10:51:30,375 INFO    Thread-18 :22304 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\DQN_SpaceCannons\wandb\run-20210906_105122-2wp1wfps\files\output.log
+2021-09-06 10:51:35,409 INFO    Thread-18 :22304 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\DQN_SpaceCannons\wandb\run-20210906_105122-2wp1wfps\files\output.log
+2021-09-06 10:51:39,452 INFO    Thread-18 :22304 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\DQN_SpaceCannons\wandb\run-20210906_105122-2wp1wfps\files\output.log
+2021-09-06 10:51:41,475 INFO    Thread-18 :22304 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\DQN_SpaceCannons\wandb\run-20210906_105122-2wp1wfps\files\output.log
+2021-09-06 10:51:43,045 DEBUG   HandlerThread:22304 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-06 10:51:43,045 DEBUG   SenderThread:22304 [sender.py:send_request():196] send_request: stop_status
+2021-09-06 10:51:43,499 INFO    Thread-18 :22304 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\DQN_SpaceCannons\wandb\run-20210906_105122-2wp1wfps\files\output.log
+2021-09-06 10:51:45,524 INFO    Thread-18 :22304 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\DQN_SpaceCannons\wandb\run-20210906_105122-2wp1wfps\files\output.log
+2021-09-06 10:51:47,542 INFO    Thread-18 :22304 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\DQN_SpaceCannons\wandb\run-20210906_105122-2wp1wfps\files\output.log
+2021-09-06 10:51:49,559 INFO    Thread-18 :22304 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\DQN_SpaceCannons\wandb\run-20210906_105122-2wp1wfps\files\output.log
+2021-09-06 10:51:51,582 INFO    Thread-18 :22304 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\DQN_SpaceCannons\wandb\run-20210906_105122-2wp1wfps\files\output.log
+2021-09-06 10:51:53,605 INFO    Thread-18 :22304 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\DQN_SpaceCannons\wandb\run-20210906_105122-2wp1wfps\files\output.log

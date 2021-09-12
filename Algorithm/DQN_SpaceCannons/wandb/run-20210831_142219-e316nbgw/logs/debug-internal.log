@@ -1,0 +1,73 @@
+2021-08-31 14:22:20,972 INFO    MainThread:2704 [internal.py:wandb_internal():86] W&B internal server running at pid: 2704, started at: 2021-08-31 14:22:20.963922
+2021-08-31 14:22:20,974 INFO    WriterThread:2704 [datastore.py:open_for_write():77] open: C:\Programming\rl_cooperation\DQN_breakout\wandb\run-20210831_142219-e316nbgw\run-e316nbgw.wandb
+2021-08-31 14:22:20,974 DEBUG   HandlerThread:2704 [handler.py:handle_request():126] handle_request: check_version
+2021-08-31 14:22:20,983 DEBUG   SenderThread:2704 [sender.py:send():182] send: header
+2021-08-31 14:22:20,983 DEBUG   SenderThread:2704 [sender.py:send_request():196] send_request: check_version
+2021-08-31 14:22:21,140 DEBUG   SenderThread:2704 [sender.py:send():182] send: run
+2021-08-31 14:22:21,167 DEBUG   SenderThread:2704 [git.py:repo():33] git repository is invalid
+2021-08-31 14:22:21,329 ERROR   SenderThread:2704 [internal_api.py:execute():133] 401 response executing GraphQL.
+2021-08-31 14:22:21,330 ERROR   SenderThread:2704 [internal_api.py:execute():134] {"errors":[{"message":"permission denied","path":["upsertBucket"],"extensions":{"code":"PERMISSION_ERROR"}}],"data":{"upsertBucket":null}}
+2021-08-31 14:22:22,141 INFO    WriterThread:2704 [datastore.py:close():281] close: C:\Programming\rl_cooperation\DQN_breakout\wandb\run-20210831_142219-e316nbgw\run-e316nbgw.wandb
+2021-08-31 14:22:22,141 INFO    HandlerThread:2704 [handler.py:finish():683] shutting down handler
+2021-08-31 14:22:22,141 ERROR   MainThread:2704 [internal.py:wandb_internal():157] Thread SenderThread:
+Traceback (most recent call last):
+  File "C:\Programming\rl_cooperation\lib\site-packages\wandb\sdk\lib\retry.py", line 102, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "C:\Programming\rl_cooperation\lib\site-packages\wandb\sdk\internal\internal_api.py", line 136, in execute
+    six.reraise(*sys.exc_info())
+  File "C:\Programming\rl_cooperation\lib\site-packages\six.py", line 719, in reraise
+    raise value
+  File "C:\Programming\rl_cooperation\lib\site-packages\wandb\sdk\internal\internal_api.py", line 130, in execute
+    return self.client.execute(*args, **kwargs)
+  File "C:\Programming\rl_cooperation\lib\site-packages\wandb\vendor\gql-0.2.0\gql\client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "C:\Programming\rl_cooperation\lib\site-packages\wandb\vendor\gql-0.2.0\gql\client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "C:\Programming\rl_cooperation\lib\site-packages\wandb\vendor\gql-0.2.0\gql\transport\requests.py", line 39, in execute
+    request.raise_for_status()
+  File "C:\Programming\rl_cooperation\lib\site-packages\requests\models.py", line 943, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://api.wandb.ai/graphql
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Programming\rl_cooperation\lib\site-packages\wandb\apis\normalize.py", line 24, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Programming\rl_cooperation\lib\site-packages\wandb\sdk\internal\internal_api.py", line 1087, in upsert_run
+    response = self.gql(mutation, variable_values=variable_values, **kwargs)
+  File "C:\Programming\rl_cooperation\lib\site-packages\wandb\sdk\lib\retry.py", line 118, in __call__
+    if not check_retry_fn(e):
+  File "C:\Programming\rl_cooperation\lib\site-packages\wandb\util.py", line 805, in no_retry_auth
+    raise CommError("Invalid or missing api_key.  Run wandb login")
+wandb.errors.CommError: Invalid or missing api_key.  Run wandb login
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Programming\rl_cooperation\lib\site-packages\wandb\sdk\internal\internal_util.py", line 52, in run
+    self._run()
+  File "C:\Programming\rl_cooperation\lib\site-packages\wandb\sdk\internal\internal_util.py", line 102, in _run
+    self._process(record)
+  File "C:\Programming\rl_cooperation\lib\site-packages\wandb\sdk\internal\internal.py", line 290, in _process
+    self._sm.send(record)
+  File "C:\Programming\rl_cooperation\lib\site-packages\wandb\sdk\internal\sender.py", line 184, in send
+    send_handler(record)
+  File "C:\Programming\rl_cooperation\lib\site-packages\wandb\sdk\internal\sender.py", line 623, in send_run
+    self._init_run(run, config_value_dict)
+  File "C:\Programming\rl_cooperation\lib\site-packages\wandb\sdk\internal\sender.py", line 645, in _init_run
+    server_run, inserted = self._api.upsert_run(
+  File "C:\Programming\rl_cooperation\lib\site-packages\wandb\apis\normalize.py", line 62, in wrapper
+    six.reraise(CommError, CommError(message, err), sys.exc_info()[2])
+  File "C:\Programming\rl_cooperation\lib\site-packages\six.py", line 718, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Programming\rl_cooperation\lib\site-packages\wandb\apis\normalize.py", line 24, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Programming\rl_cooperation\lib\site-packages\wandb\sdk\internal\internal_api.py", line 1087, in upsert_run
+    response = self.gql(mutation, variable_values=variable_values, **kwargs)
+  File "C:\Programming\rl_cooperation\lib\site-packages\wandb\sdk\lib\retry.py", line 118, in __call__
+    if not check_retry_fn(e):
+  File "C:\Programming\rl_cooperation\lib\site-packages\wandb\util.py", line 805, in no_retry_auth
+    raise CommError("Invalid or missing api_key.  Run wandb login")
+wandb.errors.CommError: Invalid or missing api_key.  Run wandb login
+2021-08-31 14:22:24,183 INFO    MainThread:2704 [internal.py:handle_exit():76] Internal process exited

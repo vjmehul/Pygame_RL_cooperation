@@ -1,0 +1,17 @@
+2021-09-11 12:48:12,901 INFO    MainThread:36720 [internal.py:wandb_internal():86] W&B internal server running at pid: 36720, started at: 2021-09-11 12:48:12.892117
+2021-09-11 12:48:12,903 INFO    WriterThread:36720 [datastore.py:open_for_write():77] open: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\offline-run-20210911_124812-2sbgzd8a\run-2sbgzd8a.wandb
+2021-09-11 12:48:12,903 DEBUG   HandlerThread:36720 [handler.py:handle_request():126] handle_request: run_start
+2021-09-11 12:48:12,921 DEBUG   HandlerThread:36720 [meta.py:__init__():40] meta init
+2021-09-11 12:48:12,921 DEBUG   HandlerThread:36720 [meta.py:__init__():54] meta init done
+2021-09-11 12:48:12,921 DEBUG   HandlerThread:36720 [meta.py:probe():211] probe
+2021-09-11 12:48:12,989 DEBUG   HandlerThread:36720 [git.py:repo():33] git repository is invalid
+2021-09-11 12:48:12,989 DEBUG   HandlerThread:36720 [meta.py:_save_pip():58] save pip
+2021-09-11 12:48:12,990 DEBUG   HandlerThread:36720 [meta.py:_save_pip():72] save pip done
+2021-09-11 12:48:12,990 DEBUG   HandlerThread:36720 [meta.py:probe():249] probe done
+2021-09-11 12:49:59,598 WARNING MainThread:36720 [internal.py:wandb_internal():145] Internal process interrupt: 1
+2021-09-11 12:49:59,839 WARNING MainThread:36720 [internal.py:wandb_internal():145] Internal process interrupt: 2
+2021-09-11 12:49:59,839 ERROR   MainThread:36720 [internal.py:wandb_internal():148] Internal process interrupted.
+2021-09-11 12:49:59,850 INFO    SenderThread:36720 [sender.py:finish():979] shutting down sender
+2021-09-11 12:50:00,692 INFO    WriterThread:36720 [datastore.py:close():281] close: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\offline-run-20210911_124812-2sbgzd8a\run-2sbgzd8a.wandb
+2021-09-11 12:50:00,692 INFO    HandlerThread:36720 [handler.py:finish():683] shutting down handler
+2021-09-11 12:50:00,693 INFO    MainThread:36720 [internal.py:handle_exit():76] Internal process exited

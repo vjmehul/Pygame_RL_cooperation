@@ -1,0 +1,59 @@
+2021-09-09 15:28:58,386 INFO    MainThread:33880 [internal.py:wandb_internal():86] W&B internal server running at pid: 33880, started at: 2021-09-09 15:28:58.377926
+2021-09-09 15:28:58,394 INFO    WriterThread:33880 [datastore.py:open_for_write():77] open: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210909_152856-o0gdpv96\run-o0gdpv96.wandb
+2021-09-09 15:28:58,394 DEBUG   HandlerThread:33880 [handler.py:handle_request():126] handle_request: check_version
+2021-09-09 15:28:58,397 DEBUG   SenderThread:33880 [sender.py:send():182] send: header
+2021-09-09 15:28:58,397 DEBUG   SenderThread:33880 [sender.py:send_request():196] send_request: check_version
+2021-09-09 15:28:58,648 DEBUG   SenderThread:33880 [sender.py:send():182] send: run
+2021-09-09 15:28:58,674 DEBUG   SenderThread:33880 [git.py:repo():33] git repository is invalid
+2021-09-09 15:28:58,891 DEBUG   HandlerThread:33880 [handler.py:handle_request():126] handle_request: run_start
+2021-09-09 15:28:58,897 INFO    SenderThread:33880 [dir_watcher.py:__init__():169] watching files in: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210909_152856-o0gdpv96\files
+2021-09-09 15:28:58,898 INFO    SenderThread:33880 [sender.py:_start_run_threads():740] run started: o0gdpv96 with start time 1631194137
+2021-09-09 15:28:58,898 DEBUG   SenderThread:33880 [sender.py:send():182] send: summary
+2021-09-09 15:28:58,899 INFO    SenderThread:33880 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-09 15:28:58,915 DEBUG   HandlerThread:33880 [meta.py:__init__():40] meta init
+2021-09-09 15:28:58,915 DEBUG   HandlerThread:33880 [meta.py:__init__():54] meta init done
+2021-09-09 15:28:58,915 DEBUG   HandlerThread:33880 [meta.py:probe():211] probe
+2021-09-09 15:28:58,926 DEBUG   HandlerThread:33880 [git.py:repo():33] git repository is invalid
+2021-09-09 15:28:58,926 DEBUG   HandlerThread:33880 [meta.py:_save_pip():58] save pip
+2021-09-09 15:28:58,927 DEBUG   HandlerThread:33880 [meta.py:_save_pip():72] save pip done
+2021-09-09 15:28:58,928 DEBUG   HandlerThread:33880 [meta.py:probe():249] probe done
+2021-09-09 15:28:58,987 DEBUG   SenderThread:33880 [sender.py:send():182] send: files
+2021-09-09 15:28:58,988 INFO    SenderThread:33880 [sender.py:_save_file():873] saving file wandb-metadata.json with policy now
+2021-09-09 15:28:59,017 DEBUG   HandlerThread:33880 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-09 15:28:59,018 DEBUG   SenderThread:33880 [sender.py:send_request():196] send_request: stop_status
+2021-09-09 15:28:59,588 INFO    Thread-21 :33880 [upload_job.py:push():137] Uploaded file C:\Users\Shizu\AppData\Local\Temp\tmp7bfcgug5wandb\jymxeam2-wandb-metadata.json
+2021-09-09 15:28:59,904 INFO    Thread-18 :33880 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210909_152856-o0gdpv96\files\wandb-metadata.json
+2021-09-09 15:28:59,904 INFO    Thread-18 :33880 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210909_152856-o0gdpv96\files\wandb-summary.json
+2021-09-09 15:28:59,905 INFO    Thread-18 :33880 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210909_152856-o0gdpv96\files\requirements.txt
+2021-09-09 15:28:59,905 INFO    Thread-18 :33880 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210909_152856-o0gdpv96\files\output.log
+2021-09-09 15:29:01,921 INFO    Thread-18 :33880 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210909_152856-o0gdpv96\files\output.log
+2021-09-09 15:29:03,926 INFO    Thread-18 :33880 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210909_152856-o0gdpv96\files\output.log
+2021-09-09 15:29:29,315 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:30:01,914 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:30:34,416 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:31:06,993 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:31:39,521 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:32:12,089 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:32:44,633 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:33:17,202 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:33:49,763 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:34:22,321 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:34:54,769 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:35:27,309 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:35:59,866 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:36:32,412 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:37:04,960 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:37:37,542 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:38:10,099 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:38:42,652 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:39:15,095 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:39:47,688 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:40:20,251 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:40:52,819 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:41:25,371 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:41:57,920 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:42:30,490 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:43:03,034 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:43:35,592 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:44:08,182 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats
+2021-09-09 15:44:40,726 DEBUG   SenderThread:33880 [sender.py:send():182] send: stats

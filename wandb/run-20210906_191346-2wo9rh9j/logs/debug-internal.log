@@ -1,0 +1,42 @@
+2021-09-06 19:13:48,273 INFO    MainThread:17440 [internal.py:wandb_internal():86] W&B internal server running at pid: 17440, started at: 2021-09-06 19:13:48.264326
+2021-09-06 19:13:48,279 INFO    WriterThread:17440 [datastore.py:open_for_write():77] open: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210906_191346-2wo9rh9j\run-2wo9rh9j.wandb
+2021-09-06 19:13:48,280 DEBUG   HandlerThread:17440 [handler.py:handle_request():126] handle_request: check_version
+2021-09-06 19:13:48,283 DEBUG   SenderThread:17440 [sender.py:send():182] send: header
+2021-09-06 19:13:48,283 DEBUG   SenderThread:17440 [sender.py:send_request():196] send_request: check_version
+2021-09-06 19:13:48,501 DEBUG   SenderThread:17440 [sender.py:send():182] send: run
+2021-09-06 19:13:48,526 DEBUG   SenderThread:17440 [git.py:repo():33] git repository is invalid
+2021-09-06 19:13:48,729 DEBUG   HandlerThread:17440 [handler.py:handle_request():126] handle_request: run_start
+2021-09-06 19:13:48,741 INFO    SenderThread:17440 [dir_watcher.py:__init__():169] watching files in: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210906_191346-2wo9rh9j\files
+2021-09-06 19:13:48,741 INFO    SenderThread:17440 [sender.py:_start_run_threads():740] run started: 2wo9rh9j with start time 1630948427
+2021-09-06 19:13:48,742 DEBUG   SenderThread:17440 [sender.py:send():182] send: summary
+2021-09-06 19:13:48,743 INFO    SenderThread:17440 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-06 19:13:48,760 DEBUG   HandlerThread:17440 [meta.py:__init__():40] meta init
+2021-09-06 19:13:48,760 DEBUG   HandlerThread:17440 [meta.py:__init__():54] meta init done
+2021-09-06 19:13:48,761 DEBUG   HandlerThread:17440 [meta.py:probe():211] probe
+2021-09-06 19:13:48,785 DEBUG   HandlerThread:17440 [git.py:repo():33] git repository is invalid
+2021-09-06 19:13:48,785 DEBUG   HandlerThread:17440 [meta.py:_save_pip():58] save pip
+2021-09-06 19:13:48,786 DEBUG   HandlerThread:17440 [meta.py:_save_pip():72] save pip done
+2021-09-06 19:13:48,786 DEBUG   HandlerThread:17440 [meta.py:probe():249] probe done
+2021-09-06 19:13:48,844 DEBUG   SenderThread:17440 [sender.py:send():182] send: files
+2021-09-06 19:13:48,845 INFO    SenderThread:17440 [sender.py:_save_file():873] saving file wandb-metadata.json with policy now
+2021-09-06 19:13:48,868 DEBUG   HandlerThread:17440 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-06 19:13:48,868 DEBUG   SenderThread:17440 [sender.py:send_request():196] send_request: stop_status
+2021-09-06 19:13:49,443 INFO    Thread-21 :17440 [upload_job.py:push():137] Uploaded file C:\Users\Shizu\AppData\Local\Temp\tmpfuycpdxywandb\2wj083fn-wandb-metadata.json
+2021-09-06 19:13:49,755 INFO    Thread-18 :17440 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210906_191346-2wo9rh9j\files\requirements.txt
+2021-09-06 19:13:49,756 INFO    Thread-18 :17440 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210906_191346-2wo9rh9j\files\wandb-metadata.json
+2021-09-06 19:13:49,756 INFO    Thread-18 :17440 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210906_191346-2wo9rh9j\files\wandb-summary.json
+2021-09-06 19:13:49,757 INFO    Thread-18 :17440 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210906_191346-2wo9rh9j\files\output.log
+2021-09-06 19:13:51,758 INFO    Thread-18 :17440 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210906_191346-2wo9rh9j\files\output.log
+2021-09-06 19:13:53,785 INFO    Thread-18 :17440 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210906_191346-2wo9rh9j\files\output.log
+2021-09-06 19:13:55,813 INFO    Thread-18 :17440 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210906_191346-2wo9rh9j\files\output.log
+2021-09-06 19:13:57,842 INFO    Thread-18 :17440 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210906_191346-2wo9rh9j\files\output.log
+2021-09-06 19:13:59,856 INFO    Thread-18 :17440 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210906_191346-2wo9rh9j\files\output.log
+2021-09-06 19:14:01,881 INFO    Thread-18 :17440 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210906_191346-2wo9rh9j\files\output.log
+2021-09-06 19:14:03,898 INFO    Thread-18 :17440 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210906_191346-2wo9rh9j\files\output.log
+2021-09-06 19:14:04,036 DEBUG   HandlerThread:17440 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-06 19:14:04,036 DEBUG   SenderThread:17440 [sender.py:send_request():196] send_request: stop_status
+2021-09-06 19:14:04,902 INFO    Thread-18 :17440 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210906_191346-2wo9rh9j\files\output.log
+2021-09-06 19:14:06,926 INFO    Thread-18 :17440 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210906_191346-2wo9rh9j\files\output.log
+2021-09-06 19:14:08,942 INFO    Thread-18 :17440 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210906_191346-2wo9rh9j\files\output.log
+2021-09-06 19:14:10,970 INFO    Thread-18 :17440 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210906_191346-2wo9rh9j\files\output.log
+2021-09-06 19:14:12,840 WARNING MainThread:17440 [internal.py:wandb_internal():145] Internal process interrupt: 1

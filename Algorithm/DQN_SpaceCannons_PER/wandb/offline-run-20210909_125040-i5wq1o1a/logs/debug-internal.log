@@ -1,0 +1,10 @@
+2021-09-09 12:50:42,108 INFO    MainThread:26572 [internal.py:wandb_internal():86] W&B internal server running at pid: 26572, started at: 2021-09-09 12:50:42.092370
+2021-09-09 12:50:42,115 INFO    WriterThread:26572 [datastore.py:open_for_write():77] open: C:\Programming\rl_cooperation\Pygame_RL_cooperation\Algorithm\DQN_SpaceCannons_PER\wandb\offline-run-20210909_125040-i5wq1o1a\run-i5wq1o1a.wandb
+2021-09-09 12:50:42,116 DEBUG   HandlerThread:26572 [handler.py:handle_request():126] handle_request: run_start
+2021-09-09 12:50:42,140 DEBUG   HandlerThread:26572 [meta.py:__init__():40] meta init
+2021-09-09 12:50:42,141 DEBUG   HandlerThread:26572 [meta.py:__init__():54] meta init done
+2021-09-09 12:50:42,141 DEBUG   HandlerThread:26572 [meta.py:probe():211] probe
+2021-09-09 12:50:42,219 DEBUG   HandlerThread:26572 [git.py:repo():33] git repository is invalid
+2021-09-09 12:50:42,219 DEBUG   HandlerThread:26572 [meta.py:_save_pip():58] save pip
+2021-09-09 12:50:42,220 DEBUG   HandlerThread:26572 [meta.py:_save_pip():72] save pip done
+2021-09-09 12:50:42,220 DEBUG   HandlerThread:26572 [meta.py:probe():249] probe done

@@ -1,0 +1,67 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+19952it [00:35, 589.69it/s]C:\Programming\rl_cooperation\lib\site-packages\torch\nn\modules\loss.py:907: UserWarning: Using a target size (torch.Size([128, 128])) that is different to the input size (torch.Size([128])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.
+  return F.smooth_l1_loss(input, target, reduction=self.reduction, beta=self.beta)
+
+
+
+
+
+
+
+
+
+
+
+22518it [00:58, 120.78it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+25357it [01:24, 117.47it/s]
+
+
+
+
+
+
+
+
+
+27516it [01:42, 125.68it/s]
+
+
+
+
+
+
+28501it [02:10, 126.80it/s]Traceback (most recent call last):
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 182, in <module>
+    main(False)
+  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 170, in main
+    wandb.log({'test_reward': rew, 'test_video': wandb.Video(frames.transpose(0, 3, 1, 2), str(rew), fps = 25)}, format = 'mp4')
+TypeError: log() got an unexpected keyword argument 'format'

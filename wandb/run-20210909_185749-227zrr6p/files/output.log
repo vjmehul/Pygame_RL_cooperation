@@ -1,0 +1,21 @@
+pygame 2.0.1 (SDL 2.0.14, Python 3.9.7)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+initial setup complete
+initial setup complete
+Traceback (most recent call last):
+  File "c:\Programming\rl_cooperation\Pygame_RL_cooperation\Algorithm\DQN_SpaceCannons\agent.PY", line 206, in main
+    observation, reward, done, info = env.step([action1,action2])
+  File "c:\Programming\rl_cooperation\Pygame_RL_cooperation\Algorithm\DQN_SpaceCannons\utils.py", line 27, in step
+    image, reward, done,  info = self.env.step(action)
+  File "c:\programming\rl_cooperation\pygame_rl_cooperation\spacecannons\SpaceCannons\envs\SpaceCannons.py", line 330, in step
+    self.render(self.difficulty_weights)
+  File "c:\programming\rl_cooperation\pygame_rl_cooperation\spacecannons\SpaceCannons\envs\SpaceCannons.py", line 354, in render
+    clock.tick(30)
+KeyboardInterrupt
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "c:\Programming\rl_cooperation\Pygame_RL_cooperation\Algorithm\DQN_SpaceCannons\agent.PY", line 319, in <module>
+    main(False)
+  File "c:\Programming\rl_cooperation\Pygame_RL_cooperation\Algorithm\DQN_SpaceCannons\agent.PY", line 313, in main
+    env.close()
+AttributeError: 'FramestackingENV' object has no attribute 'close'

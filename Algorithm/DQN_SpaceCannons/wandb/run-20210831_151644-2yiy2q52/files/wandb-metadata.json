@@ -1,0 +1,18 @@
+{
+    "os": "Windows-10-10.0.19042-SP0",
+    "python": "3.9.5",
+    "heartbeatAt": "2021-08-31T13:16:46.455216",
+    "startedAt": "2021-08-31T13:16:44.829215",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 2060",
+    "gpu_count": 1,
+    "cpu_count": 12,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "c:\\Programming\\rl_cooperation\\DQN_breakout\\agent.PY",
+    "codePath": "agent.PY",
+    "host": "Shizu",
+    "username": "Shizu",
+    "executable": "C:\\Programming\\rl_cooperation\\Scripts\\python.exe"
+}

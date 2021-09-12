@@ -1,0 +1,137 @@
+2021-09-06 11:19:21,399 INFO    MainThread:12100 [internal.py:wandb_internal():86] W&B internal server running at pid: 12100, started at: 2021-09-06 11:19:21.386648
+2021-09-06 11:19:21,402 INFO    WriterThread:12100 [datastore.py:open_for_write():77] open: C:\Programming\rl_cooperation\Pygame_RL_cooperation\Space_cannons\wandb\run-20210906_111919-188bejc2\run-188bejc2.wandb
+2021-09-06 11:19:21,403 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: check_version
+2021-09-06 11:19:21,414 DEBUG   SenderThread:12100 [sender.py:send():182] send: header
+2021-09-06 11:19:21,414 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: check_version
+2021-09-06 11:19:21,513 DEBUG   SenderThread:12100 [sender.py:send():182] send: run
+2021-09-06 11:19:21,555 DEBUG   SenderThread:12100 [git.py:repo():33] git repository is invalid
+2021-09-06 11:19:21,770 INFO    SenderThread:12100 [dir_watcher.py:__init__():169] watching files in: C:\Programming\rl_cooperation\Pygame_RL_cooperation\Space_cannons\wandb\run-20210906_111919-188bejc2\files
+2021-09-06 11:19:21,771 INFO    SenderThread:12100 [sender.py:_start_run_threads():740] run started: 188bejc2 with start time 1630919959
+2021-09-06 11:19:21,771 DEBUG   SenderThread:12100 [sender.py:send():182] send: summary
+2021-09-06 11:19:21,772 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: run_start
+2021-09-06 11:19:21,772 INFO    SenderThread:12100 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-06 11:19:21,801 DEBUG   HandlerThread:12100 [meta.py:__init__():40] meta init
+2021-09-06 11:19:21,801 DEBUG   HandlerThread:12100 [meta.py:__init__():54] meta init done
+2021-09-06 11:19:21,801 DEBUG   HandlerThread:12100 [meta.py:probe():211] probe
+2021-09-06 11:19:21,825 DEBUG   HandlerThread:12100 [git.py:repo():33] git repository is invalid
+2021-09-06 11:19:21,825 DEBUG   HandlerThread:12100 [meta.py:_save_pip():58] save pip
+2021-09-06 11:19:21,829 DEBUG   HandlerThread:12100 [meta.py:_save_pip():72] save pip done
+2021-09-06 11:19:21,829 DEBUG   HandlerThread:12100 [meta.py:probe():249] probe done
+2021-09-06 11:19:22,046 DEBUG   SenderThread:12100 [sender.py:send():182] send: files
+2021-09-06 11:19:22,046 INFO    SenderThread:12100 [sender.py:_save_file():873] saving file wandb-metadata.json with policy now
+2021-09-06 11:19:22,060 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-06 11:19:22,061 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: stop_status
+2021-09-06 11:19:22,588 INFO    Thread-15 :12100 [upload_job.py:push():137] Uploaded file C:\Users\Shizu\AppData\Local\Temp\tmp6phxdewewandb\10gfuuzc-wandb-metadata.json
+2021-09-06 11:19:22,593 DEBUG   SenderThread:12100 [sender.py:send():182] send: telemetry
+2021-09-06 11:19:22,595 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-06 11:19:22,595 DEBUG   SenderThread:12100 [sender.py:send():182] send: exit
+2021-09-06 11:19:22,595 INFO    SenderThread:12100 [sender.py:send_exit():291] handling exit code: 1
+2021-09-06 11:19:22,596 INFO    SenderThread:12100 [sender.py:send_exit():293] handling runtime: 0
+2021-09-06 11:19:22,597 INFO    SenderThread:12100 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-06 11:19:22,597 INFO    SenderThread:12100 [sender.py:send_exit():303] send defer
+2021-09-06 11:19:22,597 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: poll_exit
+2021-09-06 11:19:22,598 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: defer
+2021-09-06 11:19:22,599 INFO    HandlerThread:12100 [handler.py:handle_request_defer():143] handle defer: 0
+2021-09-06 11:19:22,599 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: defer
+2021-09-06 11:19:22,599 INFO    SenderThread:12100 [sender.py:send_request_defer():312] handle sender defer: 0
+2021-09-06 11:19:22,599 INFO    SenderThread:12100 [sender.py:transition_state():316] send defer: 1
+2021-09-06 11:19:22,600 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: defer
+2021-09-06 11:19:22,600 INFO    HandlerThread:12100 [handler.py:handle_request_defer():143] handle defer: 1
+2021-09-06 11:19:22,743 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: defer
+2021-09-06 11:19:22,743 INFO    SenderThread:12100 [sender.py:send_request_defer():312] handle sender defer: 1
+2021-09-06 11:19:22,743 INFO    SenderThread:12100 [sender.py:transition_state():316] send defer: 2
+2021-09-06 11:19:22,744 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-06 11:19:22,744 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: poll_exit
+2021-09-06 11:19:22,745 DEBUG   SenderThread:12100 [sender.py:send():182] send: stats
+2021-09-06 11:19:22,745 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: defer
+2021-09-06 11:19:22,746 INFO    HandlerThread:12100 [handler.py:handle_request_defer():143] handle defer: 2
+2021-09-06 11:19:22,746 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: defer
+2021-09-06 11:19:22,746 INFO    SenderThread:12100 [sender.py:send_request_defer():312] handle sender defer: 2
+2021-09-06 11:19:22,746 INFO    SenderThread:12100 [sender.py:transition_state():316] send defer: 3
+2021-09-06 11:19:22,747 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: defer
+2021-09-06 11:19:22,747 INFO    HandlerThread:12100 [handler.py:handle_request_defer():143] handle defer: 3
+2021-09-06 11:19:22,747 DEBUG   SenderThread:12100 [sender.py:send():182] send: summary
+2021-09-06 11:19:22,748 INFO    SenderThread:12100 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-06 11:19:22,749 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: defer
+2021-09-06 11:19:22,749 INFO    SenderThread:12100 [sender.py:send_request_defer():312] handle sender defer: 3
+2021-09-06 11:19:22,749 INFO    SenderThread:12100 [sender.py:transition_state():316] send defer: 4
+2021-09-06 11:19:22,750 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: defer
+2021-09-06 11:19:22,750 INFO    HandlerThread:12100 [handler.py:handle_request_defer():143] handle defer: 4
+2021-09-06 11:19:22,750 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: defer
+2021-09-06 11:19:22,750 INFO    SenderThread:12100 [sender.py:send_request_defer():312] handle sender defer: 4
+2021-09-06 11:19:22,788 INFO    Thread-12 :12100 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\Pygame_RL_cooperation\Space_cannons\wandb\run-20210906_111919-188bejc2\files\wandb-metadata.json
+2021-09-06 11:19:22,788 INFO    Thread-12 :12100 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\Pygame_RL_cooperation\Space_cannons\wandb\run-20210906_111919-188bejc2\files\wandb-summary.json
+2021-09-06 11:19:22,789 INFO    Thread-12 :12100 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\Pygame_RL_cooperation\Space_cannons\wandb\run-20210906_111919-188bejc2\files\output.log
+2021-09-06 11:19:22,789 INFO    Thread-12 :12100 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\Pygame_RL_cooperation\Space_cannons\wandb\run-20210906_111919-188bejc2\files\requirements.txt
+2021-09-06 11:19:22,849 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-06 11:19:22,949 INFO    SenderThread:12100 [sender.py:transition_state():316] send defer: 5
+2021-09-06 11:19:22,950 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: poll_exit
+2021-09-06 11:19:22,951 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: defer
+2021-09-06 11:19:22,951 INFO    HandlerThread:12100 [handler.py:handle_request_defer():143] handle defer: 5
+2021-09-06 11:19:22,951 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: defer
+2021-09-06 11:19:22,951 INFO    SenderThread:12100 [sender.py:send_request_defer():312] handle sender defer: 5
+2021-09-06 11:19:22,951 INFO    SenderThread:12100 [dir_watcher.py:finish():283] shutting down directory watcher
+2021-09-06 11:19:23,054 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-06 11:19:23,795 INFO    SenderThread:12100 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\Space_cannons\wandb\run-20210906_111919-188bejc2\files\config.yaml
+2021-09-06 11:19:23,795 INFO    SenderThread:12100 [dir_watcher.py:finish():313] scan: C:\Programming\rl_cooperation\Pygame_RL_cooperation\Space_cannons\wandb\run-20210906_111919-188bejc2\files
+2021-09-06 11:19:23,796 INFO    SenderThread:12100 [dir_watcher.py:finish():327] scan save: C:\Programming\rl_cooperation\Pygame_RL_cooperation\Space_cannons\wandb\run-20210906_111919-188bejc2\files\config.yaml config.yaml
+2021-09-06 11:19:23,796 INFO    SenderThread:12100 [dir_watcher.py:finish():327] scan save: C:\Programming\rl_cooperation\Pygame_RL_cooperation\Space_cannons\wandb\run-20210906_111919-188bejc2\files\output.log output.log
+2021-09-06 11:19:23,797 INFO    SenderThread:12100 [dir_watcher.py:finish():327] scan save: C:\Programming\rl_cooperation\Pygame_RL_cooperation\Space_cannons\wandb\run-20210906_111919-188bejc2\files\requirements.txt requirements.txt
+2021-09-06 11:19:23,801 INFO    SenderThread:12100 [dir_watcher.py:finish():327] scan save: C:\Programming\rl_cooperation\Pygame_RL_cooperation\Space_cannons\wandb\run-20210906_111919-188bejc2\files\wandb-metadata.json wandb-metadata.json
+2021-09-06 11:19:23,801 INFO    SenderThread:12100 [dir_watcher.py:finish():327] scan save: C:\Programming\rl_cooperation\Pygame_RL_cooperation\Space_cannons\wandb\run-20210906_111919-188bejc2\files\wandb-summary.json wandb-summary.json
+2021-09-06 11:19:23,806 INFO    SenderThread:12100 [sender.py:transition_state():316] send defer: 6
+2021-09-06 11:19:23,806 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: poll_exit
+2021-09-06 11:19:23,807 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: defer
+2021-09-06 11:19:23,807 INFO    HandlerThread:12100 [handler.py:handle_request_defer():143] handle defer: 6
+2021-09-06 11:19:23,808 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: defer
+2021-09-06 11:19:23,808 INFO    SenderThread:12100 [sender.py:send_request_defer():312] handle sender defer: 6
+2021-09-06 11:19:23,808 INFO    SenderThread:12100 [file_pusher.py:finish():177] shutting down file pusher
+2021-09-06 11:19:23,919 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-06 11:19:23,919 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: poll_exit
+2021-09-06 11:19:24,027 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-06 11:19:24,028 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: poll_exit
+2021-09-06 11:19:24,138 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-06 11:19:24,139 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: poll_exit
+2021-09-06 11:19:24,248 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-06 11:19:24,248 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: poll_exit
+2021-09-06 11:19:24,319 INFO    Thread-17 :12100 [upload_job.py:push():137] Uploaded file C:\Programming\rl_cooperation\Pygame_RL_cooperation\Space_cannons\wandb\run-20210906_111919-188bejc2\files\output.log
+2021-09-06 11:19:24,334 INFO    Thread-19 :12100 [upload_job.py:push():137] Uploaded file C:\Programming\rl_cooperation\Pygame_RL_cooperation\Space_cannons\wandb\run-20210906_111919-188bejc2\files\wandb-summary.json
+2021-09-06 11:19:24,344 INFO    Thread-18 :12100 [upload_job.py:push():137] Uploaded file C:\Programming\rl_cooperation\Pygame_RL_cooperation\Space_cannons\wandb\run-20210906_111919-188bejc2\files\requirements.txt
+2021-09-06 11:19:24,358 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-06 11:19:24,359 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: poll_exit
+2021-09-06 11:19:24,394 INFO    Thread-16 :12100 [upload_job.py:push():137] Uploaded file C:\Programming\rl_cooperation\Pygame_RL_cooperation\Space_cannons\wandb\run-20210906_111919-188bejc2\files\config.yaml
+2021-09-06 11:19:24,466 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-06 11:19:24,467 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: poll_exit
+2021-09-06 11:19:24,576 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-06 11:19:24,577 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: poll_exit
+2021-09-06 11:19:24,607 INFO    Thread-11 :12100 [sender.py:transition_state():316] send defer: 7
+2021-09-06 11:19:24,608 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: defer
+2021-09-06 11:19:24,608 INFO    HandlerThread:12100 [handler.py:handle_request_defer():143] handle defer: 7
+2021-09-06 11:19:24,608 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: defer
+2021-09-06 11:19:24,608 INFO    SenderThread:12100 [sender.py:send_request_defer():312] handle sender defer: 7
+2021-09-06 11:19:24,685 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-06 11:19:24,744 INFO    SenderThread:12100 [sender.py:transition_state():316] send defer: 8
+2021-09-06 11:19:24,744 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: poll_exit
+2021-09-06 11:19:24,745 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: defer
+2021-09-06 11:19:24,745 INFO    HandlerThread:12100 [handler.py:handle_request_defer():143] handle defer: 8
+2021-09-06 11:19:24,745 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: defer
+2021-09-06 11:19:24,745 INFO    SenderThread:12100 [sender.py:send_request_defer():312] handle sender defer: 8
+2021-09-06 11:19:24,746 INFO    SenderThread:12100 [sender.py:transition_state():316] send defer: 9
+2021-09-06 11:19:24,747 DEBUG   SenderThread:12100 [sender.py:send():182] send: final
+2021-09-06 11:19:24,747 DEBUG   SenderThread:12100 [sender.py:send():182] send: footer
+2021-09-06 11:19:24,747 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: defer
+2021-09-06 11:19:24,748 INFO    HandlerThread:12100 [handler.py:handle_request_defer():143] handle defer: 9
+2021-09-06 11:19:24,748 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: defer
+2021-09-06 11:19:24,748 INFO    SenderThread:12100 [sender.py:send_request_defer():312] handle sender defer: 9
+2021-09-06 11:19:24,854 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-06 11:19:24,855 DEBUG   SenderThread:12100 [sender.py:send_request():196] send_request: poll_exit
+2021-09-06 11:19:24,855 INFO    SenderThread:12100 [file_pusher.py:join():182] waiting for file pusher
+2021-09-06 11:19:24,859 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: get_summary
+2021-09-06 11:19:24,860 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: sampled_history
+2021-09-06 11:19:24,861 DEBUG   HandlerThread:12100 [handler.py:handle_request():126] handle_request: shutdown
+2021-09-06 11:19:24,861 INFO    HandlerThread:12100 [handler.py:finish():683] shutting down handler
+2021-09-06 11:19:25,761 INFO    WriterThread:12100 [datastore.py:close():281] close: C:\Programming\rl_cooperation\Pygame_RL_cooperation\Space_cannons\wandb\run-20210906_111919-188bejc2\run-188bejc2.wandb
+2021-09-06 11:19:25,856 INFO    SenderThread:12100 [sender.py:finish():979] shutting down sender
+2021-09-06 11:19:25,856 INFO    SenderThread:12100 [file_pusher.py:finish():177] shutting down file pusher
+2021-09-06 11:19:25,856 INFO    SenderThread:12100 [file_pusher.py:join():182] waiting for file pusher
+2021-09-06 11:19:25,859 INFO    MainThread:12100 [internal.py:handle_exit():76] Internal process exited

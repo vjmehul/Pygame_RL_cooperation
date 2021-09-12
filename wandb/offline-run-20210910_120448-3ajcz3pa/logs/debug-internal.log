@@ -1,0 +1,10 @@
+2021-09-10 12:04:50,331 INFO    MainThread:28604 [internal.py:wandb_internal():86] W&B internal server running at pid: 28604, started at: 2021-09-10 12:04:50.320741
+2021-09-10 12:04:50,336 INFO    WriterThread:28604 [datastore.py:open_for_write():77] open: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\offline-run-20210910_120448-3ajcz3pa\run-3ajcz3pa.wandb
+2021-09-10 12:04:50,337 DEBUG   HandlerThread:28604 [handler.py:handle_request():126] handle_request: run_start
+2021-09-10 12:04:50,356 DEBUG   HandlerThread:28604 [meta.py:__init__():40] meta init
+2021-09-10 12:04:50,356 DEBUG   HandlerThread:28604 [meta.py:__init__():54] meta init done
+2021-09-10 12:04:50,356 DEBUG   HandlerThread:28604 [meta.py:probe():211] probe
+2021-09-10 12:04:50,436 DEBUG   HandlerThread:28604 [git.py:repo():33] git repository is invalid
+2021-09-10 12:04:50,436 DEBUG   HandlerThread:28604 [meta.py:_save_pip():58] save pip
+2021-09-10 12:04:50,437 DEBUG   HandlerThread:28604 [meta.py:_save_pip():72] save pip done
+2021-09-10 12:04:50,437 DEBUG   HandlerThread:28604 [meta.py:probe():249] probe done

@@ -1,0 +1,18 @@
+2021-09-11 12:51:45,240 INFO    MainThread:33108 [wandb_setup.py:_flush():69] setting env: {}
+2021-09-11 12:51:45,241 INFO    MainThread:33108 [wandb_init.py:_log_setup():342] Logging user logs to C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\offline-run-20210911_125145-2i8flci8\logs\debug.log
+2021-09-11 12:51:45,241 INFO    MainThread:33108 [wandb_init.py:_log_setup():343] Logging internal logs to C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\offline-run-20210911_125145-2i8flci8\logs\debug-internal.log
+2021-09-11 12:51:45,243 INFO    MainThread:33108 [wandb_init.py:init():375] calling init triggers
+2021-09-11 12:51:45,243 INFO    MainThread:33108 [wandb_init.py:init():380] wandb.init called with sweep_config: {}
+config: {}
+2021-09-11 12:51:45,244 INFO    MainThread:33108 [wandb_init.py:init():424] starting backend
+2021-09-11 12:51:45,244 INFO    MainThread:33108 [backend.py:_multiprocessing_setup():70] multiprocessing start_methods=spawn, using: spawn
+2021-09-11 12:51:45,268 INFO    MainThread:33108 [backend.py:ensure_launched():135] starting backend process...
+2021-09-11 12:51:45,790 INFO    MainThread:33108 [backend.py:ensure_launched():139] started backend process with pid: 14900
+2021-09-11 12:51:45,792 INFO    MainThread:33108 [wandb_init.py:init():429] backend started and connected
+2021-09-11 12:51:45,798 INFO    MainThread:33108 [wandb_init.py:init():477] updated telemetry
+2021-09-11 12:51:45,802 INFO    MainThread:33108 [wandb_init.py:init():540] starting run threads in backend
+2021-09-11 12:51:47,030 INFO    MainThread:33108 [wandb_run.py:_console_start():1601] atexit reg
+2021-09-11 12:51:47,032 INFO    MainThread:33108 [wandb_run.py:_redirect():1475] redirect: SettingsConsole.WRAP
+2021-09-11 12:51:47,033 INFO    MainThread:33108 [wandb_run.py:_redirect():1512] Wrapping output streams.
+2021-09-11 12:51:47,038 INFO    MainThread:33108 [wandb_run.py:_redirect():1536] Redirects installed.
+2021-09-11 12:51:47,038 INFO    MainThread:33108 [wandb_init.py:init():565] run started, returning control to user process

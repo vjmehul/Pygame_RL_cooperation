@@ -1,0 +1,116 @@
+pygame 2.0.1 (SDL 2.0.14, Python 3.9.7)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+initial setup complete
+initial setup complete
+
+
+
+
+
+
+
+
+
+
+
+
+501it [00:24, 20.28it/s]C:\Programming\rl_cooperation\lib\site-packages\numpy\core\fromnumeric.py:3440: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+C:\Programming\rl_cooperation\lib\site-packages\numpy\core\_methods.py:189: RuntimeWarning: invalid value encountered in double_scalars
+  ret = ret.dtype.type(ret / rcount)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1754it [01:41, 20.66it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3451it [03:05, 20.36it/s]Traceback (most recent call last):
+  File "c:\Programming\rl_cooperation\Pygame_RL_cooperation\Algorithm\DQN_SpaceCannons\agent.PY", line 208, in main
+    observation, reward, done, info = env.step([action1,action2])
+  File "c:\Programming\rl_cooperation\Pygame_RL_cooperation\Algorithm\DQN_SpaceCannons\utils.py", line 27, in step
+    image, reward, done,  info = self.env.step(action)
+  File "c:\programming\rl_cooperation\pygame_rl_cooperation\spacecannons\SpaceCannons\envs\SpaceCannons.py", line 297, in step
+    image = array3d(display.get_surface())
+  File "C:\Programming\rl_cooperation\lib\site-packages\pygame\surfarray.py", line 153, in array3d
+    return numpysf.array3d(surface)
+  File "C:\Programming\rl_cooperation\lib\site-packages\pygame\_numpysurfarray.py", line 155, in array3d
+    surface_to_array(array, surface)
+KeyboardInterrupt
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "c:\Programming\rl_cooperation\Pygame_RL_cooperation\Algorithm\DQN_SpaceCannons\agent.PY", line 309, in <module>
+    main(False)
+  File "c:\Programming\rl_cooperation\Pygame_RL_cooperation\Algorithm\DQN_SpaceCannons\agent.PY", line 303, in main
+    env.close()
+AttributeError: 'FramestackingENV' object has no attribute 'close'

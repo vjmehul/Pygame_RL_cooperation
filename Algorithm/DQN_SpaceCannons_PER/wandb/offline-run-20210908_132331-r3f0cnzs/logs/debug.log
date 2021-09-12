@@ -1,0 +1,18 @@
+2021-09-08 13:23:31,450 INFO    MainThread:36444 [wandb_setup.py:_flush():69] setting env: {}
+2021-09-08 13:23:31,451 INFO    MainThread:36444 [wandb_init.py:_log_setup():342] Logging user logs to C:\Programming\rl_cooperation\Pygame_RL_cooperation\Algorithm\DQN_SpaceCannons_PER\wandb\offline-run-20210908_132331-r3f0cnzs\logs\debug.log
+2021-09-08 13:23:31,451 INFO    MainThread:36444 [wandb_init.py:_log_setup():343] Logging internal logs to C:\Programming\rl_cooperation\Pygame_RL_cooperation\Algorithm\DQN_SpaceCannons_PER\wandb\offline-run-20210908_132331-r3f0cnzs\logs\debug-internal.log
+2021-09-08 13:23:31,453 INFO    MainThread:36444 [wandb_init.py:init():375] calling init triggers
+2021-09-08 13:23:31,453 INFO    MainThread:36444 [wandb_init.py:init():380] wandb.init called with sweep_config: {}
+config: {}
+2021-09-08 13:23:31,454 INFO    MainThread:36444 [wandb_init.py:init():424] starting backend
+2021-09-08 13:23:31,454 INFO    MainThread:36444 [backend.py:_multiprocessing_setup():70] multiprocessing start_methods=spawn, using: spawn
+2021-09-08 13:23:31,471 INFO    MainThread:36444 [backend.py:ensure_launched():135] starting backend process...
+2021-09-08 13:23:32,031 INFO    MainThread:36444 [backend.py:ensure_launched():139] started backend process with pid: 19264
+2021-09-08 13:23:32,033 INFO    MainThread:36444 [wandb_init.py:init():429] backend started and connected
+2021-09-08 13:23:32,037 INFO    MainThread:36444 [wandb_init.py:init():477] updated telemetry
+2021-09-08 13:23:32,040 INFO    MainThread:36444 [wandb_init.py:init():540] starting run threads in backend
+2021-09-08 13:23:33,282 INFO    MainThread:36444 [wandb_run.py:_console_start():1601] atexit reg
+2021-09-08 13:23:33,284 INFO    MainThread:36444 [wandb_run.py:_redirect():1475] redirect: SettingsConsole.WRAP
+2021-09-08 13:23:33,284 INFO    MainThread:36444 [wandb_run.py:_redirect():1512] Wrapping output streams.
+2021-09-08 13:23:33,288 INFO    MainThread:36444 [wandb_run.py:_redirect():1536] Redirects installed.
+2021-09-08 13:23:33,289 INFO    MainThread:36444 [wandb_init.py:init():565] run started, returning control to user process

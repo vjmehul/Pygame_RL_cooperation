@@ -1,0 +1,176 @@
+2021-09-11 12:35:24,013 INFO    MainThread:39904 [internal.py:wandb_internal():86] W&B internal server running at pid: 39904, started at: 2021-09-11 12:35:24.003422
+2021-09-11 12:35:24,014 INFO    WriterThread:39904 [datastore.py:open_for_write():77] open: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\run-38rkl2gx.wandb
+2021-09-11 12:35:24,015 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: check_version
+2021-09-11 12:35:24,017 DEBUG   SenderThread:39904 [sender.py:send():182] send: header
+2021-09-11 12:35:24,017 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: check_version
+2021-09-11 12:35:24,200 DEBUG   SenderThread:39904 [sender.py:send():182] send: run
+2021-09-11 12:35:24,222 DEBUG   SenderThread:39904 [git.py:repo():33] git repository is invalid
+2021-09-11 12:35:24,427 INFO    SenderThread:39904 [dir_watcher.py:__init__():169] watching files in: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files
+2021-09-11 12:35:24,428 INFO    SenderThread:39904 [sender.py:_start_run_threads():740] run started: 38rkl2gx with start time 1631356523
+2021-09-11 12:35:24,428 DEBUG   SenderThread:39904 [sender.py:send():182] send: summary
+2021-09-11 12:35:24,428 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: run_start
+2021-09-11 12:35:24,428 INFO    SenderThread:39904 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-11 12:35:24,451 DEBUG   HandlerThread:39904 [meta.py:__init__():40] meta init
+2021-09-11 12:35:24,451 DEBUG   HandlerThread:39904 [meta.py:__init__():54] meta init done
+2021-09-11 12:35:24,451 DEBUG   HandlerThread:39904 [meta.py:probe():211] probe
+2021-09-11 12:35:24,472 DEBUG   HandlerThread:39904 [git.py:repo():33] git repository is invalid
+2021-09-11 12:35:24,472 DEBUG   HandlerThread:39904 [meta.py:_save_code():90] save code
+2021-09-11 12:35:24,474 DEBUG   HandlerThread:39904 [meta.py:_save_code():111] save code done
+2021-09-11 12:35:24,474 DEBUG   HandlerThread:39904 [meta.py:_save_pip():58] save pip
+2021-09-11 12:35:24,475 DEBUG   HandlerThread:39904 [meta.py:_save_pip():72] save pip done
+2021-09-11 12:35:24,476 DEBUG   HandlerThread:39904 [meta.py:probe():249] probe done
+2021-09-11 12:35:24,483 DEBUG   SenderThread:39904 [sender.py:send():182] send: files
+2021-09-11 12:35:24,505 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-11 12:35:24,508 INFO    SenderThread:39904 [sender.py:_save_file():873] saving file wandb-metadata.json with policy now
+2021-09-11 12:35:24,531 INFO    SenderThread:39904 [sender.py:_save_file():873] saving file code\Algorithm\DQN_SpaceCannons\agent.PY with policy now
+2021-09-11 12:35:24,532 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: stop_status
+2021-09-11 12:35:25,063 INFO    Thread-15 :39904 [upload_job.py:push():137] Uploaded file C:\Users\Shizu\AppData\Local\Temp\tmpg7s9vxdvwandb\tiwyrfec-wandb-metadata.json
+2021-09-11 12:35:25,074 INFO    Thread-16 :39904 [upload_job.py:push():137] Uploaded file C:\Users\Shizu\AppData\Local\Temp\tmpg7s9vxdvwandb\g55e8x9y-code/Algorithm/DQN_SpaceCannons/agent.PY
+2021-09-11 12:35:25,432 INFO    Thread-12 :39904 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files\requirements.txt
+2021-09-11 12:35:25,432 INFO    Thread-12 :39904 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files\wandb-metadata.json
+2021-09-11 12:35:25,432 INFO    Thread-12 :39904 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files\code\Algorithm\DQN_SpaceCannons\agent.PY
+2021-09-11 12:35:25,433 INFO    Thread-12 :39904 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files\wandb-summary.json
+2021-09-11 12:35:25,433 INFO    Thread-12 :39904 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files\output.log
+2021-09-11 12:35:25,433 INFO    Thread-12 :39904 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files\code\Algorithm
+2021-09-11 12:35:25,433 INFO    Thread-12 :39904 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files\code\Algorithm\DQN_SpaceCannons
+2021-09-11 12:35:25,433 INFO    Thread-12 :39904 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files\code
+2021-09-11 12:35:27,442 INFO    Thread-12 :39904 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files\output.log
+2021-09-11 12:35:28,448 INFO    Thread-12 :39904 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files\output.log
+2021-09-11 12:35:28,895 DEBUG   SenderThread:39904 [sender.py:send():182] send: telemetry
+2021-09-11 12:35:28,896 DEBUG   SenderThread:39904 [sender.py:send():182] send: exit
+2021-09-11 12:35:28,896 INFO    SenderThread:39904 [sender.py:send_exit():291] handling exit code: 1
+2021-09-11 12:35:28,896 INFO    SenderThread:39904 [sender.py:send_exit():293] handling runtime: 4
+2021-09-11 12:35:28,897 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:28,898 INFO    SenderThread:39904 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-11 12:35:28,898 INFO    SenderThread:39904 [sender.py:send_exit():303] send defer
+2021-09-11 12:35:28,899 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:28,899 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: defer
+2021-09-11 12:35:28,899 INFO    HandlerThread:39904 [handler.py:handle_request_defer():143] handle defer: 0
+2021-09-11 12:35:28,899 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: defer
+2021-09-11 12:35:28,899 INFO    SenderThread:39904 [sender.py:send_request_defer():312] handle sender defer: 0
+2021-09-11 12:35:28,899 INFO    SenderThread:39904 [sender.py:transition_state():316] send defer: 1
+2021-09-11 12:35:28,900 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: defer
+2021-09-11 12:35:28,900 INFO    HandlerThread:39904 [handler.py:handle_request_defer():143] handle defer: 1
+2021-09-11 12:35:29,046 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: defer
+2021-09-11 12:35:29,046 INFO    SenderThread:39904 [sender.py:send_request_defer():312] handle sender defer: 1
+2021-09-11 12:35:29,046 INFO    SenderThread:39904 [sender.py:transition_state():316] send defer: 2
+2021-09-11 12:35:29,047 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:29,047 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: defer
+2021-09-11 12:35:29,047 INFO    HandlerThread:39904 [handler.py:handle_request_defer():143] handle defer: 2
+2021-09-11 12:35:29,047 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:29,047 DEBUG   SenderThread:39904 [sender.py:send():182] send: stats
+2021-09-11 12:35:29,048 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: defer
+2021-09-11 12:35:29,048 INFO    SenderThread:39904 [sender.py:send_request_defer():312] handle sender defer: 2
+2021-09-11 12:35:29,048 INFO    SenderThread:39904 [sender.py:transition_state():316] send defer: 3
+2021-09-11 12:35:29,048 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: defer
+2021-09-11 12:35:29,048 INFO    HandlerThread:39904 [handler.py:handle_request_defer():143] handle defer: 3
+2021-09-11 12:35:29,049 DEBUG   SenderThread:39904 [sender.py:send():182] send: summary
+2021-09-11 12:35:29,049 INFO    SenderThread:39904 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-11 12:35:29,049 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: defer
+2021-09-11 12:35:29,049 INFO    SenderThread:39904 [sender.py:send_request_defer():312] handle sender defer: 3
+2021-09-11 12:35:29,049 INFO    SenderThread:39904 [sender.py:transition_state():316] send defer: 4
+2021-09-11 12:35:29,050 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: defer
+2021-09-11 12:35:29,050 INFO    HandlerThread:39904 [handler.py:handle_request_defer():143] handle defer: 4
+2021-09-11 12:35:29,050 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: defer
+2021-09-11 12:35:29,050 INFO    SenderThread:39904 [sender.py:send_request_defer():312] handle sender defer: 4
+2021-09-11 12:35:29,154 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:29,458 INFO    Thread-12 :39904 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files\output.log
+2021-09-11 12:35:29,458 INFO    Thread-12 :39904 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files\wandb-summary.json
+2021-09-11 12:35:30,695 INFO    SenderThread:39904 [sender.py:transition_state():316] send defer: 5
+2021-09-11 12:35:30,695 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:30,696 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: defer
+2021-09-11 12:35:30,696 INFO    HandlerThread:39904 [handler.py:handle_request_defer():143] handle defer: 5
+2021-09-11 12:35:30,696 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: defer
+2021-09-11 12:35:30,696 INFO    SenderThread:39904 [sender.py:send_request_defer():312] handle sender defer: 5
+2021-09-11 12:35:30,696 INFO    SenderThread:39904 [dir_watcher.py:finish():283] shutting down directory watcher
+2021-09-11 12:35:30,809 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:31,467 INFO    SenderThread:39904 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files\config.yaml
+2021-09-11 12:35:31,468 INFO    SenderThread:39904 [dir_watcher.py:finish():313] scan: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files
+2021-09-11 12:35:31,468 INFO    SenderThread:39904 [dir_watcher.py:finish():327] scan save: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files\config.yaml config.yaml
+2021-09-11 12:35:31,468 INFO    SenderThread:39904 [dir_watcher.py:finish():327] scan save: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files\output.log output.log
+2021-09-11 12:35:31,469 INFO    SenderThread:39904 [dir_watcher.py:finish():327] scan save: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files\requirements.txt requirements.txt
+2021-09-11 12:35:31,474 INFO    SenderThread:39904 [dir_watcher.py:finish():327] scan save: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files\wandb-metadata.json wandb-metadata.json
+2021-09-11 12:35:31,474 INFO    SenderThread:39904 [dir_watcher.py:finish():327] scan save: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files\wandb-summary.json wandb-summary.json
+2021-09-11 12:35:31,480 INFO    SenderThread:39904 [dir_watcher.py:finish():327] scan save: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files\code\Algorithm\DQN_SpaceCannons\agent.PY code\Algorithm\DQN_SpaceCannons\agent.PY
+2021-09-11 12:35:31,480 INFO    SenderThread:39904 [sender.py:transition_state():316] send defer: 6
+2021-09-11 12:35:31,480 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:31,481 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: defer
+2021-09-11 12:35:31,481 INFO    HandlerThread:39904 [handler.py:handle_request_defer():143] handle defer: 6
+2021-09-11 12:35:31,481 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: defer
+2021-09-11 12:35:31,481 INFO    SenderThread:39904 [sender.py:send_request_defer():312] handle sender defer: 6
+2021-09-11 12:35:31,481 INFO    SenderThread:39904 [file_pusher.py:finish():177] shutting down file pusher
+2021-09-11 12:35:31,587 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:31,587 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:31,693 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:31,693 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:31,800 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:31,801 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:31,906 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:31,907 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:32,012 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:32,012 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:32,119 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:32,119 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:32,225 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:32,226 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:32,332 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:32,333 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:32,438 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:32,439 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:32,544 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:32,544 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:32,651 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:32,652 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:32,757 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:32,757 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:32,863 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:32,864 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:32,969 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:32,969 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:33,076 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:33,076 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:33,182 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:33,183 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:33,287 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:33,288 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:33,370 INFO    Thread-20 :39904 [upload_job.py:push():137] Uploaded file C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files\wandb-summary.json
+2021-09-11 12:35:33,394 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:33,395 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:33,427 INFO    Thread-19 :39904 [upload_job.py:push():137] Uploaded file C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files\requirements.txt
+2021-09-11 12:35:33,432 INFO    Thread-18 :39904 [upload_job.py:push():137] Uploaded file C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files\output.log
+2021-09-11 12:35:33,445 INFO    Thread-17 :39904 [upload_job.py:push():137] Uploaded file C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\files\config.yaml
+2021-09-11 12:35:33,500 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:33,501 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:33,605 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:33,606 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:33,650 INFO    Thread-11 :39904 [sender.py:transition_state():316] send defer: 7
+2021-09-11 12:35:33,651 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: defer
+2021-09-11 12:35:33,651 INFO    HandlerThread:39904 [handler.py:handle_request_defer():143] handle defer: 7
+2021-09-11 12:35:33,651 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: defer
+2021-09-11 12:35:33,651 INFO    SenderThread:39904 [sender.py:send_request_defer():312] handle sender defer: 7
+2021-09-11 12:35:33,711 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:33,783 INFO    SenderThread:39904 [sender.py:transition_state():316] send defer: 8
+2021-09-11 12:35:33,783 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:33,783 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: defer
+2021-09-11 12:35:33,783 INFO    HandlerThread:39904 [handler.py:handle_request_defer():143] handle defer: 8
+2021-09-11 12:35:33,783 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: defer
+2021-09-11 12:35:33,784 INFO    SenderThread:39904 [sender.py:send_request_defer():312] handle sender defer: 8
+2021-09-11 12:35:33,784 INFO    SenderThread:39904 [sender.py:transition_state():316] send defer: 9
+2021-09-11 12:35:33,784 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: defer
+2021-09-11 12:35:33,784 INFO    HandlerThread:39904 [handler.py:handle_request_defer():143] handle defer: 9
+2021-09-11 12:35:33,784 DEBUG   SenderThread:39904 [sender.py:send():182] send: final
+2021-09-11 12:35:33,784 DEBUG   SenderThread:39904 [sender.py:send():182] send: footer
+2021-09-11 12:35:33,784 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: defer
+2021-09-11 12:35:33,784 INFO    SenderThread:39904 [sender.py:send_request_defer():312] handle sender defer: 9
+2021-09-11 12:35:33,893 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-11 12:35:33,893 DEBUG   SenderThread:39904 [sender.py:send_request():196] send_request: poll_exit
+2021-09-11 12:35:33,893 INFO    SenderThread:39904 [file_pusher.py:join():182] waiting for file pusher
+2021-09-11 12:35:33,896 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: get_summary
+2021-09-11 12:35:33,897 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: sampled_history
+2021-09-11 12:35:33,897 DEBUG   HandlerThread:39904 [handler.py:handle_request():126] handle_request: shutdown
+2021-09-11 12:35:33,897 INFO    HandlerThread:39904 [handler.py:finish():683] shutting down handler
+2021-09-11 12:35:34,785 INFO    WriterThread:39904 [datastore.py:close():281] close: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210911_123523-38rkl2gx\run-38rkl2gx.wandb
+2021-09-11 12:35:34,906 INFO    SenderThread:39904 [sender.py:finish():979] shutting down sender
+2021-09-11 12:35:34,906 INFO    SenderThread:39904 [file_pusher.py:finish():177] shutting down file pusher
+2021-09-11 12:35:34,907 INFO    SenderThread:39904 [file_pusher.py:join():182] waiting for file pusher
+2021-09-11 12:35:34,909 INFO    MainThread:39904 [internal.py:handle_exit():76] Internal process exited

@@ -1,0 +1,103 @@
+2021-09-08 08:43:37,893 INFO    MainThread:26608 [internal.py:wandb_internal():86] W&B internal server running at pid: 26608, started at: 2021-09-08 08:43:37.883071
+2021-09-08 08:43:37,901 INFO    WriterThread:26608 [datastore.py:open_for_write():77] open: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\run-6la3vlef.wandb
+2021-09-08 08:43:37,902 DEBUG   HandlerThread:26608 [handler.py:handle_request():126] handle_request: check_version
+2021-09-08 08:43:37,905 DEBUG   SenderThread:26608 [sender.py:send():182] send: header
+2021-09-08 08:43:37,906 DEBUG   SenderThread:26608 [sender.py:send_request():196] send_request: check_version
+2021-09-08 08:43:38,066 DEBUG   SenderThread:26608 [sender.py:send():182] send: run
+2021-09-08 08:43:38,093 DEBUG   SenderThread:26608 [git.py:repo():33] git repository is invalid
+2021-09-08 08:43:38,306 DEBUG   HandlerThread:26608 [handler.py:handle_request():126] handle_request: run_start
+2021-09-08 08:43:38,311 INFO    SenderThread:26608 [dir_watcher.py:__init__():169] watching files in: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files
+2021-09-08 08:43:38,312 INFO    SenderThread:26608 [sender.py:_start_run_threads():740] run started: 6la3vlef with start time 1631083416
+2021-09-08 08:43:38,312 DEBUG   SenderThread:26608 [sender.py:send():182] send: summary
+2021-09-08 08:43:38,312 INFO    SenderThread:26608 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-08 08:43:38,341 DEBUG   HandlerThread:26608 [meta.py:__init__():40] meta init
+2021-09-08 08:43:38,341 DEBUG   HandlerThread:26608 [meta.py:__init__():54] meta init done
+2021-09-08 08:43:38,342 DEBUG   HandlerThread:26608 [meta.py:probe():211] probe
+2021-09-08 08:43:38,362 DEBUG   HandlerThread:26608 [git.py:repo():33] git repository is invalid
+2021-09-08 08:43:38,362 DEBUG   HandlerThread:26608 [meta.py:_save_pip():58] save pip
+2021-09-08 08:43:38,363 DEBUG   HandlerThread:26608 [meta.py:_save_pip():72] save pip done
+2021-09-08 08:43:38,363 DEBUG   HandlerThread:26608 [meta.py:probe():249] probe done
+2021-09-08 08:43:38,416 DEBUG   SenderThread:26608 [sender.py:send():182] send: files
+2021-09-08 08:43:38,416 INFO    SenderThread:26608 [sender.py:_save_file():873] saving file wandb-metadata.json with policy now
+2021-09-08 08:43:38,438 DEBUG   HandlerThread:26608 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-08 08:43:38,439 DEBUG   SenderThread:26608 [sender.py:send_request():196] send_request: stop_status
+2021-09-08 08:43:38,993 INFO    Thread-21 :26608 [upload_job.py:push():137] Uploaded file C:\Users\Shizu\AppData\Local\Temp\tmpafanu7c8wandb\25fdu0zs-wandb-metadata.json
+2021-09-08 08:43:39,326 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\wandb-metadata.json
+2021-09-08 08:43:39,326 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\output.log
+2021-09-08 08:43:39,327 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\requirements.txt
+2021-09-08 08:43:39,327 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\wandb-summary.json
+2021-09-08 08:43:42,350 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\output.log
+2021-09-08 08:43:44,369 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\output.log
+2021-09-08 08:43:48,419 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\output.log
+2021-09-08 08:43:50,435 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\output.log
+2021-09-08 08:43:52,441 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\output.log
+2021-09-08 08:43:53,591 DEBUG   HandlerThread:26608 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-08 08:43:53,591 DEBUG   SenderThread:26608 [sender.py:send_request():196] send_request: stop_status
+2021-09-08 08:44:08,769 DEBUG   SenderThread:26608 [sender.py:send():182] send: stats
+2021-09-08 08:44:10,339 DEBUG   HandlerThread:26608 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-08 08:44:10,339 DEBUG   SenderThread:26608 [sender.py:send_request():196] send_request: stop_status
+2021-09-08 08:44:16,643 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\output.log
+2021-09-08 08:44:20,070 DEBUG   SenderThread:26608 [sender.py:send():182] send: history
+2021-09-08 08:44:20,070 DEBUG   SenderThread:26608 [sender.py:send():182] send: summary
+2021-09-08 08:44:20,080 INFO    SenderThread:26608 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-08 08:44:20,686 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\output.log
+2021-09-08 08:44:20,686 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\wandb-summary.json
+2021-09-08 08:44:23,090 DEBUG   SenderThread:26608 [sender.py:send():182] send: history
+2021-09-08 08:44:23,090 DEBUG   SenderThread:26608 [sender.py:send():182] send: summary
+2021-09-08 08:44:23,092 INFO    SenderThread:26608 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-08 08:44:23,720 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\output.log
+2021-09-08 08:44:23,720 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\wandb-summary.json
+2021-09-08 08:44:32,785 DEBUG   HandlerThread:26608 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-08 08:44:32,785 DEBUG   SenderThread:26608 [sender.py:send():182] send: history
+2021-09-08 08:44:32,785 DEBUG   SenderThread:26608 [sender.py:send():182] send: summary
+2021-09-08 08:44:32,796 INFO    SenderThread:26608 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-08 08:44:32,797 DEBUG   SenderThread:26608 [sender.py:send_request():196] send_request: stop_status
+2021-09-08 08:44:33,763 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\wandb-summary.json
+2021-09-08 08:44:35,043 DEBUG   SenderThread:26608 [sender.py:send():182] send: history
+2021-09-08 08:44:35,043 DEBUG   SenderThread:26608 [sender.py:send():182] send: summary
+2021-09-08 08:44:35,052 INFO    SenderThread:26608 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-08 08:44:35,789 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\output.log
+2021-09-08 08:44:35,790 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\wandb-summary.json
+2021-09-08 08:44:37,573 DEBUG   SenderThread:26608 [sender.py:send():182] send: history
+2021-09-08 08:44:37,573 DEBUG   SenderThread:26608 [sender.py:send():182] send: summary
+2021-09-08 08:44:37,574 INFO    SenderThread:26608 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-08 08:44:37,810 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\output.log
+2021-09-08 08:44:37,810 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\wandb-summary.json
+2021-09-08 08:44:41,304 DEBUG   SenderThread:26608 [sender.py:send():182] send: stats
+2021-09-08 08:44:53,045 DEBUG   SenderThread:26608 [sender.py:send():182] send: history
+2021-09-08 08:44:53,045 DEBUG   SenderThread:26608 [sender.py:send():182] send: summary
+2021-09-08 08:44:53,046 INFO    SenderThread:26608 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-08 08:44:53,694 DEBUG   HandlerThread:26608 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-08 08:44:53,694 DEBUG   SenderThread:26608 [sender.py:send_request():196] send_request: stop_status
+2021-09-08 08:44:53,940 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\output.log
+2021-09-08 08:44:53,941 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\wandb-summary.json
+2021-09-08 08:44:55,710 DEBUG   SenderThread:26608 [sender.py:send():182] send: history
+2021-09-08 08:44:55,710 DEBUG   SenderThread:26608 [sender.py:send():182] send: summary
+2021-09-08 08:44:55,711 INFO    SenderThread:26608 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-08 08:44:55,942 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\wandb-summary.json
+2021-09-08 08:44:56,944 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\output.log
+2021-09-08 08:44:57,817 DEBUG   SenderThread:26608 [sender.py:send():182] send: history
+2021-09-08 08:44:57,817 DEBUG   SenderThread:26608 [sender.py:send():182] send: summary
+2021-09-08 08:44:57,818 INFO    SenderThread:26608 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-08 08:44:57,945 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\wandb-summary.json
+2021-09-08 08:44:58,961 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\output.log
+2021-09-08 08:45:13,853 DEBUG   SenderThread:26608 [sender.py:send():182] send: stats
+2021-09-08 08:45:46,441 DEBUG   SenderThread:26608 [sender.py:send():182] send: stats
+2021-09-08 08:46:19,009 DEBUG   SenderThread:26608 [sender.py:send():182] send: stats
+2021-09-08 08:46:51,589 DEBUG   SenderThread:26608 [sender.py:send():182] send: stats
+2021-09-08 08:47:24,148 DEBUG   SenderThread:26608 [sender.py:send():182] send: stats
+2021-09-08 08:47:56,689 DEBUG   SenderThread:26608 [sender.py:send():182] send: stats
+2021-09-08 08:47:59,038 DEBUG   SenderThread:26608 [sender.py:send():182] send: history
+2021-09-08 08:47:59,039 DEBUG   SenderThread:26608 [sender.py:send():182] send: summary
+2021-09-08 08:47:59,040 INFO    SenderThread:26608 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-08 08:47:59,069 DEBUG   HandlerThread:26608 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-08 08:47:59,069 DEBUG   SenderThread:26608 [sender.py:send_request():196] send_request: stop_status
+2021-09-08 08:47:59,163 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\wandb-summary.json
+2021-09-08 08:47:59,846 DEBUG   SenderThread:26608 [sender.py:send():182] send: history
+2021-09-08 08:47:59,847 DEBUG   SenderThread:26608 [sender.py:send():182] send: summary
+2021-09-08 08:47:59,847 INFO    SenderThread:26608 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-08 08:48:00,175 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\wandb-summary.json
+2021-09-08 08:48:01,187 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\output.log
+2021-09-08 08:48:14,258 DEBUG   HandlerThread:26608 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-08 08:48:14,259 DEBUG   SenderThread:26608 [sender.py:send_request():196] send_request: stop_status
+2021-09-08 08:48:21,396 INFO    Thread-18 :26608 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Programming\rl_cooperation\Pygame_RL_cooperation\wandb\run-20210908_084336-6la3vlef\files\output.log
