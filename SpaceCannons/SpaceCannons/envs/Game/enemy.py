@@ -4,7 +4,7 @@ import random
 import os
 dir_path = os.path.dirname(os.path.realpath(__file__))
 eny_id_list=[0]
-
+import numpy as np
 import pandas as pd
 i=0
 
@@ -15,12 +15,6 @@ class Enemy(pygame.sprite.Sprite):
         super(Enemy, self).__init__()
 
         enemylist = ['dragon3.png','miniboss.png','big_boss.png']
-        # if game_level ==1:
-        #     self.weights=[100,0,0]
-        # if game_level ==2:
-        #     self.weights = [70,30,0]
-        # if game_level ==3:
-        #     self.weights=[90,7,3]
         self.weights = difficulty_weights
         enemy_name = random.choices(enemylist, weights=self.weights, cum_weights=None, k=1)
 
@@ -39,7 +33,6 @@ class Enemy(pygame.sprite.Sprite):
 
             self.type='miniboss'
             self.mask = pygame.mask.from_surface(self.image)
-            self.coordinate_hitcounts=0
             self.single_hit_1=0
             self.single_hit_2=0
 
@@ -66,7 +59,6 @@ class Enemy(pygame.sprite.Sprite):
             eny_id=max(eny_id_list)+1
             self.Enemy_id='E1'+str(eny_id)
             eny_id_list.append(eny_id)
-            self.coordinate_hitcounts=0
             self.single_hit_1=0
             self.single_hit_2=0
             self.kill_tag=0
@@ -85,7 +77,6 @@ class Enemy(pygame.sprite.Sprite):
             self.penalty_value = 15
             self.type='BOSS'
             self.mask = pygame.mask.from_surface(self.image)
-            self.coordinate_hitcounts=0
             self.single_hit_1=0
             self.single_hit_2=0
             self.kill_tag=0
@@ -138,55 +129,66 @@ class Enemy(pygame.sprite.Sprite):
     def get_hit(self):
         reward1=0
         reward2=0
-        inter_df=pd.DataFrame()
+        inter_df=pd.DataFrame(0, index=np.arange(len([1])), columns=['coop_kill_mini',
+                                                                     'coop_kill_miniboss',
+                                                                     'A1_kill_miniboss',
+                                                                     'A2_kill_miniboss',
+                                                                     'A1_kill_mini',
+                                                                     'A2_kill_mini'])
+        coop_kill_miniboss = 0
+        coop_kill_mini = 0
+        A1_kill_miniboss = 0
+        A2_kill_miniboss = 0
+        A1_kill_mini=0
+        A2_kill_mini=0
         if not self.is_invincible:
             self.hp -= 1
-
             if self.hp <= 0:
                 coop_hit=False
                 if self.type=='miniboss':
 
-                    # coop_factor= 1-math.sqrt(math.pow((self.single_hit_1-self.single_hit_2),2))/self.static_hp
                     indi_factor_1=self.single_hit_1/self.static_hp
                     indi_factor_2=self.single_hit_2/self.static_hp
                     coop_factor = 1 - abs(indi_factor_1-indi_factor_2)
-                    
+
                     if coop_factor >= c.coop_factor:
-                        coop_hit=True
                         # ADD COOP BONUS
                         print("Coop+shot")
                         reward1=coop_factor*indi_factor_1*20
                         reward2=coop_factor*indi_factor_2*20
                         self.kill_tag='CC'
+                        coop_kill_miniboss = 1
+
                     else:
                         if indi_factor_1>indi_factor_2:
                             reward1=1
                             self.kill_tag='CD'
+                            A1_kill_miniboss = 1
                         if indi_factor_2>indi_factor_1:
                             reward2=1
                             self.kill_tag='DC'
+                            A2_kill_miniboss = 1
 
                 if self.type=='mini':
                     if self.single_hit_1==self.single_hit_2:
                         reward1=1
                         reward2=1
+                        coop_kill_mini=1
                     if self.single_hit_1 > 2:
                         reward1=1
                         reward2=0
+                        A1_kill_mini=1
                     if self.single_hit_2 > 2:
                         reward1=0
                         reward2=1
+                        A2_kill_mini=1
 
-
-
-                inter_df['coordinated_hits']=[self.coordinate_hitcounts]
-                inter_df['single_hit_1']=[self.single_hit_1]
-                inter_df['single_hit_2']=[self.single_hit_2]
-                inter_df['static_hp']=[self.static_hp]
-                inter_df['reward1']=[reward1]
-                inter_df['reward2']=[reward2]
-                inter_df['enemytype']=[self.type]
-                inter_df['coop_hit']=coop_hit
+                inter_df['coop_kill_mini'].iloc[0]=coop_kill_mini
+                inter_df['coop_kill_miniboss'].iloc[0]=coop_kill_miniboss
+                inter_df['A1_kill_miniboss'].iloc[0]=A1_kill_miniboss
+                inter_df['A2_kill_miniboss'].iloc[0]=A2_kill_miniboss
+                inter_df['A1_kill_mini'].iloc[0]=A1_kill_mini
+                inter_df['A2_kill_mini'].iloc[0]=A2_kill_mini
 
                 self.is_invincible = True
                 self.is_destroyed = True
@@ -197,7 +199,6 @@ class Enemy(pygame.sprite.Sprite):
                 self.image = self.anim_explosion1[self.anime1_index]
         else:
             pass
-
 
         return reward1, reward2, inter_df
 

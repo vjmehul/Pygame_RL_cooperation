@@ -76,13 +76,6 @@ def train_step(model, state_transition, tgt, num_actions, device):
     #calculate error
     error = q_state_action - q_target_in  # calculate TD ERROR
 
-    # create huber loss function
-    # loss_fn = nn.SmoothL1Loss()
-    # loss = loss_fn(
-    #     q_state_action,
-    #     q_target_in  # 0.99 is discount factor
-    #     )
-
     loss = l1_loss_smooth(q_state_action,q_target_in)
 
     loss = loss  *  torch.cuda.FloatTensor(importance)
@@ -144,6 +137,7 @@ def main(test=False, chkpt=None, device = 'cuda'):
     # training hyperparameter for epsilon
     eps_max=c.eps_max
     eps_min=c.eps_min
+    eps=eps_max
     eps_decay=c.eps_decay
 
     #replay buffer parameters
@@ -162,8 +156,21 @@ def main(test=False, chkpt=None, device = 'cuda'):
     episode_reward2=[]
     rolling_reward2=0
 
-
-
+    A1_kill_miniboss=0
+    A2_kill_miniboss=0
+    A1_kill_mini =0
+    A2_kill_mini=0
+    evasive_count_miniboss = 0
+    evasive_count_mini = 0
+    tot_evasive_count=0
+    coop_kill_mini=0
+    coop_kill_miniboss=0
+    A1_kills=0
+    A2_kills=0
+    Tot_Bullet_penalty =0
+    Tot_bullet_penalty_1=0
+    Tot_bullet_penalty_2=0
+    Game_num=0
 
     # define convolution model  "Agent 1"
     m1 = ConvModel(env.observation_space.shape, 4, lr = c.lr).to(device)
@@ -212,7 +219,10 @@ def main(test=False, chkpt=None, device = 'cuda'):
                 env.render()
 
             # calculate epsilon
-            eps=eps_decay**(step_num)
+            if not eps == 0:
+                eps=eps_decay**(step_num)
+            else:
+                eps = c.eps_min
 
             # no exploration during testing
             if test:
@@ -235,14 +245,33 @@ def main(test=False, chkpt=None, device = 'cuda'):
             # run the actions on the model
             observation, reward, done, info = env.step([action1,action2])
 
-
+            if done==True:
+                Game_num+=1
+                
             #accumulate rewards
             rolling_reward1 += reward[0]
             rolling_reward2 += reward[1]
 
 
-            # scale rewards???????
-            # reward=reward/100
+            A1_kill_miniboss += info['A1_kill_miniboss']
+            A2_kill_miniboss += info['A2_kill_miniboss']
+            A1_kill_mini += info['A1_kill_mini']
+            A2_kill_mini += info['A2_kill_mini']
+            A1_kills += info['A1_kills']
+            A2_kills += info['A2_kills']
+
+            evasive_count_miniboss  +=  info['evasive_count_miniboss']
+            evasive_count_mini  +=  info['evasive_count_mini']
+            tot_evasive_count += info['evasive_count_mini'] + info['evasive_count_miniboss']
+
+            
+            coop_kill_mini += info['coop_kill_mini']
+            coop_kill_miniboss += info['coop_kill_miniboss']
+
+            Tot_Bullet_penalty += info['Tot_Bullet_penalty']
+            Tot_bullet_penalty_1 += info['Tot_bullet_penalty_1']
+            Tot_bullet_penalty_2 += info['Tot_bullet_penalty_2']
+            
 
             # Update replaybuffer Agent 1
             rb1.insert(SARSD(last_observation, action1, reward[0], observation, done))
@@ -299,29 +328,37 @@ def main(test=False, chkpt=None, device = 'cuda'):
                 A2_avg_reward = np.mean(episode_reward2)
 
                 # log loss1 and loss2
-                wandb.log(
-                    {
-                    'loss1':loss1.detach().cpu().item(),
-                    'loss2':loss2.detach().cpu().item(),
+                wandb.log({'loss1':loss1.detach().cpu().item(),
+                           'loss2':loss2.detach().cpu().item(),
 
-                    'eps': eps,
+                           'eps': eps,
 
-                    'Agent1_avg_reward': A1_avg_reward,
-                    'Agent2_avg_reward': A2_avg_reward,
-                    'Avg_reward': (A1_avg_reward+A2_avg_reward)/2,
+                           'Agent1_avg_reward': A1_avg_reward,
+                           'Agent2_avg_reward': A2_avg_reward,
+                           'Avg_reward': (A1_avg_reward+A2_avg_reward)/2,
 
-                    'Enemy1_killed':info['Enemy1_kill'],
-                    'Enemy2_killed':info['Enemy2_kill'],
-                    'enemy1_evasive_count':info['enemy1_evasive_count'],
-                    'enemy2_evasive_count':info['enemy2_evasive_count'],
-                    'coophit_mini':info['coophit_mini'],
-                    'coophit_miniboss':info['coophit_miniboss'],
-                    'A1_kills':info['A1_kills'],
-                    'A2_kills':info['A2_kills'],
-                    'Tot_Bullet_penalty':info['Tot_Bullet_penalty'],
+                           'A1_kill_miniboss':A1_kill_miniboss,
+                           'A2_kill_miniboss':A2_kill_miniboss,
+                           'A1_kill_mini':A1_kill_mini,
+                           'A2_kill_mini':A2_kill_mini,
+                           'A1_kills':A1_kills,
+                           'A2_kills':A2_kills,
 
-                    },
-                    step=step_num)
+
+                           'evasive_count_miniboss':evasive_count_miniboss,
+                           'evasive_count_mini':evasive_count_mini,
+
+
+                           'coop_kill_mini':coop_kill_mini,
+                           'coop_kill_miniboss':coop_kill_miniboss,
+
+
+                           'Tot_Bullet_penalty':Tot_Bullet_penalty,
+                           'Tot_bullet_penalty_1':Tot_bullet_penalty_1,
+                           'Tot_bullet_penalty_2':Tot_bullet_penalty_2,
+                           'game_num':Game_num
+
+                           }, step=step_num)
 
 
                 #Reinitiate train counter after training

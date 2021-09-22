@@ -14,7 +14,7 @@ tgt_model_update = 1000       # target model update frequency  # recommended for
 epochs_since_tgt = 0   # Counter to find how many steps has been passed before the last TARGET model update
 
 #Test frequency
-epochs_before_test = 5000  # frequency for testing the model # recoom. 100000
+epochs_before_test = 50  # frequency for testing the model # recoom. 100000
 
 #Save frequency
 Save_frequency = 5000

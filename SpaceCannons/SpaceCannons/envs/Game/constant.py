@@ -13,3 +13,7 @@ coop_factor=0.5
 
 game_difficulty_metric = 1
 bullet_penalty = 0.1
+
+
+miniboss_evade_penalty = -2
+mini_evade_penalty = -1

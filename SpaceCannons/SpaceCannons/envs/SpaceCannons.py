@@ -19,6 +19,7 @@ import os
 
 import gym
 from gym import spaces
+from torch.nn.functional import interpolate
 
 
 
@@ -57,9 +58,6 @@ class SpaceCannons(gym.Env):
         
         self.game_level=2
 
-        self.coop_hit_mini=0
-        self.coop_hit_miniboss=0
-        
         self.enemy1_kill_count=0
         self.enemy2_kill_count=0
 
@@ -105,6 +103,17 @@ class SpaceCannons(gym.Env):
         reward_3 = 0
         bullet_penalty_1 = 0
         bullet_penalty_2 = 0
+        evasive_count_miniboss=0
+        evasive_count_mini=0
+        self.total_bullet_penalty=0
+
+        A1_kill_miniboss=0
+        A2_kill_miniboss=0
+        A1_kill_mini =0
+        A2_kill_mini=0
+        A2_kill_mini=0
+        coop_kill_mini=0
+        coop_kill_miniboss=0
 
         if action[0]==0:
             if not self.player1.angle <-70:
@@ -127,9 +136,7 @@ class SpaceCannons(gym.Env):
 
             if self.bullet_count_red >= 0:
                 self.player1.shoot(self.player1.angle,self.screen)
-                # bullet_penalty_1 -= 0.1
-                # self.player1.hud.score.update_score(bullet_penalty_1)
-                # self.bullet_count_red -= 1
+
             if self.bullet_count_red == 0:
                 self.last = pygame.time.get_ticks()
 
@@ -138,9 +145,7 @@ class SpaceCannons(gym.Env):
 
             if self.bullet_count_blue >= 0:
                 self.player2.shoot(self.player1.angle, self.screen)
-                # self.bullet_count_blue -= 1
-                # bullet_penalty_2 -= 0.1
-                # self.player1.hud.score.update_score(bullet_penalty_2)
+
             if self.bullet_count_blue == 0:
                 self.last_b = pygame.time.get_ticks()
 
@@ -157,30 +162,23 @@ class SpaceCannons(gym.Env):
                     for bullet2, enemy2 in collided_2.items():
                         if enemy1[0].Enemy_id == enemy2[0].Enemy_id and enemy1[0].type=='mini' and not enemy1[0].hp <= 0:
 
-                            enemy1[0].coordinate_hitcounts+=1
                             enemy1[0].single_hit_1+=1
                             enemy1[0].single_hit_2+=1
-                            # if enemy1[0].hp<=2:
-                            #     print('wtf')
-                            #Game statistics
-                            self.coop_hit_mini +=1
 
-                            #kill enemy if the health is low
-                            if enemy1[0].hp<=2 and enemy1[0].type=='mini':
-                                self.enemy1_kill_count+=1
-                            if enemy1[0].hp<=2 and enemy1[0].type=='miniboss':
-                                self.enemy2_kill_count+=1
-
-                            #decrease enemy health
+                             #decrease enemy health
                             enemy1[0].get_hit()
                             reward_1, reward_2, interdf = enemy2[0].get_hit()
-                            if not interdf.empty:
-                                kill_stat=kill_stat.append(interdf)
+
+                            A1_kill_miniboss=interdf['A1_kill_miniboss'][0]
+                            A2_kill_miniboss=interdf['A2_kill_miniboss'][0]
+                            A1_kill_mini =interdf['A1_kill_mini'][0]
+                            A2_kill_mini=interdf['A2_kill_mini'][0]
+                            coop_kill_mini=interdf['coop_kill_mini'][0]
+                            coop_kill_miniboss=interdf['coop_kill_miniboss'][0]
+
                             #destroy bullets
                             bullet2.kill()
                             del bullet2
-                            #update scores on HUD
-                            # self.player1.hud.score.update_score(1)
                             bullet1.kill()
                             del bullet1
                             break
@@ -189,29 +187,23 @@ class SpaceCannons(gym.Env):
             if list(collided_1.values())[0][0].Enemy_id == list(collided_2.values())[0][0].Enemy_id and list(collided_2.values())[0][0].type=='miniboss':
                 for bullet1, enemy1 in collided_1.items():
                     for bullet2, enemy2 in collided_2.items():
-                        if enemy1[0].Enemy_id == enemy2[0].Enemy_id and enemy1[0].type=='miniboss'  and not enemy1[0].hp <= 0:
-                            enemy1[0].coordinate_hitcounts+=1
+                        if enemy1[0].Enemy_id == enemy2[0].Enemy_id and enemy1[0].type=='miniboss' and not enemy1[0].hp <= 0:
 
                             enemy1[0].single_hit_1+=1
                             enemy1[0].single_hit_2+=1
-
-                            ###testing##
-                            if enemy1[0].hp<=2:
-                                print('wtf')
-
-                            #Game statistics
-                            self.coop_hit_miniboss +=1
-                            if enemy1[0].hp<=1 and enemy1[0].type=='mini':
-                                self.enemy1_kill_count+=1
-                            if enemy1[0].hp<=1 and enemy1[0].type=='miniboss':
-                                self.enemy2_kill_count+=1
 
 
                             #decrease enemy health
                             enemy1[0].get_hit()
                             reward_1, reward_2, interdf = enemy2[0].get_hit()
-                            if not interdf.empty:
-                               kill_stat=kill_stat.append(interdf)
+
+                            A1_kill_miniboss=interdf['A1_kill_miniboss'][0]
+                            A2_kill_miniboss=interdf['A2_kill_miniboss'][0]
+                            A1_kill_mini =interdf['A1_kill_mini'][0]
+                            A2_kill_mini=interdf['A2_kill_mini'][0]
+                            coop_kill_mini=interdf['coop_kill_mini'][0]
+                            coop_kill_miniboss=interdf['coop_kill_miniboss'][0]
+
                             #destroy bullets
                             bullet2.kill()
                             del bullet2
@@ -224,17 +216,16 @@ class SpaceCannons(gym.Env):
             for bullet1, enemy1 in collided_1.items():
                 # # creating statistics for the killed  enemy
                 if  not enemy1[0].hp <= 0:
-                    if enemy1[0].hp<=1 and enemy1[0].type=='mini':
-                        self.enemy1_kill_count+=1
-                        self.A1_kills +=1
-                    if enemy1[0].hp<=1 and enemy1[0].type=='miniboss':
-                        self.enemy2_kill_count+=1
-                        self.A1_kills +=1
                     enemy1[0].single_hit_1 +=1
                     #hit the enemy
                     reward_1, reward_2,interdf = enemy1[0].get_hit()
-                    if not interdf.empty:
-                            kill_stat=kill_stat.append(interdf)
+                    
+                    A1_kill_miniboss=interdf['A1_kill_miniboss'][0]
+                    A2_kill_miniboss=interdf['A2_kill_miniboss'][0]
+                    A1_kill_mini =interdf['A1_kill_mini'][0]
+                    A2_kill_mini=interdf['A2_kill_mini'][0]
+                    coop_kill_mini=interdf['coop_kill_mini'][0]
+                    coop_kill_miniboss=interdf['coop_kill_miniboss'][0]
 
                     #destroy bullets
                     bullet1.kill()
@@ -243,23 +234,18 @@ class SpaceCannons(gym.Env):
 
         if collided_2:
             for bullet2, enemy2 in collided_2.items():
-
                 if  not enemy2[0].hp <= 0:
-
-                    # creating statistics for the killed  enemy
-                    if enemy2[0].hp<=1 and enemy2[0].type=='mini':
-                        self.enemy1_kill_count+=1
-                        self.A2_kills +=1
-                    if enemy2[0].hp<=1 and enemy2[0].type=='miniboss':
-                        self.enemy2_kill_count+=1
-                        self.A2_kills +=1
-
                     enemy2[0].single_hit_2 +=1
-
                     #hit the enemy
                     reward_1, reward_2,interdf = enemy2[0].get_hit()
-                    if not interdf.empty:
-                       kill_stat= kill_stat.append(interdf)
+
+                    A1_kill_miniboss=interdf['A1_kill_miniboss'][0]
+                    A2_kill_miniboss=interdf['A2_kill_miniboss'][0]
+                    A1_kill_mini =interdf['A1_kill_mini'][0]
+                    A2_kill_mini=interdf['A2_kill_mini'][0]
+                    coop_kill_mini=interdf['coop_kill_mini'][0]
+                    coop_kill_miniboss=interdf['coop_kill_miniboss'][0]
+
                     #destroy bullets
                     bullet2.kill()
                     del bullet2
@@ -268,13 +254,16 @@ class SpaceCannons(gym.Env):
 
         for enemy in self.enemy_spawner.enemy_group:
             if enemy.rect.y > 585:
-                self.player1.get_hit()
-                reward_3 = -1
-                if enemy.type=='mini':
-                    self.enemy1_evasive_count+=1
-                if enemy.type=='miniboss':
-                    self.enemy2_evasive_count+=1
 
+                if enemy.type=='mini':
+                    evasive_count_mini=1
+                    self.player1.get_hit()
+                    reward_3 += C.mini_evade_penalty
+
+                if enemy.type=='miniboss':
+                    evasive_count_miniboss=1
+                    self.player1.get_hit()
+                    reward_3 += C.miniboss_evade_penalty
                 enemy.kill()
 
 
@@ -305,21 +294,30 @@ class SpaceCannons(gym.Env):
 
         image = array3d(display.get_surface())
 
-        info={'Enemy1_kill':self.enemy1_kill_count,
-              'Enemy2_kill':self.enemy2_kill_count,
-              'enemy1_evasive_count':self.enemy1_evasive_count,
-              'enemy2_evasive_count':self.enemy2_evasive_count,
-              'coophit_mini':self.coop_hit_mini,
-              'coophit_miniboss':self.coop_hit_miniboss,
-              "A1_kills":self.A1_kills,
-              "A2_kills":self.A2_kills,
-                'Tot_Bullet_penalty':self.total_bullet_penalty}
-        
-        if not kill_stat.empty:
-            kill_stat_dict=kill_stat.to_dict()
-            info['kill_stat']=kill_stat_dict
-        else:
-            info['kill_stat']=pd.DataFrame()
+
+        info={'A1_kill_miniboss':A1_kill_miniboss,
+              'A2_kill_miniboss':A2_kill_miniboss,
+              'A1_kill_mini':A1_kill_mini,
+              'A2_kill_mini':A2_kill_mini,
+
+
+              'evasive_count_miniboss':evasive_count_miniboss,
+              'evasive_count_mini':evasive_count_mini,
+
+
+              'coop_kill_mini':coop_kill_mini,
+              'coop_kill_miniboss':coop_kill_miniboss,
+
+
+              "A1_kills":A1_kill_miniboss+A1_kill_mini,
+              "A2_kills":A2_kill_miniboss+A2_kill_mini,
+
+
+              'Tot_Bullet_penalty':self.total_bullet_penalty,
+              'Tot_bullet_penalty_1':bullet_penalty_1,
+              'Tot_bullet_penalty_2':bullet_penalty_2}
+
+
         # increasing game level according to performance
         # if self.enemy1_kill_count>=150:
         #     self.game_level=2

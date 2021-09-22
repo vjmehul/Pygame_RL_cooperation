@@ -101,5 +101,5 @@ class Gameplayer2(pygame.sprite.Sprite):
         self.bullets_P2.add(new_bullet)
         self.bullets_P2.update(self.angle,display)
 
-    def get_hit(self):
+    def get_hit(self, enemy_type):
         self.health -= 1
