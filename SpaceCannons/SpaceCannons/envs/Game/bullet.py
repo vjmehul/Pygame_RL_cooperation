@@ -1,6 +1,7 @@
 import pygame
 import math
 import os
+import SpaceCannons.envs.Game.constant as C
 dir_path = os.path.dirname(os.path.realpath(__file__))
 bullet_id_list=[0]
 
@@ -18,7 +19,7 @@ class bullet1(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.center=self.rect.center
         self.vel_x = 0
-        self.vel_y = -65
+        self.vel_y = C.bullet_speed
         self.angle = 0
 
         # Use trigonometry to calculate the velocity.
@@ -52,7 +53,7 @@ class bullet2(pygame.sprite.Sprite):
        # define bullet positions
         self.rect = self.image.get_rect()
         self.vel_x = 0
-        self.vel_y = -65
+        self.vel_y = C.bullet_speed
         self.angle = 0
 
         # Use trigonometry to calculate the velocity.

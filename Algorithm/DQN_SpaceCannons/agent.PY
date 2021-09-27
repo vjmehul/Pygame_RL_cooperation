@@ -84,7 +84,7 @@ def run_test_episode(model1, model2, env,device='cuda'):
     return reward1, reward2,  np.stack(frames, 0)
 
 
-def main(test=False, chkpt=None, device = 'cuda'):
+def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
 
     #initialize wandb
     if not test:
@@ -204,18 +204,21 @@ def main(test=False, chkpt=None, device = 'cuda'):
             if test:
                 eps=0
 
-            # derive actions either randomly of from model "Agent 1"
-            if random() <eps:
-                action1 = env.action_space[0].sample()
-            else:
-                action1 = m1(torch.Tensor(last_observation).to(device).unsqueeze(0)).max(-1)[-1].item()
 
-            # derive actions either randomly of from model "Agent 2"
-
-            if random() <eps:
-                action2 = env.action_space[1].sample()
+            if boltzmann_expo ==True:
+                 logits1 = m1(torch.Tensor(last_observation).to(device).unsqueeze(0))[0]
+                 logits2 = m2(torch.Tensor(last_observation).to(device).unsqueeze(0))[0]
+                 action1 = torch.distributions.Categorical(logits=logits1).sample().item()
+                 action2 = torch.distributions.Categorical(logits=logits2).sample().item()
             else:
-                action2 = m2(torch.Tensor(last_observation).to(device).unsqueeze(0)).max(-1)[-1].item()
+                # derive actions either randomly of from model "Agent 1" and "Agent 2"
+                if random() <eps:
+                    action1 = env.action_space[0].sample()
+                    action2 = env.action_space[1].sample()
+                else:
+                    action1 = m1(torch.Tensor(last_observation).to(device).unsqueeze(0)).max(-1)[-1].item()
+                    action2 = m2(torch.Tensor(last_observation).to(device).unsqueeze(0)).max(-1)[-1].item()
+
 
 
             # run the actions on the model
@@ -271,7 +274,7 @@ def main(test=False, chkpt=None, device = 'cuda'):
 
                 coop_kill_mini=0
                 coop_kill_miniboss=0
-                
+
                 evasive_count_miniboss = 0
                 evasive_count_mini = 0
                 tot_evasive_count=0
@@ -339,7 +342,35 @@ def main(test=False, chkpt=None, device = 'cuda'):
 
                            }, step=step_num)
 
+            else:
+                wandb.log({
+                           'A1_kill_miniboss':A1_kill_miniboss,
+                           'A2_kill_miniboss':A2_kill_miniboss,
+                           'A1_kill_mini':A1_kill_mini,
+                           'A2_kill_mini':A2_kill_mini,
+                           'A1_kills':A1_kills,
+                           'A2_kills':A2_kills,
+                           'Total_kills':A1_kills+A2_kills,
 
+
+                           'evasive_count_miniboss':evasive_count_miniboss,
+                           'evasive_count_mini':evasive_count_mini,
+                           'tot_evasive_count':tot_evasive_count,
+
+
+                           'coop_kill_mini':coop_kill_mini,
+                           'coop_kill_miniboss':coop_kill_miniboss,
+
+
+                           'Tot_Bullet_penalty':Tot_Bullet_penalty,
+                           'Tot_bullet_penalty_1':Tot_bullet_penalty_1,
+                           'Tot_bullet_penalty_2':Tot_bullet_penalty_2,
+                           'game_num':Game_num,
+
+                           }, step=step_num)
+
+
+                
                 # Reinitiate train counter after training
                 steps_since_train=0
                 if epochs_since_tgt>tgt_model_update:
@@ -379,5 +410,5 @@ if __name__=='__main__':
     
     # import os
     # os.system('cmd /c "wandb login bb8b6304bd0410f5b77c36892ad419b65bafc0cb"')
-    main(False)
+    main(False, boltzmann_expo = True)
     #main(True, pth) add model to test
