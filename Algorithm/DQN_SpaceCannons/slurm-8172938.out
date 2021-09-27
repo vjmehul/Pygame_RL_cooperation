@@ -1,0 +1,66 @@
+_XSERVTransmkdir: ERROR: euid != 0,directory /tmp/.X11-unix will not be created.
+cd move complete
+Defaulting to user installation because normal site-packages is not writeable
+Obtaining file:///home/mverma/rl_cooperation/Pygame_RL_cooperation/SpaceCannons
+Installing collected packages: SpaceCannons
+  Attempting uninstall: SpaceCannons
+    Found existing installation: SpaceCannons 0.0.5
+    Uninstalling SpaceCannons-0.0.5:
+      Successfully uninstalled SpaceCannons-0.0.5
+  Running setup.py develop for SpaceCannons
+Successfully installed SpaceCannons
+wandb: Currently logged in as: mvj (use `wandb login --relogin` to force relogin)
+2021-09-11 09:42:56.590968: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /sw/arch/Debian10/EB_production/2020/software/Python/3.8.2-GCCcore-9.3.0/lib:/sw/arch/Debian10/EB_production/2020/software/libffi/3.3-GCCcore-9.3.0/lib64:/sw/arch/Debian10/EB_production/2020/software/libffi/3.3-GCCcore-9.3.0/lib:/sw/arch/Debian10/EB_production/2020/software/GMP/6.2.0-GCCcore-9.3.0/lib:/sw/arch/Debian10/EB_production/2020/software/XZ/5.2.5-GCCcore-9.3.0/lib:/sw/arch/Debian10/EB_production/2020/software/SQLite/3.31.1-GCCcore-9.3.0/lib:/sw/arch/Debian10/EB_production/2020/software/Tcl/8.6.10-GCCcore-9.3.0/lib:/sw/arch/Debian10/EB_production/2020/software/libreadline/8.0-GCCcore-9.3.0/lib:/sw/arch/Debian10/EB_production/2020/software/ncurses/6.2-GCCcore-9.3.0/lib:/sw/arch/Debian10/EB_production/2020/software/bzip2/1.0.8-GCCcore-9.3.0/lib:/sw/arch/Debian10/EB_production/2020/software/binutils/2.34-GCCcore-9.3.0/lib:/sw/arch/Debian10/EB_production/2020/software/zlib/1.2.11-GCCcore-9.3.0/lib:/sw/arch/Debian10/EB_production/2020/software/GCCcore/9.3.0/lib64:/sw/arch/Debian10/EB_production/2020/software/GCCcore/9.3.0/lib
+2021-09-11 09:42:56.591028: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+wandb: Tracking run with wandb version 0.12.1
+wandb: Syncing run dqn-SpaceCannons_PER#1
+wandb:  View project at https://wandb.ai/mvj/dqn-tutorial
+wandb:  View run at https://wandb.ai/mvj/dqn-tutorial/runs/2ij8b42k
+wandb: Run data is saved locally in /home/mverma/rl_cooperation/Pygame_RL_cooperation/Algorithm/DQN_SpaceCannons_PER/wandb/run-20210911_094254-2ij8b42k
+wandb: Run `wandb offline` to turn off syncing.
+Failed to create secure directory (/run/user/55267/pulse): No such file or directory
+Failed to create secure directory (/run/user/55267/pulse): No such file or directory
+Failed to create secure directory (/run/user/55267/pulse): No such file or directory
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4568:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4568:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4568:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5047:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM default
+Failed to create secure directory (/run/user/55267/pulse): No such file or directory
+Failed to create secure directory (/run/user/55267/pulse): No such file or directory
+Failed to create secure directory (/run/user/55267/pulse): No such file or directory
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4568:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4568:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4568:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5047:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM default
+libpng warning: iCCP: known incorrect sRGB profile
+0it [00:00, ?it/s]libpng warning: iCCP: known incorrect sRGB profile
+Failed to create secure directory (/run/user/55267/pulse): No such file or directory
+Failed to create secure directory (/run/user/55267/pulse): No such file or directory
+Failed to create secure directory (/run/user/55267/pulse): No such file or directory
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4568:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4568:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4568:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5047:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM default
+Failed to create secure directory (/run/user/55267/pulse): No such file or directory
+Failed to create secure directory (/run/user/55267/pulse): No such file or directory
+Failed to create secure directory (/run/user/55267/pulse): No such file or directory
+ALSA lib confmisc.c:767:(parse_card) cannot find card '0'
+ALSA lib conf.c:4568:(_snd_config_evaluate) function snd_func_card_driver returned error: No such file or directory
+ALSA lib confmisc.c:392:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:4568:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1246:(snd_func_refer) error evaluating name
+ALSA lib conf.c:4568:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5047:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM default
