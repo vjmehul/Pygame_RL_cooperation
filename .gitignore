@@ -1,5 +1,7 @@
 
 Algorithm/DQN_SpaceCannons/model/
+Algorithm/DQN_SpaceCannons_PER/model/
+
 wandb/
 
 
