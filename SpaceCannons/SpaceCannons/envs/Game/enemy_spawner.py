@@ -1,7 +1,7 @@
 from SpaceCannons.envs.Game.enemy import Enemy
 import pygame
 import random
-import SpaceCannons.envs.Game.constant as c
+from Pygame_RL_cooperation.Parameters import Params_game as C
 
 
 class EnemySpawner:

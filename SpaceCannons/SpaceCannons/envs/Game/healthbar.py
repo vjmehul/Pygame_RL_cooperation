@@ -1,5 +1,5 @@
 import pygame
-import SpaceCannons.envs.Game.constant as C
+from Pygame_RL_cooperation.Parameters import Params_game as c
 import os
 dir_path = os.path.dirname(os.path.realpath(__file__))
 

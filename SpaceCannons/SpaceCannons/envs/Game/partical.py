@@ -1,6 +1,5 @@
 import pygame
 import random
-import SpaceCannons.envs.Game.constant as c
 
 class partical(pygame.sprite.Sprite):
     def __init__(self):

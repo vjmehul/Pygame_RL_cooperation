@@ -1,5 +1,5 @@
 import pygame
-import SpaceCannons.envs.Game.constant as c
+from Pygame_RL_cooperation.Parameters import Params_game as c
 from SpaceCannons.envs.Game.healthbar import  healthbar
 from SpaceCannons.envs.Game.score import Score
 import os

@@ -1,22 +1,17 @@
 import re
 from numpy.core.numeric import False_
-from numpy.lib.type_check import imag
 import pygame
-import SpaceCannons.envs.Game.constant as C
+from Pygame_RL_cooperation.Parameters import Params_game as C
 from SpaceCannons.envs.Game.players import Gameplayer1, Gameplayer2
 from SpaceCannons.envs.Game.background import backG
 from SpaceCannons.envs.Game.enemy_spawner import EnemySpawner
 from SpaceCannons.envs.Game.partical_spawner import partical_spawner
 import numpy as np
-from pygame import display, time, init
+from pygame import display
 from pygame.surfarray import array3d
 from pygame.event import pump
 import pandas as pd
-from gym.utils import seeding
-# import cv2
 from pygame.locals import *
-import os
-
 import gym
 from gym import spaces
 from torch.nn.functional import interpolate
@@ -46,8 +41,12 @@ class SpaceCannons(gym.Env):
         self.difficulty = C.game_difficulty_metric
         E2_per = int(str(self.difficulty) + "0")
         self.difficulty_weights = [100-E2_per, E2_per,0]
+        print("PLAYER_HEALTH", C.PLAYER_HEALTH)
+        print("bullet_penalty: ", C.bullet_penalty)
+        print('difficulty_weights: ',self.difficulty_weights)
         print('initial setup complete')
 
+        
     def reset(self):
         self.total_bullet_penalty=0
         self.screen.fill((0, 0, 0))

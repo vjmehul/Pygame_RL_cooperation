@@ -1,6 +1,6 @@
 import pygame
 import random
-import SpaceCannons.envs.Game.constant as C
+from Pygame_RL_cooperation.Parameters import Params_game as C
 from SpaceCannons.envs.Game.star import star
 
 class backG(pygame.sprite.Sprite):

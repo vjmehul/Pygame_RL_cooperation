@@ -12,7 +12,7 @@ mini_health=4
 coop_factor=0.5
 
 game_difficulty_metric = 2
-bullet_penalty = 0.1
+bullet_penalty = 0.5
 
 
 miniboss_evade_penalty = -2

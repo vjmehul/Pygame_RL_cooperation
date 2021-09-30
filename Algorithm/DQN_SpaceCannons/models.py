@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from torch.nn.modules import linear
-import Constant as c
+from Pygame_RL_cooperation.Parameters import Parameters_DQN as c
 import torch.optim as optim
 
 class ConvModel(nn.Module):

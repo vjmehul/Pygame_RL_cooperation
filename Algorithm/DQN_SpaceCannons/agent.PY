@@ -9,7 +9,7 @@ import wandb
 from tqdm import tqdm
 import numpy as np
 from random import random
-import Constant as c
+from Pygame_RL_cooperation.Parameters import Parameters_DQN as c
 from models import ConvModel
 from utils import FramestackingENV
 from replay_memory import ReplayBuffer
@@ -342,7 +342,7 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
 
                            }, step=step_num)
 
-            else:
+            elif len(rb1.buffer)>min_rb_size:
                 wandb.log({
                            'A1_kill_miniboss':A1_kill_miniboss,
                            'A2_kill_miniboss':A2_kill_miniboss,
@@ -370,7 +370,7 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
                            }, step=step_num)
 
 
-                
+
                 # Reinitiate train counter after training
                 steps_since_train=0
                 if epochs_since_tgt>tgt_model_update:

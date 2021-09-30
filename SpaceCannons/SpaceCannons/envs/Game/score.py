@@ -1,5 +1,5 @@
 import pygame
-import SpaceCannons.envs.Game.constant as c
+from Pygame_RL_cooperation.Parameters import Params_game as c
 
 class Score(pygame.sprite.Sprite):
     def __init__(self):

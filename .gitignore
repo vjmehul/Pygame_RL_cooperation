@@ -24,6 +24,7 @@ SpaceCannons/wandb/settings/*
 
 
 
+SpaceCannons/SpaceCannons/envs/__pycache__/*
 
 
 SpaceCannons/wandb/offline-run-20210906_112256-37ehm95q/run-37ehm95q.wandb
@@ -132,3 +133,4 @@ SpaceCannons/wandb/run-20210906_112122-3oggi34y/files/wandb-summary.json
 SpaceCannons/wandb/run-20210906_112122-3oggi34y/logs/debug-internal.log
 SpaceCannons/wandb/run-20210906_112122-3oggi34y/logs/debug.log
 wandb/settings
+__pycache__/__init__.cpython-39.pyc

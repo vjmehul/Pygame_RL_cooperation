@@ -1,7 +1,7 @@
 import pygame
 import math
 import os
-import SpaceCannons.envs.Game.constant as C
+from Pygame_RL_cooperation.Parameters import Params_game as C
 dir_path = os.path.dirname(os.path.realpath(__file__))
 bullet_id_list=[0]
 

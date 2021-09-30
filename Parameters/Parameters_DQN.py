@@ -20,5 +20,5 @@ epochs_before_test = 200000  # frequency for testing the model # recoom. 100000
 Save_frequency = 500000
 
 #replay memory parameters
-replay_size=50000    #10000
-sample_size=512    #64
+replay_size=500    #10000
+sample_size=32    #64

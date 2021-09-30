@@ -1,6 +1,6 @@
 from numpy.lib.type_check import imag
 import pygame
-import SpaceCannons.envs.Game.constant as C
+from Pygame_RL_cooperation.Parameters import Params_game as C
 from SpaceCannons.envs.Game.bullet import bullet1
 from SpaceCannons.envs.Game.bullet import bullet2
 from SpaceCannons.envs.Game.hud import HUD
