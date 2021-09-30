@@ -12,6 +12,7 @@ Algorithm/DQN_SpaceCannons/__pycache__/
 Kachara/
 Kachara/SpaceCannons.egg-link
 <<<<<<< HEAD
+<<<<<<< HEAD
 SpaceCannons/SpaceCannons/envs/__pycache__/
 SpaceCannons/SpaceCannons/envs/.ipynb_checkpoints/
 SpaceCannons/wandb/
@@ -139,3 +140,12 @@ SpaceCannons/wandb/run-20210906_112122-3oggi34y/logs/debug.log
 wandb/settings
 __pycache__/__init__.cpython-39.pyc
 >>>>>>> a816f9f... Constant file update
+=======
+SpaceCannons/SpaceCannons/envs/__pycache__/
+SpaceCannons/SpaceCannons/envs/.ipynb_checkpoints/
+SpaceCannons/wandb/
+
+SpaceCannons/SpaceCannons/envs/__pycache__/
+wandb/settings/
+__pycache__/
+>>>>>>> aa9e129... gitignore_update
