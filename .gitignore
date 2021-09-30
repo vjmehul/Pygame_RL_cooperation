@@ -18,3 +18,4 @@ SpaceCannons/wandb/
 SpaceCannons/SpaceCannons/envs/__pycache__/
 wandb/settings/
 __pycache__/
+.vscode/
