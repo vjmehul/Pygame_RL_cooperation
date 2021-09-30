@@ -1,6 +1,0 @@
-0it [00:00, ?it/s]Traceback (most recent call last):
-  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 151, in <module>
-    main(False)
-  File "c:\Programming\rl_cooperation\DQN_breakout\agent.PY", line 112, in main
-    env.render()
-TypeError: render() missing 1 required positional argument: 'mode'
