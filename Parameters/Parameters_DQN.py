@@ -5,7 +5,7 @@ inputshape=(84, 84, 4)
 lr = 0.0001
 eps_max=1.0
 eps_min=0.01
-eps_decay=0.9999998
+eps_decay=0.9999997
 
 #counters
 env_steps_before_train = 30  # number of steps to skip before we train the model  # Frequency of Training the model # 10
@@ -20,5 +20,5 @@ epochs_before_test = 200000  # frequency for testing the model # recoom. 100000
 Save_frequency = 500000
 
 #replay memory parameters
-replay_size=500    #10000
-sample_size=32    #64
+replay_size=50000    #10000
+sample_size=512    #512

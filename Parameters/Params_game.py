@@ -18,4 +18,4 @@ bullet_penalty = 0.5
 miniboss_evade_penalty = -2
 mini_evade_penalty = -1
 
-bullet_speed = -50
+bullet_speed = -45

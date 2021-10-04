@@ -116,19 +116,19 @@ class SpaceCannons(gym.Env):
 
         if action[0]==0:
             if not self.player1.angle <-70:
-                self.player1.angle -= 6
+                self.player1.angle -= 4
 
         if action[0] == 1:
             if not self.player1.angle >70:
-                self.player1.angle += 6
+                self.player1.angle += 4
 
         if action[1] == 0:
             if not self.player2.angle <-70:
-                self.player2.angle -= 6
+                self.player2.angle -= 4
 
         if action[1] == 1:
             if not self.player2.angle >70:
-                self.player2.angle += 6
+                self.player2.angle += 4
 
         # if fire_1:
         if action[0] == 2:
