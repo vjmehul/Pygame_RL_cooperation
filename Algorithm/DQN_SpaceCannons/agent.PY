@@ -187,7 +187,7 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
 
     tq=tqdm()
     try:
-        while Game_num!=500:
+        while Game_num!=1000:
             tq.update(1)  # time and performance statistics
 
             #test rendering
@@ -240,7 +240,7 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
             evasive_count_mini  +=  info['evasive_count_mini']
             tot_evasive_count += info['evasive_count_mini'] + info['evasive_count_miniboss']
 
-            
+
             coop_kill_mini += info['coop_kill_mini']
             coop_kill_miniboss += info['coop_kill_miniboss']
 
@@ -338,8 +338,7 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
                            'Tot_Bullet_penalty':Tot_Bullet_penalty,
                            'Tot_bullet_penalty_1':Tot_bullet_penalty_1,
                            'Tot_bullet_penalty_2':Tot_bullet_penalty_2,
-                           'game_num':Game_num,
-
+                           'game_num':Game_num
                            }, step=step_num)
 
             elif len(rb1.buffer)>min_rb_size:
@@ -371,15 +370,14 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
 
 
 
-                # Reinitiate train counter after training
+                #Reinitiate train counter after training
                 steps_since_train=0
                 if epochs_since_tgt>tgt_model_update:
                     # print("Updating target model")
-                    update_tgt_model(m1,tgt1)
+                    update_tgt_model(m1,tgt1)        # check if we want to update target network or replace target network with online
                     update_tgt_model(m2,tgt2)
                     epochs_since_tgt=0
                     # save target model after update
-
 
             # check if we need to test the model
             if step_num % c.epochs_before_test == 0:  #epochs_since_test > epochs_before_test
@@ -387,11 +385,12 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
                     print("Testing Initiated!!!!!")
                     rew1, rew2, frames = run_test_episode(m1, m2, env_test, device=device) # if yes use the test environment
                     wandb.log(
-                        {'Agent1_test_reward': rew1,
-                                'Agent2_test_reward': rew2,
-                                'Avg_test_reward': (rew1+rew2)/2,
-                                'test_video': wandb.Video(frames.transpose(0, 3, 2, 1), "Test_performance", fps = 25, format = 'mp4',)
-                                }
+                        {
+                            'Agent1_test_reward': rew1,
+                            'Agent2_test_reward': rew2,
+                            'Avg_test_reward': (rew1+rew2)/2,
+                            'test_video': wandb.Video(frames.transpose(0, 3, 2, 1), "Test_performance", fps = 25, format = 'mp4',)
+                            }
                         )
 
             if step_num % c.Save_frequency == 0:

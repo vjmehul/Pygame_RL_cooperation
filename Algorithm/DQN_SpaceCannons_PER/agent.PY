@@ -1,8 +1,5 @@
-from os import stat
-from numpy.core.numeric import roll
-from numpy.lib.npyio import load
+
 import torch
-import torch.nn as nn
 import torch.nn.functional as F
 import gym
 from dataclasses import dataclass
@@ -12,7 +9,7 @@ import wandb
 from tqdm import tqdm
 import numpy as np
 from random import random
-import Constant as c
+from Pygame_RL_cooperation.Parameters import Parameters_DQN as c
 from models import ConvModel
 from utils import FramestackingENV
 from replay_memory import ReplayBuffer
@@ -20,7 +17,6 @@ import warnings
 warnings.filterwarnings('ignore')
 import os
 dir_path = os.path.dirname(os.path.realpath(__file__))
-
 
 # create a dataclass for experience replay
 @dataclass
@@ -88,35 +84,33 @@ def train_step(model, state_transition, tgt, num_actions, device):
 
     return loss, error
 
-def run_test_episode(model1, model2, env, max_steps=5000,device='cuda'):
+def run_test_episode(model1, model2, env,device='cuda'):
     frames = []
     obs = env.reset()
     frames.append(env.frame)
-    max_steps = c.max_test_steps
-    idx = 0
+
     done= False
     reward1 = 0
     reward2 = 0
-    while idx < max_steps:
+    while not done:
         action1 = model1(torch.Tensor(obs).to(device).unsqueeze(0)).max(-1)[-1].item()
         action2 = model2(torch.Tensor(obs).to(device).unsqueeze(0)).max(-1)[-1].item()
-        obs, r, _, _ = env.step([action1,action2])
+        obs, r, done, _ = env.step([action1,action2])
         # test_action_list.append([[action1,action2], r])
 
         reward1 += r[0]
         reward2 += r[1]
         frames.append(env.frame)
-        idx+=1
         # env.render(mode = 'rgb_array')
 
     return reward1, reward2,  np.stack(frames, 0)
 
 
-def main(test=False, chkpt=None, device = 'cuda'):
+def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
 
     #initialize wandb
     if not test:
-         wandb.init(project="dqn-tutorial", name="dqn-SpaceCannons")
+         wandb.init(project="dqn-tutorial", name="dqn-SpaceCannons_test_PER")
 
     #define desired input shape for the model from environment
     input_shape = c.inputshape
@@ -160,16 +154,17 @@ def main(test=False, chkpt=None, device = 'cuda'):
     A2_kill_miniboss=0
     A1_kill_mini =0
     A2_kill_mini=0
+    coop_kill_mini=0
+    coop_kill_miniboss=0
     evasive_count_miniboss = 0
     evasive_count_mini = 0
     tot_evasive_count=0
-    coop_kill_mini=0
-    coop_kill_miniboss=0
+
     A1_kills=0
     A2_kills=0
-    Tot_Bullet_penalty =0
-    Tot_bullet_penalty_1=0
-    Tot_bullet_penalty_2=0
+    Tot_Bullet_penalty = 0
+    Tot_bullet_penalty_1 = 0
+    Tot_bullet_penalty_2 = 0
     Game_num=0
 
     # define convolution model  "Agent 1"
@@ -211,7 +206,7 @@ def main(test=False, chkpt=None, device = 'cuda'):
 
     tq=tqdm()
     try:
-        while True:
+        while Game_num!=1000:
             tq.update(1)  # time and performance statistics
 
             #test rendering
@@ -227,26 +222,24 @@ def main(test=False, chkpt=None, device = 'cuda'):
             # no exploration during testing
             if test:
                 eps=0
-
-            # derive actions either randomly of from model "Agent 1"
-            if random() <eps:
-                action1 = env.action_space[0].sample()
+            if boltzmann_expo ==True:
+                 logits1 = m1(torch.Tensor(last_observation).to(device).unsqueeze(0))[0]
+                 logits2 = m2(torch.Tensor(last_observation).to(device).unsqueeze(0))[0]
+                 action1 = torch.distributions.Categorical(logits=logits1).sample().item()
+                 action2 = torch.distributions.Categorical(logits=logits2).sample().item()
             else:
-                action1 = m1(torch.Tensor(last_observation).to(device).unsqueeze(0)).max(-1)[-1].item()
-
-            # derive actions either randomly of from model "Agent 2"
-
-            if random() <eps:
-                action2 = env.action_space[1].sample()
-            else:
-                action2 = m2(torch.Tensor(last_observation).to(device).unsqueeze(0)).max(-1)[-1].item()
-
+                # derive actions either randomly of from model "Agent 1" and "Agent 2"
+                if random() <eps:
+                    action1 = env.action_space[0].sample()
+                    action2 = env.action_space[1].sample()
+                else:
+                    action1 = m1(torch.Tensor(last_observation).to(device).unsqueeze(0)).max(-1)[-1].item()
+                    action2 = m2(torch.Tensor(last_observation).to(device).unsqueeze(0)).max(-1)[-1].item()
 
             # run the actions on the model
             observation, reward, done, info = env.step([action1,action2])
 
-            if done==True:
-                Game_num+=1
+
                 
             #accumulate rewards
             rolling_reward1 += reward[0]
@@ -271,7 +264,7 @@ def main(test=False, chkpt=None, device = 'cuda'):
             Tot_Bullet_penalty += info['Tot_Bullet_penalty']
             Tot_bullet_penalty_1 += info['Tot_bullet_penalty_1']
             Tot_bullet_penalty_2 += info['Tot_bullet_penalty_2']
-            
+
 
             # Update replaybuffer Agent 1
             rb1.insert(SARSD(last_observation, action1, reward[0], observation, done))
@@ -284,13 +277,33 @@ def main(test=False, chkpt=None, device = 'cuda'):
             last_observation = observation
 
 
-            # reset environment oafter dones and reinitiate rewards
+            # reset environment after dones and reinitiate rewards
             if done:
                 episode_reward1.append(rolling_reward1)
                 rolling_reward1=0
                 episode_reward2.append(rolling_reward2)
                 rolling_reward2=0
                 observation = env.reset()
+
+                Game_num+=1
+                A1_kill_miniboss=0
+                A2_kill_miniboss=0
+                A1_kill_mini =0
+                A2_kill_mini=0
+
+                coop_kill_mini=0
+                coop_kill_miniboss=0
+
+                evasive_count_miniboss = 0
+                evasive_count_mini = 0
+                tot_evasive_count=0
+
+                A1_kills=0
+                A2_kills=0
+                Tot_Bullet_penalty = 0
+                Tot_bullet_penalty_1 = 0
+                Tot_bullet_penalty_2 = 0
+
                 if test:
                     print("Reward1,Reward2", [rolling_reward1,rolling_reward2])
 
@@ -343,10 +356,12 @@ def main(test=False, chkpt=None, device = 'cuda'):
                            'A2_kill_mini':A2_kill_mini,
                            'A1_kills':A1_kills,
                            'A2_kills':A2_kills,
+                           'Total_kills':A1_kills+A2_kills,
 
 
                            'evasive_count_miniboss':evasive_count_miniboss,
                            'evasive_count_mini':evasive_count_mini,
+                           'tot_evasive_count':tot_evasive_count,
 
 
                            'coop_kill_mini':coop_kill_mini,
@@ -357,6 +372,32 @@ def main(test=False, chkpt=None, device = 'cuda'):
                            'Tot_bullet_penalty_1':Tot_bullet_penalty_1,
                            'Tot_bullet_penalty_2':Tot_bullet_penalty_2,
                            'game_num':Game_num
+                           }, step=step_num)
+
+            elif len(rb1.buffer)>min_rb_size:
+                wandb.log({
+                           'A1_kill_miniboss':A1_kill_miniboss,
+                           'A2_kill_miniboss':A2_kill_miniboss,
+                           'A1_kill_mini':A1_kill_mini,
+                           'A2_kill_mini':A2_kill_mini,
+                           'A1_kills':A1_kills,
+                           'A2_kills':A2_kills,
+                           'Total_kills':A1_kills+A2_kills,
+
+
+                           'evasive_count_miniboss':evasive_count_miniboss,
+                           'evasive_count_mini':evasive_count_mini,
+                           'tot_evasive_count':tot_evasive_count,
+
+
+                           'coop_kill_mini':coop_kill_mini,
+                           'coop_kill_miniboss':coop_kill_miniboss,
+
+
+                           'Tot_Bullet_penalty':Tot_Bullet_penalty,
+                           'Tot_bullet_penalty_1':Tot_bullet_penalty_1,
+                           'Tot_bullet_penalty_2':Tot_bullet_penalty_2,
+                           'game_num':Game_num,
 
                            }, step=step_num)
 
@@ -365,24 +406,24 @@ def main(test=False, chkpt=None, device = 'cuda'):
                 steps_since_train=0
                 if epochs_since_tgt>tgt_model_update:
                     # print("Updating target model")
-                    update_tgt_model(m1,tgt1)                 # check if we want to update target network or replace target network with online
+                    update_tgt_model(m1,tgt1)        # check if we want to update target network or replace target network with online
                     update_tgt_model(m2,tgt2)
                     epochs_since_tgt=0
                     # save target model after update
 
             # check if we need to test the model
-            if step_num % c.epochs_before_test == 0:
+            if step_num % c.epochs_before_test == 0:  #epochs_since_test > epochs_before_test
                 if not step_num <= 0:
                     print("Testing Initiated!!!!!")
                     rew1, rew2, frames = run_test_episode(m1, m2, env_test, device=device) # if yes use the test environment
                     wandb.log(
-                            {
-                                'Agent1_test_reward': rew1,
-                                'Agent2_test_reward': rew2,
-                                'Avg_test_reward': (rew1+rew2)/2,
-                                'test_video': wandb.Video(frames.transpose(0, 3, 2, 1), "Test_performance", fps = 25, format = 'mp4',)
+                        {
+                            'Agent1_test_reward': rew1,
+                            'Agent2_test_reward': rew2,
+                            'Avg_test_reward': (rew1+rew2)/2,
+                            'test_video': wandb.Video(frames.transpose(0, 3, 2, 1), "Test_performance", fps = 25, format = 'mp4',)
                             }
-                             )
+                        )
 
             if step_num % c.Save_frequency == 0:
                 if not step_num <= 0:
@@ -391,8 +432,7 @@ def main(test=False, chkpt=None, device = 'cuda'):
                     torch.save(tgt2.state_dict(),dir_path+f"/model/TAR_{step_num}_2.pth")
                     torch.save(m1.state_dict(),dir_path+f"/model/ONLINE_{step_num}_1.pth")
                     torch.save(m2.state_dict(),dir_path+f"/model/ONLINE_{step_num}_2.pth")
-                    ## Check if we need to save learning model????????????????????????????
-
+                    # Check if we need to save learning model????????????????????????????
 
     except KeyboardInterrupt:
         env.close()
@@ -401,5 +441,5 @@ if __name__=='__main__':
     
     # import os
     # os.system('cmd /c "wandb login bb8b6304bd0410f5b77c36892ad419b65bafc0cb"')
-    main(False)
+    main(False, boltzmann_expo = True)
     #main(True, pth) add model to test
