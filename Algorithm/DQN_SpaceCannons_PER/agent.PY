@@ -118,7 +118,7 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
 
     #initialize wandb
     if not test:
-         wandb.init(project="dqn-tutorial", name="dqn-SpaceCannons_test_PER")
+         wandb.init(project="dqn-tutorial", name="dqn-SpaceCannons_PER_0.1")
 
     #define desired input shape for the model from environment
     input_shape = c.inputshape
@@ -151,6 +151,13 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
     tgt_model_update = c.tgt_model_update              # target model update frequency
     epochs_since_tgt = c.epochs_since_tgt              # Counter to find how many steps has been passed before the last TARGET model update
 
+    print("min_rb_size", min_rb_size)
+    print("sample_size", sample_size)
+    print("env_steps_before_train", sample_size)
+    print("sample_size(number of steps to skip before we train the model)", env_steps_before_train)
+    print("tgt_model_update(target model update frequency)", tgt_model_update)
+    print("Boltzmann flag: ",boltzmann_expo)
+    
     # counters to calculate rewards
     episode_reward1=[]
     rolling_reward1=0
