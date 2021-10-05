@@ -153,8 +153,7 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
 
     print("min_rb_size", min_rb_size)
     print("sample_size", sample_size)
-    print("env_steps_before_train", sample_size)
-    print("sample_size(number of steps to skip before we train the model)", env_steps_before_train)
+    print("env_steps_before_train(number of steps to skip before we train the model)", env_steps_before_train)
     print("tgt_model_update(target model update frequency)", tgt_model_update)
     print("Boltzmann flag: ",boltzmann_expo)
     
@@ -222,7 +221,7 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
     tq=tqdm()
     try:
         while Game_num!=1000:
-            tq.update(1)  # time and performance statistics
+            # tq.update(1)  # time and performance statistics
 
             #test rendering
             if test:
