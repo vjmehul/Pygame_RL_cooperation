@@ -6,6 +6,7 @@ export DISPLAY=:1
 Xvfb $DISPLAY -auth /dev/null &
 module load 2020
 module load Python/3.8.2-GCCcore-9.3.0
+module load 2020 CUDA/11.0.2-GCC-9.3.0
 
 
 #pip install -r /home/mverma/rl_cooperation/Pygame_RL_cooperation/Algorithm/requirements.txt
