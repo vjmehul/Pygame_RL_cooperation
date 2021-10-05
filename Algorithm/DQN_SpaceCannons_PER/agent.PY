@@ -1,3 +1,11 @@
+import sys
+import os
+dir_path = os.path.dirname(os.path.realpath(__file__))
+sys.path.append('../')
+sys.path.append(dir_path)
+sys.path.append('.')
+
+
 import torch
 import torch.nn.functional as F
 import gym
@@ -14,8 +22,9 @@ from utils import FramestackingENV
 from replay_memory import ReplayBuffer
 import warnings
 warnings.filterwarnings('ignore')
-import os
-dir_path = os.path.dirname(os.path.realpath(__file__))
+
+
+
 
 # create a dataclass for experience replay
 @dataclass
