@@ -1,4 +1,3 @@
-import re
 from numpy.core.numeric import False_
 import pygame
 from Pygame_RL_cooperation.Parameters import Params_game as C
@@ -116,19 +115,19 @@ class SpaceCannons(gym.Env):
 
         if action[0]==0:
             if not self.player1.angle <-70:
-                self.player1.angle -= 4
+                self.player1.angle -= 5
 
         if action[0] == 1:
             if not self.player1.angle >70:
-                self.player1.angle += 4
+                self.player1.angle += 5
 
         if action[1] == 0:
             if not self.player2.angle <-70:
-                self.player2.angle -= 4
+                self.player2.angle -= 5
 
         if action[1] == 1:
             if not self.player2.angle >70:
-                self.player2.angle += 4
+                self.player2.angle += 5
 
         # if fire_1:
         if action[0] == 2:
