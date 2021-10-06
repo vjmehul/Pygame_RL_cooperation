@@ -6,7 +6,7 @@ from random import random, choices
 from numpy.core.numeric import indices
 
 class ReplayBuffer:
-    def __init__(self, buffer_size=100000):
+    def __init__(self, buffer_size=20000):
         self.buffer_size = buffer_size
         self.buffer =deque(maxlen=buffer_size)
         self.priorities = deque(maxlen=buffer_size)

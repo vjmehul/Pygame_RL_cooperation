@@ -22,3 +22,7 @@ Save_frequency = 500000
 #replay memory parameters
 replay_size=50000    #10000
 sample_size=512    #512
+replay_size_PER=20000
+
+
+

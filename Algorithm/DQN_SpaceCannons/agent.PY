@@ -1,3 +1,9 @@
+import sys
+import os
+dir_path = os.path.dirname(os.path.realpath(__file__))
+sys.path.append('../../../')
+sys.path.append(dir_path)
+sys.path.append('.')
 
 import torch
 import torch.nn as nn
@@ -15,8 +21,6 @@ from utils import FramestackingENV
 from replay_memory import ReplayBuffer
 import warnings
 warnings.filterwarnings('ignore')
-import os
-dir_path = os.path.dirname(os.path.realpath(__file__))
 
 # create a dataclass for experience replay
 @dataclass
@@ -88,7 +92,7 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
 
     #initialize wandb
     if not test:
-         wandb.init(project="dqn-tutorial", name="dqn-SpaceCannons_test")
+         wandb.init(project="dqn-tutorial", name="dqn-SpaceCannonsTGTfix")
 
     #define desired input shape for the model from environment
     input_shape = c.inputshape
@@ -120,7 +124,11 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
     steps_since_train=c.steps_since_train              # Counter to find how many steps has been passed before the last ORIGINAL model update
     tgt_model_update = c.tgt_model_update              # target model update frequency
     epochs_since_tgt = c.epochs_since_tgt              # Counter to find how many steps has been passed before the last TARGET model update
-
+    print("min_rb_size", min_rb_size)
+    print("sample_size", sample_size)
+    print("env_steps_before_train(number of steps to skip before we train the model)", env_steps_before_train)
+    print("tgt_model_update(target model update frequency)", tgt_model_update)
+    print("Boltzmann flag: ",boltzmann_expo)
     # counters to calculate rewards
     episode_reward1=[]
     rolling_reward1=0
@@ -128,15 +136,12 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
     episode_reward2=[]
     rolling_reward2=0
 
-
     A1_kill_miniboss=0
     A2_kill_miniboss=0
     A1_kill_mini =0
     A2_kill_mini=0
-
     coop_kill_mini=0
     coop_kill_miniboss=0
-    
     evasive_count_miniboss = 0
     evasive_count_mini = 0
     tot_evasive_count=0
@@ -203,8 +208,6 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
             # no exploration during testing
             if test:
                 eps=0
-
-
             if boltzmann_expo ==True:
                  logits1 = m1(torch.Tensor(last_observation).to(device).unsqueeze(0))[0]
                  logits2 = m2(torch.Tensor(last_observation).to(device).unsqueeze(0))[0]
@@ -218,8 +221,6 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
                 else:
                     action1 = m1(torch.Tensor(last_observation).to(device).unsqueeze(0)).max(-1)[-1].item()
                     action2 = m2(torch.Tensor(last_observation).to(device).unsqueeze(0)).max(-1)[-1].item()
-
-
 
             # run the actions on the model
             observation, reward, done, info = env.step([action1,action2])
@@ -369,15 +370,16 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
                            }, step=step_num)
 
 
-
                 #Reinitiate train counter after training
                 steps_since_train=0
-                if epochs_since_tgt>tgt_model_update:
-                    # print("Updating target model")
-                    update_tgt_model(m1,tgt1)        # check if we want to update target network or replace target network with online
-                    update_tgt_model(m2,tgt2)
-                    epochs_since_tgt=0
-                    # save target model after update
+            # check if we want to update target network or replace target network with online
+
+            if epochs_since_tgt>tgt_model_update:
+                # print("Updating target model")
+                update_tgt_model(m1,tgt1)
+                update_tgt_model(m2,tgt2)
+                epochs_since_tgt=0
+                # save target model after update
 
             # check if we need to test the model
             if step_num % c.epochs_before_test == 0:  #epochs_since_test > epochs_before_test
@@ -406,8 +408,5 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
         env.close()
 
 if __name__=='__main__':
-    
-    # import os
-    # os.system('cmd /c "wandb login bb8b6304bd0410f5b77c36892ad419b65bafc0cb"')
     main(False, boltzmann_expo = True)
     #main(True, pth) add model to test

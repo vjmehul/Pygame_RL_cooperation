@@ -5,8 +5,8 @@ sys.path.append('../../../')
 sys.path.append(dir_path)
 sys.path.append('.')
 
-
 import torch
+import torch.nn as nn
 import torch.nn.functional as F
 import gym
 from dataclasses import dataclass
@@ -23,9 +23,6 @@ from replay_memory import ReplayBuffer
 import warnings
 warnings.filterwarnings('ignore')
 
-
-
-
 # create a dataclass for experience replay
 @dataclass
 class SARSD:
@@ -40,14 +37,14 @@ def update_tgt_model(m, tgt):
     tgt.load_state_dict(m.state_dict())
 
 
-# Create huber loss function
-def l1_loss_smooth(q_state_action, q_targets, beta = 1.0):
-    loss = 0
-    diff = q_state_action-q_targets
-    x = (diff.abs() < beta)
-    loss += x * (0.5*diff**2 / beta)
-    loss += (~x) * (diff.abs() - 0.5*beta)
-    return loss.mean()
+# # Create huber loss function
+# def l1_loss_smooth(q_state_action, q_targets, beta = 1.0):
+#     loss = 0
+#     diff = q_state_action-q_targets
+#     x = (diff.abs() < beta)
+#     loss += x * (0.5*diff**2 / beta)
+#     loss += (~x) * (diff.abs() - 0.5*beta)
+#     return loss.mean()
 
 def train_step(model, state_transition, tgt, num_actions, device):
 
@@ -79,8 +76,9 @@ def train_step(model, state_transition, tgt, num_actions, device):
 
     #calculate error
     error = q_state_action - q_target_in  # calculate TD ERROR
-
-    loss = l1_loss_smooth(q_state_action,q_target_in)
+    loss_fn = nn.SmoothL1Loss()
+    
+    loss = loss_fn(q_state_action,q_target_in)
 
     loss = loss  *  torch.cuda.FloatTensor(importance)
 
@@ -96,7 +94,6 @@ def run_test_episode(model1, model2, env,device='cuda'):
     frames = []
     obs = env.reset()
     frames.append(env.frame)
-
     done= False
     reward1 = 0
     reward2 = 0
@@ -104,7 +101,6 @@ def run_test_episode(model1, model2, env,device='cuda'):
         action1 = model1(torch.Tensor(obs).to(device).unsqueeze(0)).max(-1)[-1].item()
         action2 = model2(torch.Tensor(obs).to(device).unsqueeze(0)).max(-1)[-1].item()
         obs, r, done, _ = env.step([action1,action2])
-        # test_action_list.append([[action1,action2], r])
 
         reward1 += r[0]
         reward2 += r[1]
@@ -143,20 +139,18 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
     eps_decay=c.eps_decay
 
     #replay buffer parameters
-    min_rb_size=c.replay_size   #minimum replay size
+    min_rb_size=c.replay_size_PER   #minimum replay size
     sample_size= c.sample_size  #sample size from replay buffer
 
     env_steps_before_train = c.env_steps_before_train  # number of steps to skip before we train the model
     steps_since_train=c.steps_since_train              # Counter to find how many steps has been passed before the last ORIGINAL model update
     tgt_model_update = c.tgt_model_update              # target model update frequency
     epochs_since_tgt = c.epochs_since_tgt              # Counter to find how many steps has been passed before the last TARGET model update
-
     print("min_rb_size", min_rb_size)
     print("sample_size", sample_size)
     print("env_steps_before_train(number of steps to skip before we train the model)", env_steps_before_train)
     print("tgt_model_update(target model update frequency)", tgt_model_update)
     print("Boltzmann flag: ",boltzmann_expo)
-    
     # counters to calculate rewards
     episode_reward1=[]
     rolling_reward1=0
@@ -221,7 +215,7 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
     tq=tqdm()
     try:
         while Game_num!=1000:
-            # tq.update(1)  # time and performance statistics
+            tq.update(1)  # time and performance statistics
 
             #test rendering
             if test:
@@ -259,7 +253,6 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
             rolling_reward1 += reward[0]
             rolling_reward2 += reward[1]
 
-
             A1_kill_miniboss += info['A1_kill_miniboss']
             A2_kill_miniboss += info['A2_kill_miniboss']
             A1_kill_mini += info['A1_kill_mini']
@@ -271,14 +264,13 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
             evasive_count_mini  +=  info['evasive_count_mini']
             tot_evasive_count += info['evasive_count_mini'] + info['evasive_count_miniboss']
 
-            
+
             coop_kill_mini += info['coop_kill_mini']
             coop_kill_miniboss += info['coop_kill_miniboss']
 
             Tot_Bullet_penalty += info['Tot_Bullet_penalty']
             Tot_bullet_penalty_1 += info['Tot_bullet_penalty_1']
             Tot_bullet_penalty_2 += info['Tot_bullet_penalty_2']
-
 
             # Update replaybuffer Agent 1
             rb1.insert(SARSD(last_observation, action1, reward[0], observation, done))
@@ -298,7 +290,6 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
                 episode_reward2.append(rolling_reward2)
                 rolling_reward2=0
                 observation = env.reset()
-
                 Game_num+=1
                 A1_kill_miniboss=0
                 A2_kill_miniboss=0
@@ -418,12 +409,14 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
 
                 #Reinitiate train counter after training
                 steps_since_train=0
-                if epochs_since_tgt>tgt_model_update:
-                    # print("Updating target model")
-                    update_tgt_model(m1,tgt1)        # check if we want to update target network or replace target network with online
-                    update_tgt_model(m2,tgt2)
-                    epochs_since_tgt=0
-                    # save target model after update
+            # check if we want to update target network or replace target network with online
+
+            if epochs_since_tgt>tgt_model_update:
+                # print("Updating target model")
+                update_tgt_model(m1,tgt1)
+                update_tgt_model(m2,tgt2)
+                epochs_since_tgt=0
+                # save target model after update
 
             # check if we need to test the model
             if step_num % c.epochs_before_test == 0:  #epochs_since_test > epochs_before_test
@@ -452,8 +445,5 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
         env.close()
 
 if __name__=='__main__':
-    
-    # import os
-    # os.system('cmd /c "wandb login bb8b6304bd0410f5b77c36892ad419b65bafc0cb"')
     main(False, boltzmann_expo = True)
     #main(True, pth) add model to test
