@@ -197,8 +197,8 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
         while Game_num!=1000:
             bufferID_A1 += 1
             bufferID_A2 += 1
-            tq.update(1)  # time and performance statistics
-
+            if step_num%10000==0:
+                tq.update(1)  # time and performance statistics
             #test rendering
             if test:
                 env.render()

@@ -193,7 +193,8 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
     tq=tqdm()
     try:
         while Game_num!=1000:
-            tq.update(1)  # time and performance statistics
+            if step_num%10000==0:
+                tq.update(1)  # time and performance statistics
 
             #test rendering
             if test:
@@ -300,10 +301,10 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
                 epochs_since_tgt+=1
 
                 # retrive loss Agent 1
-                loss1=train_step(model=m1,state_transition = rb1.sample(sample_size), tgt = tgt1, num_actions = 4, device= device)
+                loss1=train_step(model=m1,state_transition = rb1.sample(sample_size), tgt = tgt1, num_actions = 3, device= device)
 
                 # retrive loss Agent 2
-                loss2=train_step(model=m2,state_transition = rb2.sample(sample_size), tgt = tgt2, num_actions = 4, device= device)
+                loss2=train_step(model=m2,state_transition = rb2.sample(sample_size), tgt = tgt2, num_actions = 3, device= device)
 
                 A1_avg_reward = np.mean(episode_reward1)
                 A2_avg_reward = np.mean(episode_reward2)
