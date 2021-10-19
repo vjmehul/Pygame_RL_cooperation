@@ -10,8 +10,8 @@ class bullet1(pygame.sprite.Sprite):
         super(bullet1, self).__init__()
         
        #create bullet
-        self.image = pygame.image.load(os.path.join(dir_path,'Game_imgs','red_bullet_icon2.png')).convert_alpha()
-        self.image = pygame.transform.scale(self.image, (25, 70))
+        self.image = pygame.image.load(os.path.join(dir_path,'Game_imgs','blue_bullet_icon.png')).convert_alpha()
+        self.image = pygame.transform.scale(self.image, (23, 57))
         self.image = pygame.transform.rotate(self.image, angle)
         self.mask = pygame.mask.from_surface(self.image)
 
@@ -46,7 +46,7 @@ class bullet2(pygame.sprite.Sprite):
         super(bullet2, self).__init__()
        #create bullet
         self.image = pygame.image.load(os.path.join(dir_path,'Game_imgs','blue_bullet_icon.png')).convert_alpha()
-        self.image = pygame.transform.scale(self.image, (25,70))
+        self.image = pygame.transform.scale(self.image, (23, 57))
         self.image = pygame.transform.rotate(self.image, angle)
         self.mask = pygame.mask.from_surface(self.image)
 

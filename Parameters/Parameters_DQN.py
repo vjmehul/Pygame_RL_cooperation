@@ -8,7 +8,7 @@ eps_min=0.01
 eps_decay=0.9999997
 
 #counters
-env_steps_before_train = 30  # number of steps to skip before we train the model  # Frequency of Training the model # 10
+env_steps_before_train = 10  # number of steps to skip before we train the model  # Frequency of Training the model # 10
 steps_since_train=0          # Counter to find how many steps has been passed before the last ORIGINAL model update
 tgt_model_update = 100       # target model update frequency  # recommended for env = 100
 epochs_since_tgt = 0   # Counter to find how many steps has been passed before the last TARGET model update
@@ -22,7 +22,7 @@ Save_frequency = 500000
 #replay memory parameters
 replay_size=50000    #10000
 sample_size=512    #512
-replay_size_PER=20000
+replay_size_PER = 20000
 
 
 

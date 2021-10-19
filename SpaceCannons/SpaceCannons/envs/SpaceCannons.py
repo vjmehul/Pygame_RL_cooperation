@@ -28,12 +28,17 @@ class SpaceCannons(gym.Env):
         pygame.display.set_caption('DO NOT CLOSE THIS WINDOW--->Experiment in progress by mverma"')
         self.clock = pygame.time.Clock()
         self.history = []
+        self.V2=C.V2
 
         self.screen = display.set_mode(C.DISPLAY_SIZE)
         self.screen.fill((0, 0, 0))
 
         self.FRAME_COUNT=0
-        self.action_space = [spaces.Discrete(4),spaces.Discrete(4)]
+        if self.V2:
+            self.action_space = [spaces.Discrete(3),spaces.Discrete(3)]
+        else:
+            self.action_space = [spaces.Discrete(4),spaces.Discrete(4)]
+
         self.observation_space = spaces.Box(low=0, high=255, shape=(950,700, 1), dtype=np.uint8)
         self.enemycount=0
 
@@ -45,7 +50,7 @@ class SpaceCannons(gym.Env):
         print('difficulty_weights: ',self.difficulty_weights)
         print('initial setup complete')
 
-        
+        self.V2=C.V2
     def reset(self):
         self.total_bullet_penalty=0
         self.screen.fill((0, 0, 0))
@@ -113,39 +118,51 @@ class SpaceCannons(gym.Env):
         coop_kill_mini=0
         coop_kill_miniboss=0
 
-        if action[0]==0:
-            if not self.player1.angle <-70:
-                self.player1.angle -= 5
+        if self.V2:
+            if action[0]==0:
+                if not self.player1.angle <-70:
+                    self.player1.angle -= 5
 
-        if action[0] == 1:
-            if not self.player1.angle >70:
-                self.player1.angle += 5
+            if action[0] == 1:
+                if not self.player1.angle >70:
+                    self.player1.angle += 5
 
-        if action[1] == 0:
-            if not self.player2.angle <-70:
-                self.player2.angle -= 5
+            if action[1] == 0:
+                if not self.player2.angle <-70:
+                    self.player2.angle -= 5
 
-        if action[1] == 1:
-            if not self.player2.angle >70:
-                self.player2.angle += 5
+            if action[1] == 1:
+                if not self.player2.angle >70:
+                    self.player2.angle += 5
 
-        # if fire_1:
-        if action[0] == 2:
 
-            if self.bullet_count_red >= 0:
+            self.player1.shoot(self.player1.angle,self.screen)
+            self.player2.shoot(self.player1.angle, self.screen)
+
+        else:
+            if action[0]==0:
+                if not self.player1.angle <-70:
+                    self.player1.angle -= 5
+
+            if action[0] == 1:
+                if not self.player1.angle >70:
+                    self.player1.angle += 5
+
+            if action[1] == 0:
+                if not self.player2.angle <-70:
+                    self.player2.angle -= 5
+
+            if action[1] == 1:
+                if not self.player2.angle >70:
+                    self.player2.angle += 5
+
+            # if fire_1:
+            if action[0] == 2:
                 self.player1.shoot(self.player1.angle,self.screen)
 
-            if self.bullet_count_red == 0:
-                self.last = pygame.time.get_ticks()
-
-        # if fire_2:
-        if action[1] == 2:
-
-            if self.bullet_count_blue >= 0:
+            # if fire_2:
+            if action[1] == 2:
                 self.player2.shoot(self.player1.angle, self.screen)
-
-            if self.bullet_count_blue == 0:
-                self.last_b = pygame.time.get_ticks()
 
 
 # Collision detection
@@ -271,14 +288,16 @@ class SpaceCannons(gym.Env):
 
         for bullet in self.player1.bullets_P1:
             if  bullet.center[1] <= 7 or bullet.center[0] <=4 or bullet.center[0]>=950:
-                bullet_penalty_1 += C.bullet_penalty
-                self.total_bullet_penalty += C.bullet_penalty
+                if self.V2 == False:
+                    bullet_penalty_1 += C.bullet_penalty
+                    self.total_bullet_penalty += C.bullet_penalty
                 bullet.kill()
 
         for bullet in self.player2.bullets_P2:
             if  bullet.center[1] <= 7 or bullet.center[0] <=4 or bullet.center[0]>=950:
-                bullet_penalty_2 += C.bullet_penalty
-                self.total_bullet_penalty += C.bullet_penalty
+                if self.V2 == False:
+                    bullet_penalty_2 += C.bullet_penalty
+                    self.total_bullet_penalty += C.bullet_penalty
                 bullet.kill()
 
         agent1_reward = reward_1 + reward_3 - bullet_penalty_1

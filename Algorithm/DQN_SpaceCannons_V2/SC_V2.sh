@@ -19,7 +19,7 @@ module load 2020 CUDA/11.0.2-GCC-9.3.0
 cd /home/mverma/rl_cooperation/Pygame_RL_cooperation/SpaceCannons
 echo "cd move complete"
 pip install -e .
-cd /home/mverma/rl_cooperation/Pygame_RL_cooperation/Algorithm/DQN_SpaceCannons_PER
+cd /home/mverma/rl_cooperation/Pygame_RL_cooperation/Algorithm/DQN_SpaceCannons_V2
 
 
 python agent.py > out.txt

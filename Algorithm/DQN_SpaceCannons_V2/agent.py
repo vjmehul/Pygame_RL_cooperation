@@ -11,7 +11,6 @@ import torch.nn.functional as F
 import gym
 from dataclasses import dataclass
 from typing import Any
-from random import sample
 import wandb
 from tqdm import tqdm
 import numpy as np
@@ -37,24 +36,14 @@ def update_tgt_model(m, tgt):
     tgt.load_state_dict(m.state_dict())
 
 
-# # Create huber loss function
-# def l1_loss_smooth(q_state_action, q_targets, beta = 1.0):
-#     loss = 0
-#     diff = q_state_action-q_targets
-#     x = (diff.abs() < beta)
-#     loss += x * (0.5*diff**2 / beta)
-#     loss += (~x) * (diff.abs() - 0.5*beta)
-#     return loss.mean()
-
 def train_step(model, state_transition, tgt, num_actions, device):
 
     # PreProcess the sampled data from replay memory then stack them and assign them some variable
-    cur_states = torch.stack([torch.Tensor(s.state) for s in state_transition[0]]).to(device)
-    rewards = torch.stack([torch.Tensor([s.reward]) for s in state_transition[0]]).to(device)
-    mask = torch.stack([torch.Tensor([0]) if s.done else torch.Tensor([1]) for s in state_transition[0]]).to(device)
-    next_states = torch.stack([torch.Tensor(s.next_state) for s in state_transition[0]]).to(device)
-    actions = [s.action for s in state_transition[0]]
-    importance = [s for s in state_transition[1]]
+    cur_states = torch.stack([torch.Tensor(s.state) for s in state_transition]).to(device)
+    rewards = torch.stack([torch.Tensor([s.reward]) for s in state_transition]).to(device)
+    mask = torch.stack([torch.Tensor([0]) if s.done else torch.Tensor([1]) for s in state_transition]).to(device)
+    next_states = torch.stack([torch.Tensor(s.next_state) for s in state_transition]).to(device)
+    actions = [s.action for s in state_transition]
 
     # we dont need gradient update for target network
     with torch.no_grad():
@@ -67,28 +56,17 @@ def train_step(model, state_transition, tgt, num_actions, device):
     # One hot encode all the actions from the stacked variable
     one_hot_actions=F.one_hot(torch.LongTensor(actions), num_actions).to(device)
 
-
-    #calculate state action
-    q_state_action = torch.sum(qvals * one_hot_actions, -1)
-
-    # calculate q_target_in with decay of 0.99
-    q_target_in = rewards.squeeze() + mask[:, 0] * qvals_next * 0.99  # 0.99 is discount factor
-
-    #calculate error
-    error = q_state_action - q_target_in  # calculate TD ERROR
+    # create huber loss function
     loss_fn = nn.SmoothL1Loss()
-    
-    loss = loss_fn(q_state_action,q_target_in)
-
-    loss = loss  *  torch.cuda.FloatTensor(importance)
-
-    loss=loss.mean()
+    loss = loss_fn(
+        torch.sum(qvals * one_hot_actions, -1), rewards.squeeze() + mask[:, 0] * qvals_next * 0.99  # 0.99 is discount factor
+        )
 
     # backpropogate
     loss.backward()
     model.opt.step()
 
-    return loss, error
+    return loss
 
 def run_test_episode(model1, model2, env,device='cuda'):
     frames = []
@@ -114,7 +92,7 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
 
     #initialize wandb
     if not test:
-         wandb.init(project="dqn-tutorial", name="dqn-SpaceCannons_PER_0.1")
+         wandb.init(project="dqn-tutorial", name="dqn-SpaceCannonsTGTfix")
 
     #define desired input shape for the model from environment
     input_shape = c.inputshape
@@ -139,7 +117,7 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
     eps_decay=c.eps_decay
 
     #replay buffer parameters
-    min_rb_size=c.replay_size_PER   #minimum replay size
+    min_rb_size=c.replay_size   #minimum replay size
     sample_size= c.sample_size  #sample size from replay buffer
 
     env_steps_before_train = c.env_steps_before_train  # number of steps to skip before we train the model
@@ -176,22 +154,24 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
     Game_num=0
 
     # define convolution model  "Agent 1"
-    m1 = ConvModel(env.observation_space.shape, 4, lr = c.lr).to(device)
+    m1 = ConvModel(env.observation_space.shape, 3, lr = c.lr).to(device)
 
 
     # Initiate target model    "Agent 1"
     if not test:
-        tgt1 =ConvModel(env.observation_space.shape, 4).to(device)
+        tgt1 =ConvModel(env.observation_space.shape, 3).to(device)
         update_tgt_model(m1,tgt1)
 
 
+
+
     # define convolution model  "Agent 2"
-    m2 = ConvModel(env.observation_space.shape, 4, lr = c.lr).to(device)
+    m2 = ConvModel(env.observation_space.shape, 3, lr = c.lr).to(device)
 
 
     # Initiate target model    "Agent 2"
     if not test:
-        tgt2 =ConvModel(env.observation_space.shape,4).to(device)
+        tgt2 =ConvModel(env.observation_space.shape,3).to(device)
         update_tgt_model(m2,tgt2)
 
 
@@ -246,7 +226,6 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
             observation, reward, done, info = env.step([action1,action2])
 
 
-                
             #accumulate rewards
             rolling_reward1 += reward[0]
             rolling_reward2 += reward[1]
@@ -315,30 +294,16 @@ def main(test=False, chkpt=None, device = 'cuda', boltzmann_expo = True):
             step_num+=1
 
 
-            if (not test) and len(rb1.buffer)>=min_rb_size and steps_since_train > env_steps_before_train: # condition to check if we should update our model or not
+            if (not test) and len(rb1.buffer)>min_rb_size and steps_since_train > env_steps_before_train: # condition to check if we should update our model or not
 
                 # on update!! increment counters
                 epochs_since_tgt+=1
 
-                #Sample from buffer
-                A1_sample, A1_importance, A1_sample_indices = rb1.sample(sample_size)
-
-                A2_sample, A2_importance, A2_sample_indices = rb2.sample(sample_size)
-
-                A1_importance=A1_importance ** (1-eps)
-                A2_importance=A2_importance ** (1-eps)
-
-
                 # retrive loss Agent 1
-                loss1, error1 =train_step(model=m1,state_transition = (A1_sample, A1_importance), tgt = tgt1, num_actions = 4, device= device)
+                loss1=train_step(model=m1,state_transition = rb1.sample(sample_size), tgt = tgt1, num_actions = 4, device= device)
 
                 # retrive loss Agent 2
-                loss2, error2 =train_step(model=m2,state_transition = (A2_sample, A2_importance), tgt = tgt2, num_actions = 4, device= device)
-
-
-                rb1.set_priorities(indices= A1_sample_indices, errors = error1)
-                rb2.set_priorities(indices= A2_sample_indices, errors = error2)
-
+                loss2=train_step(model=m2,state_transition = rb2.sample(sample_size), tgt = tgt2, num_actions = 4, device= device)
 
                 A1_avg_reward = np.mean(episode_reward1)
                 A2_avg_reward = np.mean(episode_reward2)

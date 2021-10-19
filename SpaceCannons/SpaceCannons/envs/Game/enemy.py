@@ -45,7 +45,7 @@ class Enemy(pygame.sprite.Sprite):
         elif str(enemy_name[0])=='dragon3.png':
             enemy_string=os.path.join(dir_path,'Game_imgs','dragon3.png')
             self.image = pygame.image.load(enemy_string).convert_alpha()
-            self.image = pygame.transform.scale(self.image, (80,80))
+            self.image = pygame.transform.scale(self.image, (75,75))
             self.rect = self.image.get_rect()
             self.rect.x = random.randrange(0, c.DISPLAY_SIZE[0] - self.rect.width)
             self.rect.y = -self.rect.height  +50
